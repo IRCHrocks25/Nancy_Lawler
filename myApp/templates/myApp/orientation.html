@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Before You Go Further | LawlerAI™</title>
-  <meta name="description" content="Understand what this reflection is and what it isn't before you begin." />
+  <meta name="description" content="A short, structured reflection designed to help sports organizations understand AI exposure and move forward with clarity and control." />
 
   <!-- Inter font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,108 +41,189 @@
       }
     }
   </script>
-
-  <style>
-    body {
-      background-color: #0B1220;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
-    
-    /* Prevent orphan words */
-    p, h1, h2, h3, h4, h5, h6, li, span, div {
-      orphans: 2;
-      widows: 2;
-    }
-    
-    /* Modern text balancing for headings */
-    h1, h2, h3 {
-      text-wrap: balance;
-    }
-    
-    /* Ensure paragraphs don't break awkwardly */
-    p {
-      text-wrap: pretty;
-    }
-  </style>
 </head>
-<body class="bg-ink text-cloud font-sans antialiased">
 
-  <!-- Nav -->
-  <nav class="sticky top-0 z-50 backdrop-blur-md bg-steel/80 border-b border-white/10 py-4">
-    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
-      <a href="{% url 'home' %}" class="text-xl font-semibold text-cloud">LawlerAI™</a>
+<body class="bg-ink text-cloud font-sans antialiased">
+  <!-- Nav (quiet, premium) -->
+  <nav class="sticky top-0 z-50 backdrop-blur-md bg-black/30 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="{% url 'home' %}" class="text-base md:text-lg font-semibold tracking-tight text-cloud">
+        LawlerAI™
+      </a>
+
+      <a href="{% url 'survey' %}" class="hidden sm:inline-flex items-center gap-2 text-sm text-cloud/70 hover:text-cloud transition">
+        Begin reflection <i class="fa-solid fa-arrow-right text-cloud/60"></i>
+      </a>
     </div>
   </nav>
 
-  <!-- Orientation Content -->
-  <section class="py-20 md:py-32">
-    <div class="max-w-4xl mx-auto px-6">
-      <h1 class="text-3xl md:text-4xl font-semibold text-cloud mb-8 text-center">Before You Go Further</h1>
-      
-      <div class="space-y-6 text-base md:text-lg leading-relaxed text-cloud/80 mb-12">
-        <p>
-          This reflection is designed to help you understand where AI is already in play across your organization, what exposure it creates, and how to move forward with clarity and&nbsp;control.
-        </p>
-        <p>
-          It's not a sales pitch. It's not a compliance audit. It's a structured way to see what's happening—and what could happen—if you don't have a governing&nbsp;frame.
-        </p>
-        <p>
-          The questions are straightforward. The answers help you see patterns you might not see otherwise. Take your time. Be honest. This is for your clarity, not&nbsp;ours.
-        </p>
-      </div>
-
-      <!-- What This Is / What This Is Not -->
-      <div class="grid md:grid-cols-2 gap-6 mb-12">
-        <div class="bg-steel rounded-xl p-8 border border-accent/30">
-          <h2 class="text-xl font-semibold text-cloud mb-4 flex items-center gap-2">
-            <i class="fas fa-check-circle text-accent"></i>
-            What This Is
-          </h2>
-          <ul class="space-y-3 text-cloud/80">
-            <li>• A structured reflection on AI&nbsp;exposure</li>
-            <li>• A way to see patterns across&nbsp;departments</li>
-            <li>• A starting point for clarity and&nbsp;control</li>
-            <li>• Private and&nbsp;confidential</li>
-          </ul>
-        </div>
-        <div class="bg-steel rounded-xl p-8 border border-white/10">
-          <h2 class="text-xl font-semibold text-cloud mb-4 flex items-center gap-2">
-            <i class="fas fa-times-circle text-slate"></i>
-            What This Is Not
-          </h2>
-          <ul class="space-y-3 text-cloud/80">
-            <li>• A sales pitch or&nbsp;demo</li>
-            <li>• A compliance&nbsp;audit</li>
-            <li>• A tool&nbsp;evaluation</li>
-            <li>• A commitment to&nbsp;anything</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Visual -->
-      <div class="mb-12">
-        <img src="https://dummyimage.com/900x500/101A2E/6EE7FF&text=Reflection+Not+Sales" alt="Reflection Not Sales" class="w-full rounded-lg">
-      </div>
-
-      <!-- CTA -->
-      <div class="text-center">
-        <a href="{% url 'survey' %}" class="inline-block px-10 py-5 bg-accent text-ink font-semibold rounded-lg hover:bg-accent/90 transition text-lg">
-          Begin the Reflection
-        </a>
-        <p class="text-sm text-slate mt-4">Takes approximately 3 minutes</p>
-      </div>
+  <!-- Page -->
+  <main class="relative overflow-hidden">
+    <!-- Atmosphere -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute -top-56 left-1/2 h-[640px] w-[640px] -translate-x-1/2 rounded-full bg-accent/10 blur-3xl"></div>
+      <div class="absolute -bottom-72 right-[-220px] h-[720px] w-[720px] rounded-full bg-accent2/10 blur-3xl"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-black/0 via-black/20 to-black/35"></div>
     </div>
-  </section>
 
-  <!-- Footer -->
-  <footer class="py-12 border-t border-white/10">
-    <div class="max-w-6xl mx-auto px-6 text-center text-sm text-slate">
-      <p>&copy; 2024 LawlerAI. All rights reserved.</p>
+    <section class="relative py-20 md:py-28">
+      <div class="max-w-4xl mx-auto px-6">
+        <!-- Header -->
+        <div class="text-center max-w-3xl mx-auto">
+          <p class="text-xs tracking-[0.24em] uppercase text-cloud/55">
+            Before you go further
+          </p>
+
+          <h1 class="mt-5 text-3xl md:text-5xl font-semibold tracking-tight text-cloud leading-[1.05]">
+            A short reflection — designed for clarity, not persuasion.
+          </h1>
+
+          <p class="mt-7 text-base md:text-lg leading-relaxed text-cloud/75">
+            AI is already being used inside most sports organizations—often informally, often unevenly, and often without shared visibility.
+            This reflection helps you see where it’s showing up, what exposure it creates, and what it would take to move forward with control.
+          </p>
+        </div>
+
+        <!-- “This is / This is not” as an editorial roster (less boxy) -->
+        <div class="mt-14 md:mt-16 rounded-3xl border border-white/10 bg-white/5 overflow-hidden">
+          <div class="grid md:grid-cols-2">
+            <!-- What this is -->
+            <div class="p-8 md:p-10 border-b md:border-b-0 md:border-r border-white/10">
+              <div class="flex items-center gap-3">
+                <span class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/12 bg-white/5">
+                  <i class="fa-regular fa-circle-check text-cloud/70"></i>
+                </span>
+                <h2 class="text-lg md:text-xl font-semibold text-cloud">What this is</h2>
+              </div>
+
+              <ul class="mt-6 space-y-4 text-base text-cloud/70 leading-relaxed">
+                <li class="flex gap-3">
+                  <span class="mt-2 h-2 w-2 rounded-full bg-accent/80"></span>
+                  A short, structured reflection on AI exposure.
+                </li>
+                <li class="flex gap-3">
+                  <span class="mt-2 h-2 w-2 rounded-full bg-accent/80"></span>
+                  Designed to reveal patterns across teams and tools.
+                </li>
+                <li class="flex gap-3">
+                  <span class="mt-2 h-2 w-2 rounded-full bg-accent/80"></span>
+                  A starting point for clarity, ownership, and control.
+                </li>
+                <li class="flex gap-3">
+                  <span class="mt-2 h-2 w-2 rounded-full bg-accent/80"></span>
+                  Private by design.
+                </li>
+              </ul>
+            </div>
+
+            <!-- What this is not -->
+            <div class="p-8 md:p-10">
+              <div class="flex items-center gap-3">
+                <span class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/12 bg-white/5">
+                  <i class="fa-regular fa-circle-xmark text-cloud/60"></i>
+                </span>
+                <h2 class="text-lg md:text-xl font-semibold text-cloud">What this is not</h2>
+              </div>
+
+              <ul class="mt-6 space-y-4 text-base text-cloud/70 leading-relaxed">
+                <li class="flex gap-3">
+                  <span class="mt-2 h-2 w-2 rounded-full bg-white/30"></span>
+                  A sales pitch or tool demo.
+                </li>
+                <li class="flex gap-3">
+                  <span class="mt-2 h-2 w-2 rounded-full bg-white/30"></span>
+                  A compliance audit.
+                </li>
+                <li class="flex gap-3">
+                  <span class="mt-2 h-2 w-2 rounded-full bg-white/30"></span>
+                  A vendor evaluation.
+                </li>
+                <li class="flex gap-3">
+                  <span class="mt-2 h-2 w-2 rounded-full bg-white/30"></span>
+                  A commitment to anything.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Artifact visual (feels intentional, not filler) -->
+        <div class="mt-14 md:mt-16">
+          <div class="relative">
+            <div class="absolute -inset-6 rounded-3xl bg-gradient-to-br from-accent/10 via-white/0 to-accent2/10 blur-2xl"></div>
+
+            <div class="relative rounded-3xl border border-white/10 bg-white/5 overflow-hidden shadow-soft">
+              <div class="flex items-center justify-between px-5 py-4 border-b border-white/10 bg-black/20">
+                <p class="text-sm font-semibold text-cloud/80">Reflection (example)</p>
+                <p class="text-xs text-cloud/55">Clarity • Accountability • Readiness</p>
+              </div>
+
+              <div class="p-5 md:p-6">
+                <img
+                  src="https://dummyimage.com/900x500/101A2E/6EE7FF&text=Reflection+Not+Sales"
+                  alt="Reflection Not Sales"
+                  class="w-full rounded-2xl border border-white/10"
+                  loading="lazy"
+                />
+                <p class="mt-4 text-sm text-cloud/60 leading-relaxed">
+                  A short sequence of questions designed to surface visibility gaps—before AI use scales further.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA (earned invitation + risk reducers) -->
+        <div class="mt-14 md:mt-16 text-center">
+          <a href="{% url 'survey' %}"
+             class="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-2xl bg-accent text-ink font-semibold text-lg shadow-soft hover:opacity-95 transition">
+            Begin the Reflection
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+
+          <p class="mt-5 text-sm text-cloud/60">
+            Takes ~3 minutes. Not a sales pitch.
+          </p>
+
+          <div class="mt-6 flex flex-wrap justify-center gap-3 text-sm text-cloud/65">
+            <span class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-4 py-2">
+              <i class="fa-regular fa-circle-check text-cloud/70"></i> No tool demo
+            </span>
+            <span class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-4 py-2">
+              <i class="fa-regular fa-circle-check text-cloud/70"></i> No compliance audit
+            </span>
+            <span class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-4 py-2">
+              <i class="fa-solid fa-lock text-cloud/70"></i> Private reflection
+            </span>
+          </div>
+
+          <!-- Closing thesis -->
+          <div class="mt-10 max-w-2xl mx-auto border-l border-white/12 pl-6 text-left">
+            <p class="text-xl md:text-2xl font-semibold text-cloud leading-snug">
+              Clarity before acceleration.
+            </p>
+            <p class="mt-2 text-sm md:text-base text-cloud/60 leading-relaxed">
+              Control doesn’t slow you down — it makes progress defensible.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (clean + correct year) -->
+  <footer class="border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-xs text-cloud/55">
+        &copy; {% now "Y" %} LawlerAI. All rights reserved.
+      </p>
+      <div class="flex items-center gap-5 text-xs text-cloud/55">
+        <a href="{% url 'home' %}" class="hover:text-cloud transition">Home</a>
+        <a href="#contact" class="hover:text-cloud transition">Contact</a>
+      </div>
     </div>
   </footer>
 
 </body>
 </html>
-

@@ -41,118 +41,169 @@
       }
     }
   </script>
-
-  <style>
-    body {
-      background-color: #0B1220;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
-    
-    /* Prevent orphan words */
-    p, h1, h2, h3, h4, h5, h6, li, span, div {
-      orphans: 2;
-      widows: 2;
-    }
-    
-    /* Modern text balancing for headings */
-    h1, h2, h3 {
-      text-wrap: balance;
-    }
-    
-    /* Ensure paragraphs don't break awkwardly */
-    p {
-      text-wrap: pretty;
-    }
-  </style>
 </head>
+
 <body class="bg-ink text-cloud font-sans antialiased">
 
-  <!-- Nav -->
-  <nav class="sticky top-0 z-50 backdrop-blur-md bg-steel/80 border-b border-white/10 py-4">
-    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
-      <a href="{% url 'home' %}" class="text-xl font-semibold text-cloud">LawlerAI™</a>
+  <!-- Nav (quiet) -->
+  <nav class="sticky top-0 z-50 backdrop-blur-md bg-black/30 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="{% url 'home' %}" class="text-base md:text-lg font-semibold tracking-tight text-cloud">
+        LawlerAI™
+      </a>
+      <a href="{% url 'home' %}" class="hidden sm:inline-flex items-center gap-2 text-sm text-cloud/60 hover:text-cloud transition">
+        Return home <i class="fa-solid fa-arrow-right text-cloud/50"></i>
+      </a>
     </div>
   </nav>
 
-  <!-- Thank You Content -->
-  <section class="py-20 md:py-32">
-    <div class="max-w-3xl mx-auto px-6 text-center">
-      <div class="w-20 h-20 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-8">
-        <i class="fas fa-check-circle text-4xl text-accent"></i>
-      </div>
-      
-      <h1 class="text-3xl md:text-4xl font-semibold text-cloud mb-6">You're Ahead of Most Organizations</h1>
-      
-      <p class="text-base md:text-lg leading-relaxed text-cloud/80 mb-8">
-        Most sports organizations don't know where AI is in play. You've taken the first step toward clarity and&nbsp;control.
-      </p>
+  <main class="relative overflow-hidden">
+    <!-- Atmosphere -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute -top-56 left-1/2 h-[640px] w-[640px] -translate-x-1/2 rounded-full bg-accent/10 blur-3xl"></div>
+      <div class="absolute -bottom-72 right-[-220px] h-[720px] w-[720px] rounded-full bg-accent2/10 blur-3xl"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-black/0 via-black/20 to-black/35"></div>
+    </div>
 
-      <p class="text-base md:text-lg leading-relaxed text-cloud/80 mb-12">
-        Your reflection has been received. If you'd like to discuss your responses or explore how LawlerAI can help your organization move forward with clarity and control, we're here to&nbsp;help.
-      </p>
+    <section class="relative py-16 md:py-24">
+      <div class="max-w-4xl mx-auto px-6">
 
-      <!-- CTA Cards -->
-      <div class="grid md:grid-cols-2 gap-6 mb-12">
-        <div class="bg-steel rounded-xl p-8 border border-accent/30">
-          <h2 class="text-xl font-semibold text-cloud mb-4">Request a 15-Minute Conversation</h2>
-          <p class="text-cloud/80 mb-6 text-sm">
-            Available only after completing the reflection. Let's discuss your organization's AI exposure and how to move&nbsp;forward.
+        <!-- Hero header (editorial, not “app success”) -->
+        <div class="text-center max-w-3xl mx-auto">
+          <p class="text-xs tracking-[0.24em] uppercase text-cloud/55">Reflection received</p>
+
+          <h1 class="mt-5 text-3xl md:text-5xl font-semibold tracking-tight text-cloud leading-[1.05]">
+            You’re ahead of most organizations.
+          </h1>
+
+          <p class="mt-7 text-base md:text-lg leading-relaxed text-cloud/75">
+            Most sports organizations don’t know where AI is in play. You’ve taken the first step toward visibility,
+            accountability, and defensible progress.
           </p>
-          <a href="#contact" class="inline-block px-6 py-3 bg-accent text-ink font-semibold rounded-lg hover:bg-accent/90 transition">
-            Request Conversation
+
+          <!-- Quiet trust cue -->
+          <div class="mt-8 flex flex-wrap justify-center gap-3 text-sm text-cloud/65">
+            <span class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-4 py-2">
+              <i class="fa-solid fa-lock text-cloud/70"></i> Private by design
+            </span>
+            <span class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-4 py-2">
+              <i class="fa-regular fa-circle-check text-cloud/70"></i> No tool demo
+            </span>
+            <span class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-4 py-2">
+              <i class="fa-regular fa-circle-check text-cloud/70"></i> No compliance audit
+            </span>
+          </div>
+        </div>
+
+        <!-- Primary action panel (single, premium) -->
+        <div class="mt-12 md:mt-14 relative">
+          <div class="absolute -inset-6 rounded-3xl bg-gradient-to-br from-accent/10 via-white/0 to-accent2/10 blur-2xl"></div>
+
+          <div class="relative rounded-3xl border border-white/10 bg-white/5 shadow-soft overflow-hidden">
+            <div class="px-7 md:px-10 py-6 border-b border-white/10 bg-black/20 flex items-start justify-between gap-6">
+              <div>
+                <p class="text-sm text-cloud/60">Optional next step</p>
+                <h2 class="mt-2 text-xl md:text-2xl font-semibold text-cloud">
+                  Request a 15-minute conversation
+                </h2>
+                <p class="mt-3 text-base text-cloud/70 leading-relaxed max-w-2xl">
+                  If you’d like to discuss what surfaced and whether further exploration makes sense, you can request a short call.
+                  No pressure — just clarity.
+                </p>
+              </div>
+
+              <div class="hidden md:flex items-center justify-center h-12 w-12 rounded-2xl border border-white/12 bg-white/5">
+                <i class="fa-regular fa-calendar text-cloud/70"></i>
+              </div>
+            </div>
+
+            <div class="px-7 md:px-10 py-7 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <p class="text-sm text-cloud/60">
+                Available only after completing the reflection.
+              </p>
+              <a href="#contact"
+                 class="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-2xl bg-accent text-ink font-semibold hover:opacity-95 transition">
+                Request conversation
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Secondary action: Email copy (quiet, not competing) -->
+        <div class="mt-10 rounded-3xl border border-white/10 bg-white/5 overflow-hidden">
+          <div class="px-7 md:px-10 py-6 border-b border-white/10 bg-black/20">
+            <h3 class="text-lg font-semibold text-cloud">Email me a copy</h3>
+            <p class="mt-2 text-sm text-cloud/60">
+              Receive a copy of your responses for your records.
+            </p>
+          </div>
+
+          <div class="px-7 md:px-10 py-7">
+            <form method="post" action="{% url 'email_copy' %}" id="email-form" class="grid sm:grid-cols-[1fr_auto] gap-3 items-center">
+              {% csrf_token %}
+              <input
+                type="email"
+                name="email"
+                placeholder="your.email@example.com"
+                required
+                class="w-full rounded-2xl bg-black/20 border border-white/10 px-5 py-4 text-cloud placeholder:text-cloud/40 focus:outline-none focus:border-accent/30"
+              />
+              <button
+                type="submit"
+                class="w-full sm:w-auto px-6 py-4 rounded-2xl border border-white/12 bg-white/5 text-cloud/80 font-medium hover:bg-white/10 transition"
+              >
+                Send copy
+              </button>
+            </form>
+
+            <div id="email-message" class="mt-4 text-sm hidden"></div>
+          </div>
+        </div>
+
+        <!-- What happens next (tight, not repetitive) -->
+        <div class="mt-12 md:mt-14 border-l border-white/12 pl-6 max-w-3xl mx-auto">
+          <p class="text-xl md:text-2xl font-semibold text-cloud leading-snug">
+            What happens next
+          </p>
+          <div class="mt-5 space-y-3 text-base text-cloud/70 leading-relaxed">
+            <p class="flex items-start gap-3">
+              <i class="fa-regular fa-circle-check text-cloud/70 mt-1"></i>
+              Your responses are treated as private and confidential.
+            </p>
+            <p class="flex items-start gap-3">
+              <i class="fa-regular fa-circle-check text-cloud/70 mt-1"></i>
+              If you request a conversation, we’ll follow up promptly with scheduling options.
+            </p>
+            <p class="flex items-start gap-3">
+              <i class="fa-regular fa-circle-check text-cloud/70 mt-1"></i>
+              No sales pitch. No pressure. Just a clearer view of what’s in play.
+            </p>
+          </div>
+        </div>
+
+        <!-- Bottom links -->
+        <div class="mt-12 text-center">
+          <a href="{% url 'home' %}" class="inline-flex items-center gap-2 text-sm text-cloud/60 hover:text-cloud transition">
+            <i class="fa-solid fa-arrow-left text-cloud/50"></i>
+            Back to home
           </a>
         </div>
-        
-        <div class="bg-steel rounded-xl p-8 border border-white/10">
-          <h2 class="text-xl font-semibold text-cloud mb-4">Email Me a&nbsp;Copy</h2>
-          <p class="text-cloud/80 mb-6 text-sm">
-            Receive a copy of your responses via email for your&nbsp;records.
-          </p>
-          <form method="post" action="{% url 'email_copy' %}" id="email-form">
-            {% csrf_token %}
-            <input type="email" name="email" placeholder="your.email@example.com" required class="w-full bg-steel border border-white/10 rounded-lg p-3 text-cloud mb-4 focus:border-accent/30 focus:outline-none">
-            <button type="submit" class="w-full px-6 py-3 border border-cloud/20 text-cloud font-medium rounded-lg hover:bg-steel transition">
-              Send Copy
-            </button>
-          </form>
-          <div id="email-message" class="mt-4 text-sm hidden"></div>
-        </div>
-      </div>
 
-      <!-- What's Next -->
-      <div class="bg-steel/50 rounded-xl p-8 border border-white/10 text-left">
-        <h3 class="text-lg font-semibold text-cloud mb-4">What Happens Next?</h3>
-        <ul class="space-y-3 text-cloud/80 text-sm">
-          <li class="flex items-start gap-3">
-            <i class="fas fa-check text-accent mt-1"></i>
-            <span>Your responses are private and confidential</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <i class="fas fa-check text-accent mt-1"></i>
-            <span>If you requested a conversation, we'll reach out within 48 hours</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <i class="fas fa-check text-accent mt-1"></i>
-            <span>No sales pitch. No pressure. Just clarity and control.</span>
-          </li>
-        </ul>
       </div>
-
-      <!-- Back to Home -->
-      <div class="mt-12">
-        <a href="{% url 'home' %}" class="text-accent hover:text-accent/80 transition">
-          ← Back to Home
-        </a>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- Footer -->
-  <footer class="py-12 border-t border-white/10">
-    <div class="max-w-6xl mx-auto px-6 text-center text-sm text-slate">
-      <p>&copy; 2024 LawlerAI. All rights reserved.</p>
+  <footer class="border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-xs text-cloud/55">
+        &copy; {% now "Y" %} LawlerAI. All rights reserved.
+      </p>
+      <div class="flex items-center gap-5 text-xs text-cloud/55">
+        <a href="{% url 'home' %}" class="hover:text-cloud transition">Home</a>
+        <a href="#contact" class="hover:text-cloud transition">Contact</a>
+      </div>
     </div>
   </footer>
 
@@ -162,17 +213,16 @@
       const form = this;
       const formData = new FormData(form);
       const messageDiv = document.getElementById('email-message');
-      
+
       fetch(form.action, {
         method: 'POST',
         body: formData,
-        headers: {
-          'X-CSRFToken': formData.get('csrfmiddlewaretoken')
-        }
+        headers: { 'X-CSRFToken': formData.get('csrfmiddlewaretoken') }
       })
-      .then(response => response.json())
+      .then(r => r.json())
       .then(data => {
         messageDiv.classList.remove('hidden');
+
         if (data.status === 'success') {
           messageDiv.textContent = 'Email copy will be sent shortly.';
           messageDiv.className = 'mt-4 text-sm text-accent';
@@ -182,7 +232,7 @@
           messageDiv.className = 'mt-4 text-sm text-danger';
         }
       })
-      .catch(error => {
+      .catch(() => {
         messageDiv.classList.remove('hidden');
         messageDiv.textContent = 'An error occurred. Please try again.';
         messageDiv.className = 'mt-4 text-sm text-danger';
@@ -192,4 +242,3 @@
 
 </body>
 </html>
-
