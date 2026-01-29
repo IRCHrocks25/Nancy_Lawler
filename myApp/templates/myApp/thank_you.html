@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Thank You | LawlerAI™</title>
+  <meta name="description" content="Your reflection has been received." />
+
+  <!-- Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind theme tokens -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ["Inter", "ui-sans-serif", "system-ui"] },
+          colors: {
+            ink: "#0B1220",
+            steel: "#101A2E",
+            cloud: "#E7EDF7",
+            slate: "#9AA7BD",
+            accent: "#6EE7FF",
+            accent2: "#A78BFA",
+            danger: "#FF5C7A"
+          },
+          boxShadow: {
+            soft: "0 10px 30px rgba(0,0,0,0.25)",
+            line: "inset 0 0 0 1px rgba(255,255,255,0.08)"
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #0B1220;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Prevent orphan words */
+    p, h1, h2, h3, h4, h5, h6, li, span, div {
+      orphans: 2;
+      widows: 2;
+    }
+    
+    /* Modern text balancing for headings */
+    h1, h2, h3 {
+      text-wrap: balance;
+    }
+    
+    /* Ensure paragraphs don't break awkwardly */
+    p {
+      text-wrap: pretty;
+    }
+  </style>
+</head>
+<body class="bg-ink text-cloud font-sans antialiased">
+
+  <!-- Nav -->
+  <nav class="sticky top-0 z-50 backdrop-blur-md bg-steel/80 border-b border-white/10 py-4">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <a href="{% url 'home' %}" class="text-xl font-semibold text-cloud">LawlerAI™</a>
+    </div>
+  </nav>
+
+  <!-- Thank You Content -->
+  <section class="py-20 md:py-32">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <div class="w-20 h-20 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-8">
+        <i class="fas fa-check-circle text-4xl text-accent"></i>
+      </div>
+      
+      <h1 class="text-3xl md:text-4xl font-semibold text-cloud mb-6">You're Ahead of Most Organizations</h1>
+      
+      <p class="text-base md:text-lg leading-relaxed text-cloud/80 mb-8">
+        Most sports organizations don't know where AI is in play. You've taken the first step toward clarity and&nbsp;control.
+      </p>
+
+      <p class="text-base md:text-lg leading-relaxed text-cloud/80 mb-12">
+        Your reflection has been received. If you'd like to discuss your responses or explore how LawlerAI can help your organization move forward with clarity and control, we're here to&nbsp;help.
+      </p>
+
+      <!-- CTA Cards -->
+      <div class="grid md:grid-cols-2 gap-6 mb-12">
+        <div class="bg-steel rounded-xl p-8 border border-accent/30">
+          <h2 class="text-xl font-semibold text-cloud mb-4">Request a 15-Minute Conversation</h2>
+          <p class="text-cloud/80 mb-6 text-sm">
+            Available only after completing the reflection. Let's discuss your organization's AI exposure and how to move&nbsp;forward.
+          </p>
+          <a href="#contact" class="inline-block px-6 py-3 bg-accent text-ink font-semibold rounded-lg hover:bg-accent/90 transition">
+            Request Conversation
+          </a>
+        </div>
+        
+        <div class="bg-steel rounded-xl p-8 border border-white/10">
+          <h2 class="text-xl font-semibold text-cloud mb-4">Email Me a&nbsp;Copy</h2>
+          <p class="text-cloud/80 mb-6 text-sm">
+            Receive a copy of your responses via email for your&nbsp;records.
+          </p>
+          <form method="post" action="{% url 'email_copy' %}" id="email-form">
+            {% csrf_token %}
+            <input type="email" name="email" placeholder="your.email@example.com" required class="w-full bg-steel border border-white/10 rounded-lg p-3 text-cloud mb-4 focus:border-accent/30 focus:outline-none">
+            <button type="submit" class="w-full px-6 py-3 border border-cloud/20 text-cloud font-medium rounded-lg hover:bg-steel transition">
+              Send Copy
+            </button>
+          </form>
+          <div id="email-message" class="mt-4 text-sm hidden"></div>
+        </div>
+      </div>
+
+      <!-- What's Next -->
+      <div class="bg-steel/50 rounded-xl p-8 border border-white/10 text-left">
+        <h3 class="text-lg font-semibold text-cloud mb-4">What Happens Next?</h3>
+        <ul class="space-y-3 text-cloud/80 text-sm">
+          <li class="flex items-start gap-3">
+            <i class="fas fa-check text-accent mt-1"></i>
+            <span>Your responses are private and confidential</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fas fa-check text-accent mt-1"></i>
+            <span>If you requested a conversation, we'll reach out within 48 hours</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fas fa-check text-accent mt-1"></i>
+            <span>No sales pitch. No pressure. Just clarity and control.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Back to Home -->
+      <div class="mt-12">
+        <a href="{% url 'home' %}" class="text-accent hover:text-accent/80 transition">
+          ← Back to Home
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-6 text-center text-sm text-slate">
+      <p>&copy; 2024 LawlerAI. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('email-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = this;
+      const formData = new FormData(form);
+      const messageDiv = document.getElementById('email-message');
+      
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'X-CSRFToken': formData.get('csrfmiddlewaretoken')
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        messageDiv.classList.remove('hidden');
+        if (data.status === 'success') {
+          messageDiv.textContent = 'Email copy will be sent shortly.';
+          messageDiv.className = 'mt-4 text-sm text-accent';
+          form.reset();
+        } else {
+          messageDiv.textContent = data.message || 'An error occurred. Please try again.';
+          messageDiv.className = 'mt-4 text-sm text-danger';
+        }
+      })
+      .catch(error => {
+        messageDiv.classList.remove('hidden');
+        messageDiv.textContent = 'An error occurred. Please try again.';
+        messageDiv.className = 'mt-4 text-sm text-danger';
+      });
+    });
+  </script>
+
+</body>
+</html>
+
