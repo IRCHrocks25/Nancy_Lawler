@@ -1,134 +1,154 @@
 <!-- 5.2 Hero (Upgraded) -->
 <section class="relative overflow-hidden py-24 md:py-32">
-    <!-- Background: subtle grid + glow -->
-    <div class="absolute inset-0 pointer-events-none">
-      <div class="absolute inset-0 bg-ink"></div>
-  
-      <!-- soft radial glow (premium, not loud) -->
-      <div class="absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-accent/10 blur-3xl"></div>
-      <div class="absolute -bottom-52 right-[-120px] h-[520px] w-[520px] rounded-full bg-accent2/10 blur-3xl"></div>
-  
-      <!-- subtle grid -->
-      <div class="absolute inset-0 opacity-[0.08]"
-           style="background-image: linear-gradient(to right, rgba(255,255,255,0.35) 1px, transparent 1px),
-                                 linear-gradient(to bottom, rgba(255,255,255,0.35) 1px, transparent 1px);
-                  background-size: 56px 56px;">
-      </div>
-  
-      <!-- vignette -->
-      <div class="absolute inset-0 bg-gradient-to-b from-black/10 via-black/35 to-black/60"></div>
-    </div>
-  
-    <div class="relative max-w-7xl mx-auto px-6">
-      <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
-  
-        <!-- Left -->
-        <div class="max-w-2xl">
-          <!-- Brand label + badge -->
-          <div class="flex items-center gap-3 mb-6">
-            <div class="text-xs font-semibold tracking-[0.22em] text-cloud/70">
-              LAWLERAI
-            </div>
-            <span class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-cloud/75">
-              <i class="fa-solid fa-shield-halved text-cloud/70"></i>
-              Strategic AI risk & control for sports
-            </span>
+  <!-- Background: subtle grid + glow -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute inset-0 bg-ink"></div>
+
+    <!-- controlled premium glow (tighter + layered) -->
+    <div class="absolute -top-44 left-1/2 h-[620px] w-[620px] -translate-x-1/2 rounded-full bg-accent/10 blur-3xl"></div>
+    <div class="absolute -top-24 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-accent/12 blur-2xl"></div>
+    <div class="absolute -bottom-60 right-[-140px] h-[640px] w-[640px] rounded-full bg-accent2/10 blur-3xl"></div>
+
+    <!-- subtle grid (cleaner + less harsh) -->
+    <div
+      class="absolute inset-0 opacity-[0.07]"
+      style="background-image: linear-gradient(to right, rgba(255,255,255,0.30) 1px, transparent 1px),
+                               linear-gradient(to bottom, rgba(255,255,255,0.30) 1px, transparent 1px);
+             background-size: 64px 64px;"
+    ></div>
+
+    <!-- vignette / depth -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/10 via-black/40 to-black/70"></div>
+
+    <!-- top highlight band (premium “light source”) -->
+    <div class="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white/10 to-transparent"></div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <!-- Left -->
+      <div class="lg:col-span-6 max-w-2xl">
+        <!-- Brand label + badge -->
+        <div class="flex flex-wrap items-center gap-3 mb-7">
+          <div class="text-xs font-semibold tracking-[0.28em] text-cloud/70">
+            LAWLERAI
           </div>
-  
-          <!-- Headline -->
-          <h1 class="text-4xl md:text-6xl font-semibold tracking-tight text-cloud leading-[1.05]">
-            AI Is Easy to Use.<br class="hidden sm:block" />
-            Understanding Its Consequences Is Not.
-          </h1>
-  
-          <!-- Subhead (tighten: one strong paragraph, not two similar ones) -->
-          <p class="mt-6 text-base md:text-lg leading-relaxed text-cloud/80">
-            Across sports organizations, AI tools spread informally—marketing, operations, ticketing, and&nbsp;more.
-            Each adoption feels small. Together, they create exposure that compounds across teams, tools, data, and&nbsp;time.
+
+          <span class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.06] px-3.5 py-1.5 text-xs text-cloud/75 shadow-[0_0_0_1px_rgba(255,255,255,0.02)_inset]">
+            <i class="fa-solid fa-shield-halved text-cloud/70"></i>
+            Strategic AI risk & control for sports
+          </span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="text-3xl md:text-5xl font-semibold tracking-tight text-cloud leading-[1.03] [text-wrap:balance]">
+          AI Is Easy to Use.<br class="hidden sm:block" />
+          Understanding Its Consequences Is Not.
+        </h1>
+
+        <!-- Subhead (tighter rhythm + better measure) -->
+        <div class="mt-7 space-y-4 max-w-xl">
+          <p class="text-base md:text-lg leading-relaxed text-cloud/80">
+            Across sports organizations, AI tools are being adopted quickly and informally. They promise speed, efficiency, and competitive advantage.
           </p>
 
-          <!-- What you do (one "thesis line" instead of a second long paragraph) -->
-          <p class="mt-4 text-base md:text-lg text-cloud/90">
-            <span class="font-semibold text-cloud">LawlerAI</span> helps you see where AI is already in play, what exposure it creates, and how to move forward with clarity and&nbsp;control.
+          <p class="text-base md:text-lg leading-relaxed text-cloud/80">
+            What's harder to see is how everyday use compounds across teams, tools, data, and time.
           </p>
-  
-          <!-- CTAs -->
-          <div class="mt-10 flex flex-col sm:flex-row gap-4">
-            <a href="{% url 'orientation' %}"
-               class="group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-accent text-ink font-semibold shadow-soft hover:opacity-95 transition text-center">
-              Explore Your AI Exposure
-              <i class="fa-solid fa-arrow-right transition group-hover:translate-x-0.5"></i>
-            </a>
-  
-            <a href="#clarity"
-               class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl border border-white/15 bg-white/5 text-cloud font-medium hover:bg-white/10 transition text-center">
-              <i class="fa-solid fa-diagram-project text-cloud/80"></i>
-              How It Works
-            </a>
-          </div>
-  
-          <!-- Risk reducers (this is what makes execs click) -->
-          <div class="mt-6 flex flex-wrap gap-3 text-sm text-cloud/70">
-            <span class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1">
-              <i class="fa-regular fa-clock"></i> ~3 minutes
-            </span>
-            <span class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1">
-              <i class="fa-regular fa-circle-check"></i> Not a sales pitch
-            </span>
-            <span class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1">
-              <i class="fa-solid fa-lock"></i> Designed for closed environments
-            </span>
-          </div>
-  
-          <!-- Subtle credibility line -->
-          <div class="mt-6 text-sm text-slate">
-            Built for professional sports, collegiate athletics, and major sports&nbsp;events.
-          </div>
+
+          <p class="text-base md:text-lg text-cloud/90">
+            <span class="font-semibold text-cloud">LawlerAI</span> helps sports organizations understand where AI is already in play, what exposure it creates, and how to move forward with clarity and control.
+          </p>
         </div>
-  
-        <!-- Right -->
-        <div class="relative">
-          <!-- outer glow ring -->
-          <div class="absolute -inset-6 rounded-3xl bg-gradient-to-br from-accent/10 via-white/0 to-accent2/10 blur-2xl"></div>
-  
-          <!-- glass frame -->
-          <div class="relative rounded-3xl border border-white/12 bg-white/5 shadow-soft overflow-hidden">
-            <!-- top bar (makes it feel like an artifact, not a random image) -->
-            <div class="flex items-center justify-between px-5 py-4 border-b border-white/10 bg-black/20">
-              <div class="flex items-center gap-2 text-sm text-cloud/75">
-                <span class="h-2 w-2 rounded-full bg-accent/80"></span>
-                Exposure Map (example)
-              </div>
-              <div class="text-xs text-cloud/55">
-                Visibility • Accountability • Control
-              </div>
+
+        <!-- CTAs -->
+        <div class="mt-10 flex flex-col sm:flex-row gap-4">
+          <a
+            href="{% url 'orientation' %}"
+            class="group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-accent text-ink font-semibold shadow-soft hover:opacity-95 transition text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+          >
+            Explore Your AI Exposure
+            <i class="fa-solid fa-arrow-right transition group-hover:translate-x-0.5"></i>
+          </a>
+
+          <a
+            href="#clarity"
+            class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl border border-white/15 bg-white/[0.06] text-cloud font-medium hover:bg-white/10 transition text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+          >
+            <i class="fa-solid fa-diagram-project text-cloud/80"></i>
+            How It Works
+          </a>
+        </div>
+
+        <!-- Risk reducers -->
+        <div class="mt-6 flex flex-wrap gap-3 text-sm text-cloud/70">
+          <span class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.06] px-3.5 py-1.5 shadow-[0_0_0_1px_rgba(255,255,255,0.02)_inset]">
+            <i class="fa-regular fa-clock"></i> ~3 minutes
+          </span>
+          <span class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.06] px-3.5 py-1.5 shadow-[0_0_0_1px_rgba(255,255,255,0.02)_inset]">
+            <i class="fa-regular fa-circle-check"></i> Not a sales pitch
+          </span>
+          <span class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.06] px-3.5 py-1.5 shadow-[0_0_0_1px_rgba(255,255,255,0.02)_inset]">
+            <i class="fa-solid fa-lock"></i> Designed for closed environments
+          </span>
+        </div>
+
+        <!-- Subtle credibility line -->
+        <div class="mt-7 text-sm text-slate">
+          Built for professional sports, collegiate athletics, and major sports&nbsp;events.
+        </div>
+      </div>
+
+      <!-- Right -->
+      <div class="lg:col-span-6 relative">
+        <!-- outer glow ring (more “lens” than blur blob) -->
+        <div class="absolute -inset-8 rounded-[2.25rem] bg-gradient-to-br from-accent/12 via-white/0 to-accent2/12 blur-2xl"></div>
+
+        <!-- glass frame -->
+        <div class="relative rounded-[2.25rem] border border-white/12 bg-white/[0.06] shadow-soft overflow-hidden backdrop-blur-xl">
+          <!-- top bar -->
+          <div class="flex items-center justify-between px-5 py-4 border-b border-white/10 bg-black/25">
+            <div class="flex items-center gap-2 text-sm text-cloud/75">
+              <span class="h-2 w-2 rounded-full bg-accent/80"></span>
+              Exposure Map (example)
             </div>
-  
-            <div class="p-5 md:p-6">
+            <div class="text-xs text-cloud/55">
+              Visibility • Accountability • Control
+            </div>
+          </div>
+
+          <div class="p-5 md:p-6">
+            <!-- inner “artifact” frame -->
+            <div class="rounded-2xl border border-white/10 bg-black/15 p-2 shadow-[0_0_0_1px_rgba(255,255,255,0.02)_inset]">
               <img
                 src="https://dummyimage.com/900x700/101A2E/6EE7FF&text=AI+Exposure+Map"
                 alt="AI Exposure Map"
-                class="w-full rounded-2xl border border-white/10"
+                class="w-full rounded-xl border border-white/10"
                 loading="eager"
               />
-  
-              <!-- caption -->
-              <div class="mt-4 text-sm text-cloud/65">
-                A single view of where AI is used across teams — and where exposure&nbsp;accumulates.
-              </div>
             </div>
-          </div>
-  
-          <!-- small corner detail (signature) -->
-          <div class="absolute -bottom-6 -left-6 z-10 hidden md:block rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-cloud/70">
-            <div class="flex items-center gap-2">
-              <i class="fa-solid fa-eye text-cloud/70"></i>
-              Clarity before acceleration.
+
+            <!-- caption -->
+            <div class="mt-4 text-sm text-cloud/65">
+              A single view of where AI is used across teams — and where exposure&nbsp;accumulates.
             </div>
           </div>
         </div>
-  
+
+        <!-- corner signature chip -->
+        <div class="absolute -bottom-6 -left-6 z-10 hidden md:block rounded-2xl border border-white/12 bg-white/[0.06] px-4 py-3 text-sm text-cloud/70 shadow-[0_0_0_1px_rgba(255,255,255,0.02)_inset] backdrop-blur-xl">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-eye text-cloud/70"></i>
+            Clarity before acceleration.
+          </div>
+        </div>
+
+        <!-- tiny “spec” microtext (adds enterprise vibe without adding copy) -->
+        <div class="absolute -top-6 right-2 hidden md:flex items-center gap-2 text-[11px] tracking-[0.18em] text-cloud/35">
+          <span class="h-1 w-1 rounded-full bg-cloud/30"></span>
+          CONTROLLED DEPLOYMENT
+        </div>
       </div>
     </div>
-  </section>
-  
+  </div>
+</section>

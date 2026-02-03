@@ -1,132 +1,73 @@
-<!-- 5.13 Footer (Premium Enterprise) -->
-<footer class="relative border-t border-white/10 bg-steel/20">
-  <div class="max-w-6xl mx-auto px-6 py-16 md:py-20">
+<!-- 5.13 Footer (Upgraded, Premium Minimal) -->
+<footer class="relative border-t border-white/10">
+  <div class="max-w-6xl mx-auto px-6 py-14">
 
-    <!-- Main footer content -->
-    <div class="grid md:grid-cols-12 gap-8 md:gap-12 items-start mb-12">
+    <!-- Top row -->
+    <div class="grid md:grid-cols-3 gap-10 items-start">
 
-      <!-- Brand Column (4 cols) -->
-      <div class="md:col-span-4">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="text-2xl font-semibold text-cloud tracking-tight">LawlerAI™</div>
+      <!-- Brand -->
+      <div>
+        <div class="flex items-center gap-3">
+          <div class="text-xl font-semibold text-cloud tracking-tight">LawlerAI™</div>
+          <span class="hidden sm:inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-3 py-1 text-xs text-cloud/65">
+            <i class="fa-solid fa-shield-halved text-cloud/70"></i>
+            Clarity • Control • Defensible progress
+          </span>
         </div>
-        
-        <p class="text-sm text-cloud/70 leading-relaxed mb-4 max-w-sm">
-          Strategic AI Risk & Control for sports organizations operating at the intersection of speed, brand, and&nbsp;governance.
+
+        <p class="mt-3 text-sm text-cloud/70 leading-relaxed max-w-sm">
+          Strategic AI Risk & Control for Sports Organizations
         </p>
 
-        <!-- Trust badge -->
-        <div class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-4 py-2 text-xs text-cloud/70 mb-4">
-          <i class="fa-solid fa-shield-halved text-accent/80"></i>
-          <span>Clarity • Control • Defensible&nbsp;progress</span>
-        </div>
-
-        <!-- Discretion cue -->
-        <p class="text-xs text-cloud/55 leading-relaxed max-w-sm">
-          Discreet by design. Built to work inside existing controls and closed&nbsp;environments.
+        <!-- Quiet trust cue -->
+        <p class="mt-4 text-xs text-cloud/55 leading-relaxed max-w-sm">
+          Discreet by design. Built to work inside existing controls and closed environments.
         </p>
       </div>
 
-      <!-- Focus Column (3 cols) -->
-      <div class="md:col-span-3">
-        <h3 class="text-sm font-semibold text-cloud mb-4 tracking-wide uppercase">Focus</h3>
-        <ul class="space-y-3 text-sm text-cloud/70">
-          <li class="flex items-start gap-2">
-            <i class="fa-solid fa-circle-small text-accent/60 mt-1.5 text-xs"></i>
-            <span>Professional&nbsp;sports</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <i class="fa-solid fa-circle-small text-accent/60 mt-1.5 text-xs"></i>
-            <span>Collegiate&nbsp;athletics</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <i class="fa-solid fa-circle-small text-accent/60 mt-1.5 text-xs"></i>
-            <span>Major sports&nbsp;events</span>
-          </li>
-        </ul>
+      <!-- Scope -->
+      <div class="md:pl-6">
+        <p class="text-sm font-semibold text-cloud/80">Focus</p>
+        <p class="mt-3 text-sm text-cloud/70 leading-relaxed">
+          Professional sports • Collegiate athletics • Major sports events
+        </p>
 
-        <p class="mt-6 text-xs text-cloud/55 leading-relaxed">
-          Understand where AI is already in play, what exposure it creates, and how to move forward&nbsp;responsibly.
+        <p class="mt-4 text-xs text-cloud/55 leading-relaxed">
+          LawlerAI helps organizations understand where AI is already in play, what exposure it creates, and how to move forward responsibly.
         </p>
       </div>
 
-      <!-- Navigation Column (3 cols) -->
-      <div class="md:col-span-3">
-        <h3 class="text-sm font-semibold text-cloud mb-4 tracking-wide uppercase">Navigation</h3>
-        <ul class="space-y-3 text-sm text-cloud/70">
-          <li>
-            <a href="{% url 'home' %}" class="hover:text-cloud transition flex items-center gap-2 group">
-              <i class="fa-solid fa-chevron-right text-xs text-cloud/40 group-hover:text-accent/60 group-hover:translate-x-0.5 transition"></i>
-              <span>Home</span>
-            </a>
-          </li>
-          <li>
-            <a href="{% url 'orientation' %}" class="hover:text-cloud transition flex items-center gap-2 group">
-              <i class="fa-solid fa-chevron-right text-xs text-cloud/40 group-hover:text-accent/60 group-hover:translate-x-0.5 transition"></i>
-              <span>Begin the&nbsp;reflection</span>
-            </a>
-          </li>
-          <li>
-            <a href="#clarity" class="hover:text-cloud transition flex items-center gap-2 group">
-              <i class="fa-solid fa-chevron-right text-xs text-cloud/40 group-hover:text-accent/60 group-hover:translate-x-0.5 transition"></i>
-              <span>How It&nbsp;Works</span>
-            </a>
-          </li>
-          <li>
-            <a href="#contact" class="hover:text-cloud transition flex items-center gap-2 group">
-              <i class="fa-solid fa-chevron-right text-xs text-cloud/40 group-hover:text-accent/60 group-hover:translate-x-0.5 transition"></i>
-              <span>Contact</span>
-            </a>
-          </li>
-        </ul>
-      </div>
+      <!-- Links -->
+      <div class="md:justify-self-end">
+        <p class="text-sm font-semibold text-cloud/80">Links</p>
 
-      <!-- Trust Column (2 cols) -->
-      <div class="md:col-span-2">
-        <h3 class="text-sm font-semibold text-cloud mb-4 tracking-wide uppercase">Approach</h3>
-        <div class="space-y-3 text-xs text-cloud/60">
-          <div class="flex items-center gap-2">
-            <i class="fa-solid fa-check text-accent/60 text-xs"></i>
-            <span>No tool&nbsp;demo</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <i class="fa-solid fa-check text-accent/60 text-xs"></i>
-            <span>No compliance&nbsp;audit</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <i class="fa-solid fa-check text-accent/60 text-xs"></i>
-            <span>Clarity&nbsp;first</span>
-          </div>
+        <div class="mt-3 flex flex-col gap-2 text-sm">
+          <a href="{% url 'orientation' %}" class="text-cloud/70 hover:text-cloud transition">
+            Begin the reflection
+          </a>
+          <a href="#contact" class="text-cloud/70 hover:text-cloud transition">
+            Contact
+          </a>
         </div>
 
-        <!-- Lock icon reassurance -->
-        <div class="mt-6 flex items-center gap-2 text-xs text-cloud/55">
-          <i class="fa-solid fa-lock text-cloud/50"></i>
-          <span>Private and&nbsp;confidential</span>
+        <!-- Optional: small reassurance -->
+        <div class="mt-6 inline-flex items-center gap-2 text-xs text-cloud/55">
+          <i class="fa-solid fa-lock text-cloud/60"></i>
+          No tool demo • No compliance audit
         </div>
       </div>
 
     </div>
 
-    <!-- Divider -->
-    <div class="border-t border-white/10"></div>
-
     <!-- Bottom bar -->
-    <div class="mt-8 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-      <div class="flex flex-col md:flex-row items-center gap-4 md:gap-6">
-        <p class="text-xs text-cloud/55">
-          &copy; {% now "Y" %} LawlerAI. All rights&nbsp;reserved.
-        </p>
-        <span class="hidden md:inline text-cloud/30">•</span>
-        <p class="text-xs text-cloud/55">
-          Strategic AI Risk & Control for Sports&nbsp;Organizations
-        </p>
-      </div>
+    <div class="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-xs text-cloud/55">
+        &copy; {% now "Y" %} LawlerAI. All rights reserved.
+      </p>
 
-      <!-- Legal links -->
-      <div class="flex items-center gap-6 text-xs text-cloud/55">
+      <!-- Tiny utility links (optional) -->
+      <div class="flex items-center gap-5 text-xs text-cloud/55">
         <a href="#" class="hover:text-cloud transition">Privacy</a>
-        <span class="text-cloud/30">•</span>
         <a href="#" class="hover:text-cloud transition">Terms</a>
       </div>
     </div>

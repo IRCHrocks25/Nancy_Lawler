@@ -130,179 +130,158 @@
             <!-- Panel body -->
             <div class="px-7 md:px-10 py-8 md:py-10">
 
-              <!-- Group 1: Visibility -->
-              <div class="question-step active" data-group-label="Visibility" data-q="1">
+              <!-- Group 1: AI Visibility -->
+              <div class="question-step active" data-group-label="AI Visibility" data-q="1">
                 <p class="text-lg md:text-xl font-medium text-cloud mb-7">
-                  Where do you think AI tools are currently being used in your organization?
+                  Do you have a clear picture of which teams or departments are currently using AI tools?
                 </p>
 
                 <div class="space-y-3">
-                  <!-- Choice row template: calmer, less “boxy” -->
                   <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q1" value="marketing" class="h-4 w-4 accent-accent" required>
-                    <span class="text-cloud/80 group-hover:text-cloud transition">Marketing and content creation</span>
+                    <input type="radio" name="q1" value="yes-clearly" class="h-4 w-4 accent-accent" required>
+                    <span class="text-cloud/80 group-hover:text-cloud transition">Yes, clearly</span>
                   </label>
 
                   <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q1" value="ticketing" class="h-4 w-4 accent-accent">
-                    <span class="text-cloud/80 group-hover:text-cloud transition">Ticketing and pricing</span>
+                    <input type="radio" name="q1" value="somewhat" class="h-4 w-4 accent-accent">
+                    <span class="text-cloud/80 group-hover:text-cloud transition">Somewhat</span>
                   </label>
 
                   <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q1" value="operations" class="h-4 w-4 accent-accent">
-                    <span class="text-cloud/80 group-hover:text-cloud transition">Operations and scheduling</span>
+                    <input type="radio" name="q1" value="not-really" class="h-4 w-4 accent-accent">
+                    <span class="text-cloud/80 group-hover:text-cloud transition">Not really</span>
                   </label>
 
                   <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q1" value="multiple" class="h-4 w-4 accent-accent">
-                    <span class="text-cloud/80 group-hover:text-cloud transition">Multiple departments</span>
-                  </label>
-
-                  <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q1" value="unknown" class="h-4 w-4 accent-accent">
-                    <span class="text-cloud/80 group-hover:text-cloud transition">I’m not sure</span>
+                    <input type="radio" name="q1" value="dont-know" class="h-4 w-4 accent-accent">
+                    <span class="text-cloud/80 group-hover:text-cloud transition">I don't know</span>
                   </label>
                 </div>
               </div>
 
-              <div class="question-step" data-group-label="Visibility" data-q="2">
+              <div class="question-step" data-group-label="AI Visibility" data-q="2">
                 <p class="text-lg md:text-xl font-medium text-cloud mb-7">
-                  How confident are you that you know all the AI tools currently in use?
+                  Are those AI tools formally approved, informally tolerated, or largely unknown to leadership?
                 </p>
 
                 <div class="space-y-3">
                   <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q2" value="very-confident" class="h-4 w-4 accent-accent" required>
-                    <span class="text-cloud/80 group-hover:text-cloud transition">Very confident — we track everything</span>
+                    <input type="radio" name="q2" value="formally-approved" class="h-4 w-4 accent-accent" required>
+                    <span class="text-cloud/80 group-hover:text-cloud transition">Formally approved</span>
                   </label>
 
                   <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q2" value="somewhat" class="h-4 w-4 accent-accent">
-                    <span class="text-cloud/80 group-hover:text-cloud transition">Somewhat confident — we track most things</span>
+                    <input type="radio" name="q2" value="informally-tolerated" class="h-4 w-4 accent-accent">
+                    <span class="text-cloud/80 group-hover:text-cloud transition">Informally tolerated</span>
                   </label>
 
                   <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q2" value="not-confident" class="h-4 w-4 accent-accent">
-                    <span class="text-cloud/80 group-hover:text-cloud transition">Not very confident — tools are adopted independently</span>
-                  </label>
-
-                  <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q2" value="no-idea" class="h-4 w-4 accent-accent">
-                    <span class="text-cloud/80 group-hover:text-cloud transition">No idea — it’s decentralized</span>
+                    <input type="radio" name="q2" value="largely-unknown" class="h-4 w-4 accent-accent">
+                    <span class="text-cloud/80 group-hover:text-cloud transition">Largely unknown to leadership</span>
                   </label>
                 </div>
               </div>
 
-              <!-- Group 2: Ownership -->
-              <div class="question-step" data-group-label="Ownership" data-q="3">
+              <!-- Group 2: Ownership & Accountability -->
+              <div class="question-step" data-group-label="Ownership & Accountability" data-q="3">
                 <p class="text-lg md:text-xl font-medium text-cloud mb-7">
-                  Who is responsible for AI tool adoption decisions in your organization?
+                  Who currently owns AI risk in your organization?
                 </p>
 
                 <div class="space-y-3">
                   <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q3" value="centralized" class="h-4 w-4 accent-accent" required>
-                    <span class="text-cloud/80 group-hover:text-cloud transition">Centralized IT or leadership</span>
+                    <input type="radio" name="q3" value="legal" class="h-4 w-4 accent-accent" required>
+                    <span class="text-cloud/80 group-hover:text-cloud transition">Legal</span>
                   </label>
 
                   <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q3" value="department" class="h-4 w-4 accent-accent">
-                    <span class="text-cloud/80 group-hover:text-cloud transition">Individual departments</span>
+                    <input type="radio" name="q3" value="it-security" class="h-4 w-4 accent-accent">
+                    <span class="text-cloud/80 group-hover:text-cloud transition">IT / Security</span>
                   </label>
 
                   <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q3" value="mixed" class="h-4 w-4 accent-accent">
-                    <span class="text-cloud/80 group-hover:text-cloud transition">Mixed — some centralized, some decentralized</span>
+                    <input type="radio" name="q3" value="shared-group" class="h-4 w-4 accent-accent">
+                    <span class="text-cloud/80 group-hover:text-cloud transition">A shared group</span>
                   </label>
 
                   <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q3" value="unclear" class="h-4 w-4 accent-accent">
-                    <span class="text-cloud/80 group-hover:text-cloud transition">Unclear or no formal process</span>
+                    <input type="radio" name="q3" value="no-one" class="h-4 w-4 accent-accent">
+                    <span class="text-cloud/80 group-hover:text-cloud transition">No one explicitly</span>
+                  </label>
+
+                  <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
+                    <input type="radio" name="q3" value="not-sure" class="h-4 w-4 accent-accent">
+                    <span class="text-cloud/80 group-hover:text-cloud transition">Not sure</span>
                   </label>
                 </div>
               </div>
 
-              <div class="question-step" data-group-label="Ownership" data-q="4">
+              <div class="question-step" data-group-label="Ownership & Accountability" data-q="4">
                 <p class="text-lg md:text-xl font-medium text-cloud mb-7">
-                  When a team adopts a new AI tool, who typically knows about it?
+                  If a question arose about AI use tomorrow, would it be clear who is accountable?
                 </p>
 
                 <div class="space-y-3">
                   <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q4" value="everyone" class="h-4 w-4 accent-accent" required>
-                    <span class="text-cloud/80 group-hover:text-cloud transition">Leadership and relevant departments</span>
+                    <input type="radio" name="q4" value="yes" class="h-4 w-4 accent-accent" required>
+                    <span class="text-cloud/80 group-hover:text-cloud transition">Yes</span>
                   </label>
 
                   <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q4" value="some" class="h-4 w-4 accent-accent">
-                    <span class="text-cloud/80 group-hover:text-cloud transition">Some people, but not systematically</span>
+                    <input type="radio" name="q4" value="no" class="h-4 w-4 accent-accent">
+                    <span class="text-cloud/80 group-hover:text-cloud transition">No</span>
                   </label>
 
                   <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q4" value="just-team" class="h-4 w-4 accent-accent">
-                    <span class="text-cloud/80 group-hover:text-cloud transition">Just the team using it</span>
-                  </label>
-
-                  <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q4" value="nobody" class="h-4 w-4 accent-accent">
-                    <span class="text-cloud/80 group-hover:text-cloud transition">Nobody tracks it formally</span>
+                    <input type="radio" name="q4" value="not-sure" class="h-4 w-4 accent-accent">
+                    <span class="text-cloud/80 group-hover:text-cloud transition">Not sure</span>
                   </label>
                 </div>
               </div>
 
-              <!-- Group 3: Controls -->
-              <div class="question-step" data-group-label="Controls" data-q="5">
+              <!-- Group 3: Controls & Environment -->
+              <div class="question-step" data-group-label="Controls & Environment" data-q="5">
                 <p class="text-lg md:text-xl font-medium text-cloud mb-7">
-                  Do you have formal policies or guidelines for AI tool adoption?
+                  Is most AI use happening inside your closed systems and existing controls, or outside them using third-party tools?
                 </p>
 
                 <div class="space-y-3">
                   <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q5" value="yes-formal" class="h-4 w-4 accent-accent" required>
-                    <span class="text-cloud/80 group-hover:text-cloud transition">Yes — formal policies are in place</span>
+                    <input type="radio" name="q5" value="inside" class="h-4 w-4 accent-accent" required>
+                    <span class="text-cloud/80 group-hover:text-cloud transition">Inside closed systems and existing controls</span>
                   </label>
 
                   <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q5" value="informal" class="h-4 w-4 accent-accent">
-                    <span class="text-cloud/80 group-hover:text-cloud transition">Informal guidelines or best practices</span>
+                    <input type="radio" name="q5" value="outside" class="h-4 w-4 accent-accent">
+                    <span class="text-cloud/80 group-hover:text-cloud transition">Outside them using third-party tools</span>
                   </label>
 
                   <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q5" value="discussed" class="h-4 w-4 accent-accent">
-                    <span class="text-cloud/80 group-hover:text-cloud transition">Discussed but not formalized</span>
-                  </label>
-
-                  <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q5" value="no" class="h-4 w-4 accent-accent">
-                    <span class="text-cloud/80 group-hover:text-cloud transition">No formal policies</span>
+                    <input type="radio" name="q5" value="mixed" class="h-4 w-4 accent-accent">
+                    <span class="text-cloud/80 group-hover:text-cloud transition">Mixed</span>
                   </label>
                 </div>
               </div>
 
-              <div class="question-step" data-group-label="Controls" data-q="6">
+              <div class="question-step" data-group-label="Controls & Environment" data-q="6">
                 <p class="text-lg md:text-xl font-medium text-cloud mb-7">
-                  How do you currently evaluate the risks of new AI tools?
+                  When new AI tools are introduced, is there a consistent process for evaluating and approving them?
                 </p>
 
                 <div class="space-y-3">
                   <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q6" value="formal-review" class="h-4 w-4 accent-accent" required>
-                    <span class="text-cloud/80 group-hover:text-cloud transition">Formal review process with IT/Legal</span>
+                    <input type="radio" name="q6" value="yes" class="h-4 w-4 accent-accent" required>
+                    <span class="text-cloud/80 group-hover:text-cloud transition">Yes</span>
                   </label>
 
                   <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q6" value="ad-hoc" class="h-4 w-4 accent-accent">
-                    <span class="text-cloud/80 group-hover:text-cloud transition">Ad-hoc evaluation when concerns arise</span>
+                    <input type="radio" name="q6" value="no" class="h-4 w-4 accent-accent">
+                    <span class="text-cloud/80 group-hover:text-cloud transition">No</span>
                   </label>
 
                   <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q6" value="team-decides" class="h-4 w-4 accent-accent">
-                    <span class="text-cloud/80 group-hover:text-cloud transition">Teams decide based on their judgment</span>
-                  </label>
-
-                  <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q6" value="no-evaluation" class="h-4 w-4 accent-accent">
-                    <span class="text-cloud/80 group-hover:text-cloud transition">No systematic evaluation</span>
+                    <input type="radio" name="q6" value="not-sure" class="h-4 w-4 accent-accent">
+                    <span class="text-cloud/80 group-hover:text-cloud transition">Not sure</span>
                   </label>
                 </div>
               </div>
@@ -310,147 +289,90 @@
               <!-- Group 4: Leadership Readiness -->
               <div class="question-step" data-group-label="Leadership Readiness" data-q="7">
                 <p class="text-lg md:text-xl font-medium text-cloud mb-7">
-                  How would you describe leadership’s approach to AI adoption?
+                  Would senior leadership feel comfortable explaining current AI usage to the board or ownership?
                 </p>
 
                 <div class="space-y-3">
                   <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q7" value="proactive" class="h-4 w-4 accent-accent" required>
-                    <span class="text-cloud/80 group-hover:text-cloud transition">Proactive — we want to lead with AI</span>
+                    <input type="radio" name="q7" value="yes" class="h-4 w-4 accent-accent" required>
+                    <span class="text-cloud/80 group-hover:text-cloud transition">Yes</span>
                   </label>
 
                   <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q7" value="cautious" class="h-4 w-4 accent-accent">
-                    <span class="text-cloud/80 group-hover:text-cloud transition">Cautious — we want to move carefully</span>
+                    <input type="radio" name="q7" value="no" class="h-4 w-4 accent-accent">
+                    <span class="text-cloud/80 group-hover:text-cloud transition">No</span>
                   </label>
 
                   <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q7" value="reactive" class="h-4 w-4 accent-accent">
-                    <span class="text-cloud/80 group-hover:text-cloud transition">Reactive — we respond to what teams need</span>
-                  </label>
-
-                  <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q7" value="unclear" class="h-4 w-4 accent-accent">
-                    <span class="text-cloud/80 group-hover:text-cloud transition">Unclear or no unified approach</span>
+                    <input type="radio" name="q7" value="not-sure" class="h-4 w-4 accent-accent">
+                    <span class="text-cloud/80 group-hover:text-cloud transition">Not sure</span>
                   </label>
                 </div>
               </div>
 
               <div class="question-step" data-group-label="Leadership Readiness" data-q="8">
                 <p class="text-lg md:text-xl font-medium text-cloud mb-7">
-                  What would help leadership make better decisions about AI?
+                  Is there alignment between IT, Legal, and business teams on how far AI should be used today?
                 </p>
 
                 <div class="space-y-3">
                   <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q8" value="visibility" class="h-4 w-4 accent-accent" required>
-                    <span class="text-cloud/80 group-hover:text-cloud transition">Better visibility into current usage</span>
+                    <input type="radio" name="q8" value="yes" class="h-4 w-4 accent-accent" required>
+                    <span class="text-cloud/80 group-hover:text-cloud transition">Yes</span>
                   </label>
 
                   <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q8" value="framework" class="h-4 w-4 accent-accent">
-                    <span class="text-cloud/80 group-hover:text-cloud transition">A clear framework for evaluation</span>
+                    <input type="radio" name="q8" value="no" class="h-4 w-4 accent-accent">
+                    <span class="text-cloud/80 group-hover:text-cloud transition">No</span>
                   </label>
 
                   <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q8" value="alignment" class="h-4 w-4 accent-accent">
-                    <span class="text-cloud/80 group-hover:text-cloud transition">Alignment across departments</span>
-                  </label>
-
-                  <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q8" value="all" class="h-4 w-4 accent-accent">
-                    <span class="text-cloud/80 group-hover:text-cloud transition">All of the above</span>
+                    <input type="radio" name="q8" value="not-sure" class="h-4 w-4 accent-accent">
+                    <span class="text-cloud/80 group-hover:text-cloud transition">Not sure</span>
                   </label>
                 </div>
               </div>
 
-              <!-- Group 5: Forward + Prompt -->
-              <div class="question-step" data-group-label="Moving Forward" data-q="9">
+              <!-- Group 5: Looking Forward -->
+              <div class="question-step" data-group-label="Looking Forward" data-q="9">
                 <p class="text-lg md:text-xl font-medium text-cloud mb-7">
-                  What’s your biggest concern about AI exposure in your organization?
+                  Do you feel your organization is:
                 </p>
 
                 <div class="space-y-3">
                   <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q9" value="data-security" class="h-4 w-4 accent-accent" required>
-                    <span class="text-cloud/80 group-hover:text-cloud transition">Data security and privacy</span>
+                    <input type="radio" name="q9" value="too-slowly" class="h-4 w-4 accent-accent" required>
+                    <span class="text-cloud/80 group-hover:text-cloud transition">Moving too slowly</span>
                   </label>
 
                   <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q9" value="compliance" class="h-4 w-4 accent-accent">
-                    <span class="text-cloud/80 group-hover:text-cloud transition">Compliance and regulatory risk</span>
+                    <input type="radio" name="q9" value="too-quickly" class="h-4 w-4 accent-accent">
+                    <span class="text-cloud/80 group-hover:text-cloud transition">Moving too quickly</span>
                   </label>
 
                   <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q9" value="uncontrolled-growth" class="h-4 w-4 accent-accent">
-                    <span class="text-cloud/80 group-hover:text-cloud transition">Uncontrolled growth without oversight</span>
+                    <input type="radio" name="q9" value="unevenly" class="h-4 w-4 accent-accent">
+                    <span class="text-cloud/80 group-hover:text-cloud transition">Moving unevenly</span>
                   </label>
 
                   <label class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 px-5 py-4 cursor-pointer transition hover:bg-white/5">
-                    <input type="radio" name="q9" value="reputation" class="h-4 w-4 accent-accent">
-                    <span class="text-cloud/80 group-hover:text-cloud transition">Reputation and brand risk</span>
+                    <input type="radio" name="q9" value="deliberately" class="h-4 w-4 accent-accent">
+                    <span class="text-cloud/80 group-hover:text-cloud transition">Moving deliberately</span>
                   </label>
                 </div>
               </div>
 
-              <div class="question-step" data-group-label="Final Reflection" data-q="10">
+              <div class="question-step" data-group-label="Looking Forward" data-q="10">
                 <p class="text-lg md:text-xl font-medium text-cloud mb-7">
-                  Is there anything else you’d like to share? <span class="text-cloud/60">(Optional)</span>
+                  What prompted you to explore this today?
                 </p>
 
                 <textarea
                   name="q10"
                   rows="6"
                   class="w-full rounded-2xl bg-black/20 border border-white/10 px-5 py-4 text-cloud placeholder:text-cloud/40 focus:outline-none focus:border-accent/30"
-                  placeholder="Share any additional context…"
+                  placeholder="(Open text)"
                 ></textarea>
-              </div>
-
-              <!-- Contact Info (last step) -->
-              <div class="question-step" data-group-label="Optional follow-up" data-q="11">
-                <p class="text-lg md:text-xl font-medium text-cloud mb-3">
-                  Would you like a 15-minute conversation? <span class="text-cloud/60">(Optional)</span>
-                </p>
-                <p class="text-base text-cloud/70 leading-relaxed mb-8">
-                  If you’d like to discuss what surfaced, share your contact details below. Otherwise, you can submit without them.
-                </p>
-
-                <div class="space-y-5">
-                  <div>
-                    <label class="block text-sm font-medium text-cloud/80 mb-2">Email</label>
-                    <input type="email" name="email"
-                      class="w-full rounded-2xl bg-black/20 border border-white/10 px-5 py-4 text-cloud placeholder:text-cloud/40 focus:outline-none focus:border-accent/30"
-                      placeholder="your.email@example.com">
-                  </div>
-
-                  <div class="grid md:grid-cols-2 gap-5">
-                    <div>
-                      <label class="block text-sm font-medium text-cloud/80 mb-2">Role</label>
-                      <input type="text" name="role"
-                        class="w-full rounded-2xl bg-black/20 border border-white/10 px-5 py-4 text-cloud placeholder:text-cloud/40 focus:outline-none focus:border-accent/30"
-                        placeholder="e.g., COO, IT Director">
-                    </div>
-
-                    <div>
-                      <label class="block text-sm font-medium text-cloud/80 mb-2">Organization</label>
-                      <input type="text" name="organization"
-                        class="w-full rounded-2xl bg-black/20 border border-white/10 px-5 py-4 text-cloud placeholder:text-cloud/40 focus:outline-none focus:border-accent/30"
-                        placeholder="Your organization">
-                    </div>
-                  </div>
-                </div>
-
-                <div class="mt-8 flex flex-wrap gap-3 text-sm text-cloud/65">
-                  <span class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-4 py-2">
-                    <i class="fa-solid fa-lock text-cloud/70"></i> Private by design
-                  </span>
-                  <span class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-4 py-2">
-                    <i class="fa-regular fa-circle-check text-cloud/70"></i> No tool demo
-                  </span>
-                  <span class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-4 py-2">
-                    <i class="fa-regular fa-circle-check text-cloud/70"></i> No compliance audit
-                  </span>
-                </div>
               </div>
 
               <!-- Navigation -->
@@ -520,6 +442,12 @@
 
     totalQ.textContent = totalSteps;
     totalQ2.textContent = totalSteps;
+    
+    // Update total questions display
+    if (totalSteps === 10) {
+      totalQ.textContent = '10';
+      totalQ2.textContent = '10';
+    }
 
     function hideValidation() {
       validation.classList.add('hidden');

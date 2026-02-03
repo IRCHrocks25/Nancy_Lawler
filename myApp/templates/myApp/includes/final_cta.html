@@ -9,50 +9,67 @@
   </div>
 
   <div class="relative max-w-4xl mx-auto px-6 text-center">
-    <p class="text-xs tracking-[0.24em] uppercase text-cloud/55">Ready to move forward</p>
-
-    <h2 class="mt-5 text-3xl md:text-5xl font-semibold tracking-tight text-cloud leading-[1.05]">
-      Start with clarity.
-    </h2>
-
-    <p class="mt-6 text-base md:text-lg text-cloud/75 leading-relaxed">
-      AI is already in use across most sports organizations.
-      This short reflection helps you see where it’s showing up—and whether leadership has the visibility and control to move responsibly.
+    <p class="text-xs tracking-[0.24em] uppercase text-cloud/55">
+      Ready to move forward
     </p>
 
-    <!-- CTA -->
-    <div class="mt-10">
-      <a href="{% url 'orientation' %}"
-         class="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-2xl bg-accent text-ink font-semibold text-lg shadow-soft hover:opacity-95 transition">
-        Explore Your AI Exposure
-        <i class="fa-solid fa-arrow-right"></i>
-      </a>
-      <p class="mt-5 text-sm text-cloud/60">
-        Takes ~3 minutes. Not a sales pitch.
-      </p>
+    <h2 class="mt-5 text-3xl md:text-5xl font-semibold tracking-tight text-cloud leading-[1.05]">
+      LawlerAI helps sports organizations move forward with AI: deliberately, responsibly, and with eyes open.
+    </h2>
+
+    <!-- CTA Panel (layout only) -->
+    <div class="mt-12 max-w-3xl mx-auto rounded-[2rem] border border-white/12 bg-white/[0.04] overflow-hidden">
+      <!-- soft inner glow -->
+      <div class="pointer-events-none absolute left-1/2 -translate-x-1/2 mt-[-140px] h-[280px] w-[280px] rounded-full bg-white/10 blur-3xl"></div>
+
+      <div class="relative px-8 md:px-10 py-10 md:py-12">
+        <!-- CTA -->
+        <div>
+          <a href="{% url 'orientation' %}"
+             class="group inline-flex items-center justify-center gap-3 px-10 py-5 rounded-2xl bg-accent text-ink font-semibold text-lg shadow-soft transition
+                    hover:opacity-95 hover:-translate-y-0.5 active:translate-y-0
+                    ring-1 ring-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30">
+            Explore Your AI Exposure
+            <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-0.5"></i>
+          </a>
+
+          <p class="mt-5 text-sm text-cloud/60">
+            Takes ~3 minutes. Not a sales pitch.
+          </p>
+        </div>
+
+        <!-- Reassurance chips -->
+        <div class="mt-8 flex flex-wrap justify-center gap-3 text-sm text-cloud/65">
+          <span class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-4 py-2">
+            <i class="fa-regular fa-circle-check text-cloud/70"></i> No tool demo
+          </span>
+          <span class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-4 py-2">
+            <i class="fa-regular fa-circle-check text-cloud/70"></i> No compliance audit
+          </span>
+          <span class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-4 py-2">
+            <i class="fa-solid fa-lock text-cloud/70"></i> Private reflection
+          </span>
+        </div>
+
+        <!-- divider -->
+        <div class="mt-10 h-px w-full bg-gradient-to-r from-white/0 via-white/12 to-white/0"></div>
+
+        <!-- Final thesis line (same words, better presence) -->
+        <div class="mt-10 max-w-2xl mx-auto text-left">
+          <div class="rounded-2xl border border-white/10 bg-black/20 p-6 md:p-7">
+            <div class="border-l border-white/12 pl-6">
+              <p class="text-xl md:text-2xl font-semibold text-cloud leading-snug">
+                Clarity before acceleration.
+              </p>
+              <p class="mt-2 text-sm md:text-base text-cloud/60 leading-relaxed">
+                Control doesn’t slow you down—it makes progress defensible.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
 
-    <!-- Reassurance chips -->
-    <div class="mt-8 flex flex-wrap justify-center gap-3 text-sm text-cloud/65">
-      <span class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-4 py-2">
-        <i class="fa-regular fa-circle-check text-cloud/70"></i> No tool demo
-      </span>
-      <span class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-4 py-2">
-        <i class="fa-regular fa-circle-check text-cloud/70"></i> No compliance audit
-      </span>
-      <span class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-4 py-2">
-        <i class="fa-solid fa-lock text-cloud/70"></i> Private reflection
-      </span>
-    </div>
-
-    <!-- Final thesis line -->
-    <div class="mt-12 border-l border-white/12 pl-6 max-w-2xl mx-auto text-left">
-      <p class="text-xl md:text-2xl font-semibold text-cloud leading-snug">
-        Clarity before acceleration.
-      </p>
-      <p class="mt-2 text-sm md:text-base text-cloud/60 leading-relaxed">
-        Control doesn’t slow you down—it makes progress defensible.
-      </p>
-    </div>
   </div>
 </section>
