@@ -30,15 +30,34 @@
     </div>
 
     <!-- False solutions (calm, decisive, not alarmist) -->
-    <div class="mt-14 md:mt-16 rounded-3xl border border-white/10 bg-white/5 p-8 md:p-10 text-center">
-      <p class="text-base md:text-lg text-cloud/80 leading-relaxed">
-        Blocking tools doesn't work.<br />
-        Ignoring the problem doesn't work.<br />
-        Buying more technology doesn't solve it.
-      </p>
-      <p class="mt-4 text-xl md:text-2xl font-semibold text-cloud">
-        What's needed is clarity. Before acceleration.
-      </p>
+    <div class="mt-14 md:mt-16 relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen border-y border-white/10 bg-white/5 overflow-hidden">
+      <!-- gradient wash (adds depth, keeps SaaS feel) -->
+      <div class="pointer-events-none absolute inset-0 bg-gradient-to-r from-accent/10 via-white/0 to-accent2/10"></div>
+      <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/0 via-black/20 to-black/35"></div>
+  
+      <!-- subtle texture layer -->
+      <div class="pointer-events-none absolute inset-0 opacity-[0.035] bg-[radial-gradient(circle_at_20%_20%,white_1px,transparent_1px)] [background-size:24px_24px]"></div>
+
+      <!-- soft glow spots -->
+      <div class="pointer-events-none absolute -top-24 left-[10%] h-[340px] w-[340px] rounded-full bg-accent/12 blur-3xl"></div>
+      <div class="pointer-events-none absolute -bottom-28 right-[12%] h-[380px] w-[380px] rounded-full bg-accent2/12 blur-3xl"></div>
+    
+      <div class="relative max-w-6xl mx-auto px-6 py-10 md:py-12 text-center">
+        
+        <!-- Statements: structured, not paragraphs -->
+        <div class="flex flex-wrap justify-center gap-x-3 gap-y-2 text-base md:text-lg text-cloud/80 leading-relaxed">
+          <span>Blocking tools doesn’t work.</span>
+          <span class="opacity-40">•</span>
+          <span>Ignoring the problem doesn’t work.</span>
+          <span class="opacity-40">•</span>
+          <span>Buying more technology doesn’t solve it.</span>
+        </div>
+    
+        <!-- Hinge -->
+        <p class="mt-5 text-xl md:text-2xl font-semibold text-cloud">
+          What’s needed is clarity — before acceleration.
+        </p>
+      </div>
     </div>
 
   </div>
