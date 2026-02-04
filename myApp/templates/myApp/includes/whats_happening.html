@@ -1,94 +1,131 @@
-<!-- 5.4 What's Actually Happening (Premium, Clear, Bullet-Driven) -->
-<section class="py-24 md:py-32">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="grid md:grid-cols-2 gap-14 lg:gap-20 items-start">
+<!-- 5.4 WHAT’S ACTUALLY HAPPENING — Billion-Dollar Editorial / “Small → Spreads” -->
+<section class="relative py-24 md:py-32 overflow-hidden">
+  <!-- Atmosphere -->
+  <div class="pointer-events-none absolute inset-0">
+    <div class="absolute inset-0 bg-ink"></div>
+    <div class="absolute -top-48 left-1/2 h-[620px] w-[620px] -translate-x-1/2 rounded-full bg-accent/10 blur-3xl"></div>
+    <div class="absolute -bottom-56 right-[-160px] h-[700px] w-[700px] rounded-full bg-accent2/10 blur-3xl"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/0 via-black/10 to-black/35"></div>
+  </div>
 
-      <!-- Left: editorial -->
+  <div class="relative max-w-6xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start">
+
+      <!-- Left: Editorial (copy-first, expensive spacing) -->
       <div>
         <p class="text-xs tracking-[0.28em] uppercase text-cloud/55">
-          What’s actually happening
+          WHAT’S ACTUALLY HAPPENING
         </p>
 
-        <h2 class="mt-5 text-3xl md:text-5xl font-semibold tracking-tight text-cloud leading-[1.08]">
-          Most companies didn’t “adopt AI.”
-          <span class="block text-cloud/70">They layered it onto existing work.</span>
+        <h2 class="mt-5 text-2xl md:text-4xl font-semibold tracking-tight text-cloud leading-[1.08]">
+          Most organizations didn’t set out to “adopt AI.”
+          <span class="block text-cloud/70">They simply started using it.</span>
         </h2>
 
-        <p class="mt-7 text-base md:text-lg leading-relaxed text-cloud/72 max-w-xl">
-          AI rarely enters organizations through a single decision. It appears in practical use
-          cases first, then expands across teams before leadership has a shared way to evaluate
-          impact, risk, or quality.
-        </p>
-
-        <!-- Hinge block -->
-        <div class="mt-10 rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.03] p-6 md:p-7">
+        <!-- Punchy beats -->
+        
+        <!-- Small → Big hinge -->
+        <div class="mt-10 rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.07] to-white/[0.03] p-7 md:p-8">
           <p class="text-xl md:text-2xl font-semibold text-cloud leading-snug">
-            Small decisions scale faster than oversight.
+            Each decision feels small.
+            <span class="block text-cloud/80">The consequences are not.</span>
           </p>
-          <p class="mt-3 text-sm md:text-base text-cloud/60 leading-relaxed max-w-lg">
-            Without shared visibility and ownership, AI increases speed while consistency,
-            security, and accountability quietly erode.
+
+          <p class="mt-4 text-sm md:text-base text-cloud/65 leading-relaxed max-w-xl">
+            Without shared visibility and accountability, AI use spreads faster than leadership
+            can assess its impact.
           </p>
+
+          <!-- Micro-signal line (subtle premium detail) -->
+          <div class="mt-6 flex items-center gap-3">
+            <span class="h-2 w-2 rounded-full bg-accent/80 shadow-[0_0_0_5px_rgba(255,255,255,0.04)]"></span>
+            <p class="text-xs md:text-sm text-cloud/55 tracking-wide">
+              Adoption isn’t the risk — unmanaged adoption is.
+            </p>
+          </div>
         </div>
       </div>
 
-      <!-- Right: premium panel -->
-      <div class="relative rounded-3xl border border-white/10 bg-white/5 p-8 md:p-10 overflow-hidden">
-        <!-- subtle glow -->
+      <!-- Right: Systems Spread Panel (visualizes “small decisions → org-wide spread”) -->
+      <div class="relative rounded-3xl border border-white/10 bg-white/[0.05] p-8 md:p-10 overflow-hidden">
+        <!-- Glow + hairline grid -->
         <div class="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-white/10 blur-3xl"></div>
-
-        <div class="relative flex items-center justify-between">
-          <p class="text-sm font-semibold text-cloud/80">Where it starts</p>
-          <p class="text-xs text-cloud/55">Common entry points</p>
+        <div class="pointer-events-none absolute inset-0 opacity-[0.12]">
+          <div class="absolute inset-0 [background-image:linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:56px_56px]"></div>
         </div>
 
-        <!-- Entry points -->
-        <div class="relative mt-8 space-y-7">
-          <div class="flex gap-5">
-            <div class="mt-1.5 h-2.5 w-2.5 rounded-full bg-accent/80 shadow-[0_0_0_4px_rgba(255,255,255,0.04)]"></div>
-            <div>
-              <p class="text-base font-medium text-cloud">Marketing</p>
-              <p class="mt-1 text-sm text-cloud/60">
-                Increased content velocity, faster campaign iteration, broader surface area.
-              </p>
-            </div>
+        <div class="relative flex items-start justify-between gap-6">
+          <div>
+            <p class="text-sm font-semibold text-cloud/85">How it spreads</p>
+            <p class="mt-1 text-xs text-cloud/55">Small local choices → organization-wide behavior</p>
           </div>
 
-          <div class="flex gap-5">
-            <div class="mt-1.5 h-2.5 w-2.5 rounded-full bg-accent/80 shadow-[0_0_0_4px_rgba(255,255,255,0.04)]"></div>
-            <div>
-              <p class="text-base font-medium text-cloud">Sales & Support</p>
-              <p class="mt-1 text-sm text-cloud/60">
-                Summaries, suggested responses, and pressure to close faster.
-              </p>
-            </div>
-          </div>
-
-          <div class="flex gap-5">
-            <div class="mt-1.5 h-2.5 w-2.5 rounded-full bg-accent/80 shadow-[0_0_0_4px_rgba(255,255,255,0.04)]"></div>
-            <div>
-              <p class="text-base font-medium text-cloud">Operations</p>
-              <p class="mt-1 text-sm text-cloud/60">
-                Scheduling shortcuts, coordination, and process compression.
-              </p>
-            </div>
-          </div>
-
-          <div class="flex gap-5">
-            <div class="mt-1.5 h-2.5 w-2.5 rounded-full bg-accent/80 shadow-[0_0_0_4px_rgba(255,255,255,0.04)]"></div>
-            <div>
-              <p class="text-base font-medium text-cloud">IT & Legal</p>
-              <p class="mt-1 text-sm text-cloud/60">
-                Policy creation, access control, and risk containment.
-              </p>
-            </div>
+          <!-- tiny status chip -->
+          <div class="shrink-0 rounded-full border border-white/10 bg-white/[0.06] px-3 py-1.5">
+            <p class="text-[11px] tracking-[0.22em] uppercase text-cloud/60">Distributed usage</p>
           </div>
         </div>
 
-        <!-- Bottom sting -->
+        <!-- Nodes -->
+        <div class="relative mt-9 space-y-5">
+          <!-- Node 1 -->
+          <div class="rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.03] p-5 md:p-6">
+            <div class="flex items-start justify-between gap-6">
+              <div>
+                <p class="text-base font-medium text-cloud">Marketing</p>
+                <p class="mt-2 text-sm text-cloud/60 leading-relaxed">
+                  Experiments happen fast — and create new volume, new claims, new risk.
+                </p>
+              </div>
+              <span class="mt-1.5 h-2.5 w-2.5 rounded-full bg-accent/80 shadow-[0_0_0_6px_rgba(255,255,255,0.04)]"></span>
+            </div>
+          </div>
+
+          <!-- Node 2 -->
+          <div class="rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.03] p-5 md:p-6">
+            <div class="flex items-start justify-between gap-6">
+              <div>
+                <p class="text-base font-medium text-cloud">Ticketing</p>
+                <p class="mt-2 text-sm text-cloud/60 leading-relaxed">
+                  Efficiency becomes default — shortcuts become “the way we do it.”
+                </p>
+              </div>
+              <span class="mt-1.5 h-2.5 w-2.5 rounded-full bg-accent/80 shadow-[0_0_0_6px_rgba(255,255,255,0.04)]"></span>
+            </div>
+          </div>
+
+          <!-- Node 3 -->
+          <div class="rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.03] p-5 md:p-6">
+            <div class="flex items-start justify-between gap-6">
+              <div>
+                <p class="text-base font-medium text-cloud">Operations</p>
+                <p class="mt-2 text-sm text-cloud/60 leading-relaxed">
+                  Speed increases — but decisions get made without shared context.
+                </p>
+              </div>
+              <span class="mt-1.5 h-2.5 w-2.5 rounded-full bg-accent/80 shadow-[0_0_0_6px_rgba(255,255,255,0.04)]"></span>
+            </div>
+          </div>
+
+          <!-- Node 4 -->
+          <div class="rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.03] p-5 md:p-6">
+            <div class="flex items-start justify-between gap-6">
+              <div>
+                <p class="text-base font-medium text-cloud">IT & Legal</p>
+                <p class="mt-2 text-sm text-cloud/60 leading-relaxed">
+                  Policy and guardrails try to catch up — after patterns already formed.
+                </p>
+              </div>
+              <span class="mt-1.5 h-2.5 w-2.5 rounded-full bg-accent/80 shadow-[0_0_0_6px_rgba(255,255,255,0.04)]"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom: the real thesis -->
         <div class="relative mt-10 pt-7 border-t border-white/10">
           <p class="text-sm md:text-base text-cloud/70 leading-relaxed">
-            The issue isn’t AI adoption. It’s adoption without a shared operating frame.
+            When visibility and accountability are fragmented, AI behavior becomes a
+            shadow operating system.
           </p>
         </div>
       </div>
