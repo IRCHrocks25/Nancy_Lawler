@@ -1,0 +1,16 @@
+FROM CLARITY TO STRATEGY
+Once organizations understand where AI is already in use, and where risk is accumulating, strategy becomes possible.
+LawlerAI helps leadership translate visibility into a clear AI strategy:
+what AI should be used for
+where it creates real value
+which tools are appropriate
+which workflows should change, and which should not
+All strategy is developed inside your existing environment.
+This isn’t a theoretical roadmap.
+It’s a practical strategy grounded in your operating reality, governance posture, and business priorities.
+From there, we help organizations:
+evaluate and select tools responsibly
+improve workflows with intent
+align teams around shared direction
+Strategy isn't about moving faster. 
+It's about moving together, with purpose.

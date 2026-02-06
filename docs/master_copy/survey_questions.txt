@@ -1,0 +1,31 @@
+SURVEY QUESTIONS
+AI Visibility
+Do you have a clear picture of which teams or departments are currently using AI tools?
+Yes, clearly
+Somewhat
+Not really
+I don’t know
+Are those AI tools formally approved, informally tolerated, or largely unknown to leadership?
+Ownership & Accountability
+Who currently owns AI risk in your organization?
+Legal
+IT / Security
+A shared group
+No one explicitly
+Not sure
+If a question arose about AI use tomorrow, would it be clear who is accountable?
+Controls & Environment
+Is most AI use happening inside your closed systems and existing controls, or outside them using third-party tools?
+When new AI tools are introduced, is there a consistent process for evaluating and approving them?
+Leadership Readiness
+Would senior leadership feel comfortable explaining current AI usage to the board or ownership?
+Is there alignment between IT, Legal, and business teams on how far AI should be used today?
+Looking Forward
+Do you feel your organization is:
+Moving too slowly
+Moving too quickly
+Moving unevenly
+Moving deliberately
+What prompted you to explore this today?
+(Open text)
+SUBMISSION email sent through CRM to nancy@lawlerai.com
