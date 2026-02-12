@@ -1,29 +1,6 @@
+{% load static %}
 <!-- 5.2 Hero (Upgraded) -->
-<section class="relative overflow-hidden py-24 md:py-32">
-  <!-- Background: subtle grid + glow -->
-  <div class="absolute inset-0 pointer-events-none">
-    <div class="absolute inset-0 bg-ink"></div>
-
-    <!-- controlled premium glow (tighter + layered) -->
-    <div class="absolute -top-44 left-1/2 h-[620px] w-[620px] -translate-x-1/2 rounded-full bg-accent/10 blur-3xl"></div>
-    <div class="absolute -top-24 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-accent/12 blur-2xl"></div>
-    <div class="absolute -bottom-60 right-[-140px] h-[640px] w-[640px] rounded-full bg-accent2/10 blur-3xl"></div>
-
-    <!-- subtle grid (cleaner + less harsh) -->
-    <div
-      class="absolute inset-0 opacity-[0.07]"
-      style="background-image: linear-gradient(to right, rgba(255,255,255,0.30) 1px, transparent 1px),
-                               linear-gradient(to bottom, rgba(255,255,255,0.30) 1px, transparent 1px);
-             background-size: 64px 64px;"
-    ></div>
-
-    <!-- vignette / depth -->
-    <div class="absolute inset-0 bg-gradient-to-b from-black/10 via-black/40 to-black/70"></div>
-
-    <!-- top highlight band (premium “light source”) -->
-    <div class="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white/10 to-transparent"></div>
-  </div>
-
+<section class="relative overflow-hidden py-24 md:py-32" style="background-image: url('{% static 'myApp/images/hero bg 1.png' %}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
   <div class="relative max-w-7xl mx-auto px-6">
     <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
       <!-- Left -->
