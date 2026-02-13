@@ -41,7 +41,7 @@ django-widget-tweaks==1.5.0
 djangorestframework==3.15.2
 et_xmlfile==2.0.0
 exceptiongroup==1.2.2
-faiss-cpu==1.10.0
+faiss-cpu==1.12.0
 git-filter-repo==2.47.0
 google-api-core==2.24.2
 google-api-python-client==2.166.0
@@ -58,7 +58,7 @@ httpx==0.27.2
 hyperlink==21.0.0
 idna==3.10
 incremental==24.7.2
-jiter==0.7.0
+# jiter==0.7.0  # Requires Rust to compile - commented out temporarily
 jsonpickle==3.0.4
 jsonpointer==2.4
 kombu==5.5.2
