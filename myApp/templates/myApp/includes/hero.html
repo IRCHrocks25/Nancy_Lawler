@@ -1,78 +1,109 @@
 {% load static %}
-<!-- 5.2 Hero (Upgraded) -->
-<section class="relative overflow-hidden py-24 md:py-32" style="background-image: url('{% static 'myApp/images/hero bg.png' %}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-  <div class="relative max-w-7xl mx-auto px-6">
-    <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-      <!-- Left -->
-      <div class="lg:col-span-6 max-w-2xl">
-        <!-- Brand label + badge -->
-        <div class="flex flex-wrap items-center gap-3 mb-7">
-          <div class="text-xs font-semibold tracking-[0.28em] text-cloud/70">
-            LAWLERAI
-          </div>
+<!-- 5.2 HERO -->
+<section class="relative overflow-hidden min-h-screen flex items-center py-24 md:py-32"
+         style="background-image: url('{% static 'myApp/images/hero bg.png' %}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
 
-          <span class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.06] px-3.5 py-1.5 text-xs text-cloud/75 shadow-[0_0_0_1px_rgba(255,255,255,0.02)_inset]">
-            <i class="fa-solid fa-shield-halved text-cloud/70"></i>
-            Strategic AI risk & control for sports
-          </span>
+  <!-- Overlays -->
+  <div class="absolute inset-0 pointer-events-none">
+    <!-- Darken the bg image enough to read against -->
+    <div class="absolute inset-0 bg-ink/60"></div>
+    <!-- Radial warmth behind headline -->
+    <div class="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 h-[700px] w-[700px] rounded-full" style="background:radial-gradient(circle, rgba(212,168,83,0.10) 0%, transparent 65%);"></div>
+    <!-- Grain -->
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image:url('data:image/svg+xml,%3Csvg viewBox=\'0 0 512 512\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.75\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E');background-size:200px 200px;"></div>
+    <!-- Bottom fade to next section -->
+    <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-ink to-transparent"></div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-6 w-full">
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+      <!-- ── LEFT COLUMN ── -->
+      <div class="lg:col-span-7 max-w-3xl">
+
+        <!-- Kicker row -->
+        <div class="flex flex-wrap items-center gap-3 mb-8">
+          <p class="text-[10px] tracking-[0.36em] uppercase text-cloud/42 font-medium">LawlerAI</p>
+          <div class="h-3 w-px bg-white/15"></div>
+          <div class="inline-flex items-center gap-2 rounded-full border border-white/[0.1] bg-white/[0.05] px-4 py-1.5">
+            <svg class="w-3 h-3 text-cloud/50" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span class="text-xs text-cloud/60 font-medium tracking-wide">Strategic AI risk &amp; control for sports</span>
+          </div>
         </div>
 
         <!-- Headline -->
-        <h1 class="text-3xl md:text-5xl font-semibold tracking-tight text-cloud leading-[1.05] [text-wrap:balance]">
-          AI Is Easy to Use.<br class="hidden sm:block" />
-          Understanding Its Consequences Is Not.
+        <h1 class="font-serif text-[clamp(2.4rem,5.5vw,4.75rem)] tracking-[-0.02em] text-cloud leading-[1.0] [text-wrap:balance]">
+          AI is easy to use.
+          <em class="block italic text-cloud/55 mt-1">Understanding its consequences is not.</em>
         </h1>
 
-        <!-- Subhead (tighter rhythm + better measure) -->
-        <div class="mt-7 space-y-4 max-w-xl">
-          <p class="text-base md:text-lg leading-relaxed text-cloud/80">
-            Across sports organizations, AI tools are being adopted quickly and informally. They promise speed, efficiency, and competitive advantage.
-          </p>
+        <!-- Divider -->
+        <div class="mt-8 flex items-center gap-4">
+          <div class="h-px w-10 bg-gradient-to-r from-accent/60 to-transparent"></div>
+          <span class="h-1.5 w-1.5 rounded-full bg-accent/55"></span>
+          <div class="h-px w-32 bg-gradient-to-r from-accent/20 to-transparent"></div>
+        </div>
 
-          <p class="text-base md:text-lg leading-relaxed text-cloud/80">
+        <!-- Body copy -->
+        <div class="mt-7 space-y-4 max-w-xl">
+          <p class="text-base md:text-lg leading-relaxed text-cloud/65">
+            Across sports organizations, AI tools are being adopted quickly and informally — promising speed, efficiency, and competitive advantage.
+          </p>
+          <p class="text-base md:text-lg leading-relaxed text-cloud/65">
             What's harder to see is how everyday use compounds across teams, tools, data, and time.
           </p>
-
-          <p class="text-base md:text-lg text-cloud/90">
+          <p class="text-base md:text-lg leading-relaxed text-cloud/85 font-medium">
             LawlerAI helps sports organizations understand where AI is already in play, what exposure it creates, and how to move forward with clarity and control.
           </p>
         </div>
 
         <!-- CTAs -->
-        <div class="mt-10 flex flex-col sm:flex-row gap-4">
-          <a
-            href="{% url 'orientation' %}"
-            class="group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-accent text-ink font-semibold shadow-soft hover:opacity-95 transition text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
-          >
-            Explore Your AI Exposure
-            <i class="fa-solid fa-arrow-right transition group-hover:translate-x-0.5"></i>
+        <div class="mt-10 flex flex-col sm:flex-row gap-3">
+          <a href="{% url 'orientation' %}"
+             class="group relative inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-semibold text-base text-ink overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0"
+             style="background: linear-gradient(135deg, #e8b94a 0%, #d4a853 55%, #c49340 100%); box-shadow: 0 0 24px rgba(212,168,83,0.3), 0 4px 16px rgba(0,0,0,0.3);">
+            <span class="absolute inset-0 rounded-2xl" style="background:linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, transparent 55%);"></span>
+            <span class="relative tracking-[-0.01em]">Explore Your AI Exposure</span>
+            <svg class="relative w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
 
-          <a
-            href="#clarity"
-            class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl border border-white/15 bg-white/[0.06] text-cloud font-medium hover:bg-white/10 transition text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
-          >
-            <i class="fa-solid fa-diagram-project text-cloud/80"></i>
+          <a href="#clarity"
+             class="group inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl border border-white/[0.12] bg-white/[0.06] text-cloud/80 font-medium hover:bg-white/[0.1] hover:text-cloud hover:border-white/20 transition-all duration-200 text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30">
+            <svg class="w-4 h-4 text-cloud/55 group-hover:text-cloud/75 transition-colors" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
             How It Works
           </a>
         </div>
 
-     
-
-        <!-- Subtle credibility line -->
-        <div class="mt-7 text-sm text-slate">
-          Built for professional sports, collegiate athletics, and major sports&nbsp;events.
+        <!-- Credibility line -->
+        <div class="mt-8 flex items-center gap-3">
+          <div class="h-px w-6 bg-white/15"></div>
+          <p class="text-xs text-cloud/35 tracking-[0.1em] leading-relaxed">
+            Built for professional sports, collegiate athletics, and major sports events.
+          </p>
         </div>
       </div>
 
-      <!-- Right -->
-      <div class="lg:col-span-6 relative">
-        <!-- outer glow ring (more “lens” than blur blob) -->
-        <div class="absolute -inset-8 rounded-[2.25rem] bg-gradient-to-br from-accent/12 via-white/0 to-accent2/12 blur-2xl"></div>
+      <!-- ── RIGHT COLUMN: Floating insight panel ── -->
+      <div class="lg:col-span-5 relative">
 
-     
+        <!-- Ambient glow -->
+        <div class="absolute -inset-8 rounded-[2.5rem] pointer-events-none" style="background:radial-gradient(ellipse at center, rgba(212,168,83,0.1) 0%, rgba(124,106,240,0.06) 50%, transparent 75%); filter:blur(24px);"></div>
+
+        <!-- Panel -->
+        <div class="relative rounded-2xl border border-white/[0.1] overflow-hidden" style="background: linear-gradient(145deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 100%);">
+          <!-- Gold top hairline -->
+          <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/55 to-transparent"></div>
+          <!-- Grid texture -->
+          <div class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image:linear-gradient(to right,rgba(255,255,255,0.1) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,0.1) 1px,transparent 1px);background-size:44px 44px;"></div>
+
+          <!-- Panel header -->
+          
+
+          </div>
         </div>
+
       </div>
+
     </div>
   </div>
 </section>

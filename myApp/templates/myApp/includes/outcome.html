@@ -1,73 +1,108 @@
-<!-- 5.11 The Outcome -->
-<section class="py-24 md:py-32">
-  <div class="max-w-6xl mx-auto px-6">
+<!-- 5.11 THE OUTCOME -->
+<section class="relative py-24 md:py-32 overflow-hidden">
+
+  <!-- Atmosphere -->
+  <div class="pointer-events-none absolute inset-0">
+    <div class="absolute inset-0 bg-ink"></div>
+    <div class="absolute -top-56 left-1/2 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-accent/8 blur-3xl"></div>
+    <div class="absolute -bottom-48 right-[-160px] h-[600px] w-[600px] rounded-full bg-accent2/8 blur-3xl"></div>
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image:url('data:image/svg+xml,%3Csvg viewBox=\'0 0 512 512\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.75\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E');background-size:200px 200px;"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/0 via-black/10 to-black/40"></div>
+  </div>
+
+  <div class="relative max-w-6xl mx-auto px-6">
 
     <!-- Header -->
-    <div class="text-center max-w-4xl mx-auto mb-16">
-      <p class="text-xs tracking-[0.28em] uppercase text-cloud/55 mb-6">THE OUTCOME</p>
-
-      <h2 class="text-3xl md:text-5xl font-semibold text-cloud mb-12 leading-tight">
-        Organizations that understand their AI exposure early
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <p class="text-[10px] tracking-[0.32em] uppercase text-cloud/40 font-medium">The outcome</p>
+      <h2 class="mt-5 font-serif text-[clamp(2rem,4vw,3.25rem)] tracking-[-0.02em] text-cloud leading-[1.04]">
+        Organizations that understand their
+        <em class="italic text-cloud/58"> AI exposure early</em>
       </h2>
     </div>
 
-    <!-- Cards -->
-    <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16 text-center">
-      
+    <!-- Three outcome cards -->
+    <div class="grid md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+
       <!-- Card 1 -->
-      <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-8 md:p-10">
-        <div class="flex flex-col items-center gap-4">
-          <div class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-accent/40 bg-accent/10">
-            <svg class="h-5 w-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12l4 4 10-10" />
-            </svg>
+      <div class="group relative rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.07] to-white/[0.02] p-8 overflow-hidden text-center transition-all duration-300 hover:-translate-y-1 hover:border-white/20">
+        <div class="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-amber-400/60 to-transparent"></div>
+        <div class="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style="background:radial-gradient(ellipse at 50% 0%, rgba(212,168,83,0.07) 0%, transparent 70%);"></div>
+
+        <div class="relative flex flex-col items-center gap-5">
+          <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-400/[0.08] border border-amber-400/20">
+            <svg class="h-5 w-5 text-amber-400/70" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
           </div>
-          <p class="text-lg md:text-xl font-semibold text-cloud">
-            Move faster with confidence
+          <div>
+            <p class="font-serif text-xl md:text-2xl text-cloud leading-snug">Move faster</p>
+            <p class="font-serif text-xl md:text-2xl italic text-cloud/58 leading-snug">with confidence</p>
+          </div>
+          <p class="text-sm text-cloud/40 leading-relaxed max-w-[200px]">
+            Speed without the second-guessing. Decisions that hold up.
           </p>
         </div>
       </div>
 
-      <!-- Card 2 -->
-      <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-8 md:p-10">
-        <div class="flex flex-col items-center gap-4">
-          <div class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-accent/40 bg-accent/10">
-            <svg class="h-5 w-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2l7 4v6c0 5-3.5 9-7 10-3.5-1-7-5-7-10V6l7-4z" />
-              <path d="M9 12l2 2 4-4" />
-            </svg>
+      <!-- Card 2 — center, slightly elevated -->
+      <div class="group relative rounded-2xl border border-accent/22 overflow-hidden text-center transition-all duration-300 hover:-translate-y-1 md:-mt-3 md:mb-3" style="background: radial-gradient(ellipse at 50% 0%, rgba(212,168,83,0.09) 0%, rgba(255,255,255,0.02) 60%, transparent 100%);">
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/65 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent"></div>
+        <div class="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 h-32 w-48 rounded-full bg-accent/8 blur-2xl"></div>
+
+        <div class="relative flex flex-col items-center gap-5 p-8">
+          <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 border border-accent/25">
+            <svg class="h-5 w-5 text-accent/75" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
           </div>
-          <p class="text-lg md:text-xl font-semibold text-cloud">
-            Avoid downstream risk
+          <div>
+            <p class="font-serif text-xl md:text-2xl text-cloud leading-snug">Avoid</p>
+            <p class="font-serif text-xl md:text-2xl italic text-cloud/58 leading-snug">downstream risk</p>
+          </div>
+          <p class="text-sm text-cloud/40 leading-relaxed max-w-[200px]">
+            Exposure mapped before it compounds. Governance that actually fits.
           </p>
         </div>
       </div>
 
       <!-- Card 3 -->
-      <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-8 md:p-10">
-        <div class="flex flex-col items-center gap-4">
-          <div class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-accent/40 bg-accent/10">
-            <svg class="h-5 w-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="7" />
-              <path d="M12 9v3l2 2" />
-            </svg>
+      <div class="group relative rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.07] to-white/[0.02] p-8 overflow-hidden text-center transition-all duration-300 hover:-translate-y-1 hover:border-white/20">
+        <div class="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-emerald-400/60 to-transparent"></div>
+        <div class="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style="background:radial-gradient(ellipse at 50% 0%, rgba(52,211,153,0.06) 0%, transparent 70%);"></div>
+
+        <div class="relative flex flex-col items-center gap-5">
+          <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-400/[0.08] border border-emerald-400/20">
+            <svg class="h-5 w-5 text-emerald-400/70" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M2 20h20M6 20V10M12 20V4M18 20v-6"/></svg>
           </div>
-          <p class="text-lg md:text-xl font-semibold text-cloud">
-            Make better decisions over time
+          <div>
+            <p class="font-serif text-xl md:text-2xl text-cloud leading-snug">Make better decisions</p>
+            <p class="font-serif text-xl md:text-2xl italic text-cloud/58 leading-snug">over time</p>
+          </div>
+          <p class="text-sm text-cloud/40 leading-relaxed max-w-[200px]">
+            Clarity compounds. Each decision builds on a shared foundation.
           </p>
         </div>
       </div>
 
     </div>
 
-    <!-- Final Statement -->
-    <div class="text-center max-w-3xl mx-auto">
-      <p class="text-xl md:text-2xl font-semibold text-cloud leading-snug">
-        Control doesn't slow you down.
-      </p>
-      <p class="text-xl md:text-2xl font-semibold text-cloud/75 mt-2 leading-snug">
-        It lets you move on purpose.
-      </p>
+    <!-- Final statement -->
+    <div class="mt-14 md:mt-16 max-w-3xl mx-auto">
+      <div class="relative rounded-2xl border border-white/[0.08] bg-gradient-to-br from-white/[0.05] to-white/[0.01] overflow-hidden px-8 py-9 md:px-14 md:py-11 text-center">
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/45 to-transparent"></div>
+        <div class="pointer-events-none absolute inset-0 opacity-[0.055]" style="background-image:linear-gradient(to right,rgba(255,255,255,0.1) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,0.1) 1px,transparent 1px);background-size:44px 44px;"></div>
+        <div class="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-28 w-72 rounded-full bg-accent/5 blur-3xl"></div>
+
+        <p class="relative font-serif text-2xl md:text-3xl text-cloud leading-snug">
+          Control doesn't slow you down.
+        </p>
+        <p class="relative mt-3 font-serif text-2xl md:text-3xl italic text-cloud/55 leading-snug">
+          It lets you move on purpose.
+        </p>
+
+        <div class="relative mt-8 flex items-center justify-center gap-3">
+          <span class="h-2 w-2 shrink-0 rounded-full bg-accent/75" style="box-shadow:0 0 0 4px rgba(212,168,83,0.14),0 0 10px rgba(212,168,83,0.3);"></span>
+          <p class="text-xs text-cloud/35 tracking-[0.12em]">Early clarity. Lasting control.</p>
+        </div>
+      </div>
     </div>
 
   </div>

@@ -1,130 +1,133 @@
-<!-- 5.4 WHAT’S ACTUALLY HAPPENING — Billion-Dollar Editorial / “Small → Spreads” -->
+<!-- 5.4 WHAT'S ACTUALLY HAPPENING -->
 <section class="relative overflow-hidden">
+
   <!-- Atmosphere -->
   <div class="pointer-events-none absolute inset-0">
     <div class="absolute inset-0 bg-ink"></div>
-    <div class="absolute -top-48 left-1/2 h-[620px] w-[620px] -translate-x-1/2 rounded-full bg-accent/10 blur-3xl"></div>
-    <div class="absolute -bottom-56 right-[-160px] h-[700px] w-[700px] rounded-full bg-accent2/10 blur-3xl"></div>
+    <div class="absolute -top-48 left-1/2 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-accent/10 blur-3xl"></div>
+    <div class="absolute -bottom-56 right-[-160px] h-[800px] w-[800px] rounded-full bg-accent2/10 blur-3xl"></div>
+    <!-- Grain overlay -->
+    <div class="absolute inset-0 opacity-[0.035]" style="background-image:url('data:image/svg+xml,%3Csvg viewBox=\'0 0 512 512\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.75\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E'); background-size:200px 200px;"></div>
     <div class="absolute inset-0 bg-gradient-to-b from-black/0 via-black/10 to-black/35"></div>
   </div>
 
-  <!-- Center wrapper: this will center the whole block in the viewport -->
   <div class="relative min-h-screen flex items-center justify-center py-24 md:py-32">
     <div class="max-w-[96rem] w-full mx-auto px-6">
       <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start">
 
-        <!-- Left: Editorial (copy-first, expensive spacing) -->
+        <!-- Left: Editorial -->
         <div>
-          <p class="text-xs tracking-[0.28em] uppercase text-cloud/55">
-            WHAT’S ACTUALLY HAPPENING
+          <p class="text-[10px] tracking-[0.32em] uppercase text-cloud/40 font-medium">
+            What's actually happening
           </p>
 
-          <h2 class="mt-5 text-2xl md:text-4xl font-semibold tracking-tight text-cloud leading-[1.08]">
-            Most organizations didn’t set out to “adopt AI.”
-            <span class="block text-cloud/70">They simply started using it.</span>
+          <h2 class="mt-5 font-serif text-[clamp(2rem,4vw,3.5rem)] tracking-[-0.01em] text-cloud leading-[1.06]">
+            Most organizations didn't set out to "adopt AI."
+            <em class="block not-italic text-cloud/65">They simply started using it.</em>
           </h2>
 
-          <!-- Short beats removed per request -->
+          <!-- Hinge card -->
+          <div class="relative mt-10 rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.07] to-white/[0.02] p-7 md:p-8 overflow-hidden">
+            <!-- Gold top-edge accent -->
+            <div class="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent"></div>
 
-          <!-- Punchy beats -->
-
-          <!-- Small → Big hinge -->
-          <div class="mt-10 rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.07] to-white/[0.03] p-7 md:p-8">
-            <p class="text-xl md:text-2xl font-semibold text-cloud leading-snug">
+            <p class="font-serif text-xl md:text-2xl text-cloud leading-snug">
               Each decision feels small.
-              <span class="block text-cloud/80">The consequences are not.</span>
+              <span class="block italic text-cloud/72">The consequences are not.</span>
             </p>
 
-            <p class="mt-4 text-sm md:text-base text-cloud/65 leading-relaxed max-w-xl">
-              Without shared visibility and accountability, AI use spreads faster than leadership can assess its impact.
+            <p class="mt-4 text-sm md:text-base text-cloud/58 leading-relaxed max-w-xl">
+              Without shared visibility and accountability, AI use spreads faster than leadership can assess its impact — shifting from tool to operating assumption before anyone calls a meeting about it.
             </p>
 
-            <!-- Micro-signal line (subtle premium detail) -->
-            <div class="mt-6 flex items-center gap-3">
-              <span class="h-2 w-2 rounded-full bg-accent/80 shadow-[0_0_0_5px_rgba(255,255,255,0.04)]"></span>
-              <p class="text-xs md:text-sm text-cloud/55 tracking-wide">
-                Adoption isn’t the risk — unmanaged adoption is.
+            <div class="mt-6 flex items-center gap-3 pt-5 border-t border-white/[0.08]">
+              <span class="h-2 w-2 shrink-0 rounded-full bg-accent/80" style="box-shadow:0 0 0 4px rgba(var(--color-accent-rgb,212 168 83)/0.15), 0 0 12px rgba(var(--color-accent-rgb,212 168 83)/0.4)"></span>
+              <p class="text-xs md:text-sm text-cloud/45 tracking-wide">
+                Adoption isn't the risk — unmanaged adoption is.
               </p>
             </div>
           </div>
         </div>
 
-        <!-- Right: Systems Spread Panel (visualizes “small decisions → org-wide spread”) -->
-        <div class="relative rounded-3xl border border-white/10 bg-white/[0.05] p-8 md:p-10 overflow-hidden">
-          <!-- Glow + hairline grid -->
-          <div class="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-white/10 blur-3xl"></div>
-          <div class="pointer-events-none absolute inset-0 opacity-[0.12]">
-            <div class="absolute inset-0 [background-image:linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:56px_56px]"></div>
-          </div>
+        <!-- Right: Systems Spread Panel -->
+        <div class="relative rounded-3xl border border-white/10 bg-white/[0.03] p-8 md:p-10 overflow-hidden">
+          <!-- Grid texture -->
+          <div class="pointer-events-none absolute inset-0 opacity-[0.06]"
+               style="background-image:linear-gradient(to right,rgba(255,255,255,0.12) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,0.12) 1px,transparent 1px);background-size:52px 52px;"></div>
+          <!-- Corner glow -->
+          <div class="pointer-events-none absolute -top-20 -right-20 h-72 w-72 rounded-full bg-white/[0.06] blur-3xl"></div>
 
+          <!-- Panel header -->
           <div class="relative flex items-start justify-between gap-6">
             <div>
               <p class="text-sm font-semibold text-cloud/85">How it spreads</p>
-              <p class="mt-1 text-xs text-cloud/55">Small local choices → organization-wide behavior</p>
+              <p class="mt-1 text-[11px] text-cloud/42 tracking-wide">Small local choices → organization-wide behavior</p>
             </div>
-
-            <!-- tiny status chip -->
             <div class="shrink-0 rounded-full border border-white/10 bg-white/[0.06] px-3 py-1.5">
-              <p class="text-[11px] tracking-[0.22em] uppercase text-cloud/60">Distributed usage</p>
+              <p class="text-[10px] tracking-[0.22em] uppercase text-cloud/52">Distributed usage</p>
             </div>
           </div>
 
-          <!-- Nodes -->
-          <div class="relative mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 justify-items-center">
+          <!-- Node cards -->
+          <div class="relative mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3">
+
             <!-- Card 1: Marketing -->
-            <div class="h-auto md:h-[340px] w-full rounded-3xl border border-white/10 bg-gradient-to-b from-white/10 to-white/[0.03] backdrop-blur-md">
-              <div class="flex h-full flex-col justify-center items-center text-center px-10 py-10 md:px-12 md:py-12">
-                <p class="text-sm md:text-base font-semibold text-cloud">
-                  Marketing
-                </p>
-                <p class="mt-3 text-sm md:text-base leading-relaxed md:leading-relaxed text-cloud/70 max-w-md">
-                  Fast experiments create new volume, new claims, and new risk.
-                </p>
-              </div>
+            <div class="relative rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.07] to-white/[0.02] p-5 overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:border-white/20">
+              <div class="absolute top-0 left-5 right-5 h-px bg-gradient-to-r from-transparent via-amber-400/60 to-transparent"></div>
+              <p class="text-xs font-semibold uppercase tracking-[0.08em] text-cloud/88 flex items-center gap-2">
+                <span class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-white/[0.08] text-[13px]">✦</span>
+                Marketing
+              </p>
+              <p class="mt-2.5 text-sm leading-relaxed text-cloud/55">
+                Fast experiments generate new volume, new claims, and new brand risk — often before legal has seen a single output.
+              </p>
             </div>
 
-            <!-- Card 2: Ticketing -->
-            <div class="h-auto md:h-[340px] w-full rounded-3xl border border-white/10 bg-gradient-to-b from-white/10 to-white/[0.03] backdrop-blur-md">
-              <div class="flex h-full flex-col justify-center items-center text-center px-10 py-10 md:px-12 md:py-12">
-                <p class="text-sm md:text-base font-semibold text-cloud">
-                  Ticketing
-                </p>
-                <p class="mt-3 text-sm md:text-base leading-relaxed md:leading-relaxed text-cloud/70 max-w-md">
-                  Shortcuts become efficient — then quietly become the standard.
-                </p>
-              </div>
+            <!-- Card 2: Support -->
+            <div class="relative rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.07] to-white/[0.02] p-5 overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:border-white/20">
+              <div class="absolute top-0 left-5 right-5 h-px bg-gradient-to-r from-transparent via-violet-400/60 to-transparent"></div>
+              <p class="text-xs font-semibold uppercase tracking-[0.08em] text-cloud/88 flex items-center gap-2">
+                <span class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-white/[0.08] text-[13px]">⟳</span>
+                Support
+              </p>
+              <p class="mt-2.5 text-sm leading-relaxed text-cloud/55">
+                Shortcuts become efficient — then quietly become the standard. No one documents the moment the process changed.
+              </p>
             </div>
 
             <!-- Card 3: Operations -->
-            <div class="h-auto md:h-[340px] w-full rounded-3xl border border-white/10 bg-gradient-to-b from-white/10 to-white/[0.03] backdrop-blur-md">
-              <div class="flex h-full flex-col justify-center items-center text-center px-10 py-10 md:px-12 md:py-12">
-                <p class="text-sm md:text-base font-semibold text-cloud">
-                  Operations
-                </p>
-                <p class="mt-3 text-sm md:text-base leading-relaxed md:leading-relaxed text-cloud/70 max-w-md">
-                  Speed increases, but decisions lack shared context.
-                </p>
-              </div>
+            <div class="relative rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.07] to-white/[0.02] p-5 overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:border-white/20">
+              <div class="absolute top-0 left-5 right-5 h-px bg-gradient-to-r from-transparent via-emerald-400/60 to-transparent"></div>
+              <p class="text-xs font-semibold uppercase tracking-[0.08em] text-cloud/88 flex items-center gap-2">
+                <span class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-white/[0.08] text-[13px]">◈</span>
+                Operations
+              </p>
+              <p class="mt-2.5 text-sm leading-relaxed text-cloud/55">
+                Speed increases, but decisions accumulate without shared context. What looks like efficiency is often fragmentation.
+              </p>
             </div>
 
             <!-- Card 4: IT & Legal -->
-            <div class="h-auto md:h-[340px] w-full rounded-3xl border border-white/10 bg-gradient-to-b from-white/10 to-white/[0.03] backdrop-blur-md">
-              <div class="flex h-full flex-col justify-center items-center text-center px-10 py-10 md:px-12 md:py-12">
-                <p class="text-sm md:text-base font-semibold text-cloud">
-                  IT &amp; Legal
-                </p>
-                <p class="mt-3 text-sm md:text-base leading-relaxed md:leading-relaxed text-cloud/70 max-w-md">
-                  Guardrails respond after patterns are already set.
-                </p>
-              </div>
+            <div class="relative rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.07] to-white/[0.02] p-5 overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:border-white/20">
+              <div class="absolute top-0 left-5 right-5 h-px bg-gradient-to-r from-transparent via-rose-400/60 to-transparent"></div>
+              <p class="text-xs font-semibold uppercase tracking-[0.08em] text-cloud/88 flex items-center gap-2">
+                <span class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-white/[0.08] text-[13px]">⬡</span>
+                IT &amp; Legal
+              </p>
+              <p class="mt-2.5 text-sm leading-relaxed text-cloud/55">
+                Guardrails arrive after patterns are already set. Governance chases behavior instead of shaping it.
+              </p>
             </div>
+
           </div>
 
-          <!-- Bottom: the real thesis -->
-          <div class="relative mt-10 pt-7 border-t border-white/10">
-            <p class="text-sm md:text-base text-cloud/70 leading-relaxed">
+          <!-- Bottom thesis -->
+          <div class="relative mt-8 pt-6 border-t border-white/[0.08] flex items-start gap-4">
+            <div class="shrink-0 self-stretch w-[3px] rounded-full bg-gradient-to-b from-accent via-accent2 to-accent2/30"></div>
+            <p class="text-sm md:text-base text-cloud/60 leading-relaxed italic">
               When visibility and accountability are fragmented, AI behavior becomes a
-              shadow operating system.
+              <strong class="not-italic font-semibold text-cloud/88">shadow operating system</strong>
+              — invisible, unaudited, and already embedded.
             </p>
           </div>
         </div>
