@@ -1,0 +1,180 @@
+
+  <style>
+    body { font-family: 'DM Sans', sans-serif; background: #fff; }
+
+    /* Photo: grayscale by default, color on hover */
+    .nancy-photo {
+      filter: grayscale(20%);
+      transition: filter 0.4s ease;
+    }
+    .nancy-photo:hover { filter: grayscale(0%); }
+
+    /* Blue accent corner bracket */
+    .photo-frame::before {
+      content: '';
+      position: absolute;
+      top: -6px; left: -6px;
+      width: 48px; height: 48px;
+      border-top: 3px solid #3A9BD5;
+      border-left: 3px solid #3A9BD5;
+      z-index: 10;
+    }
+    .photo-frame::after {
+      content: '';
+      position: absolute;
+      bottom: -6px; right: -6px;
+      width: 48px; height: 48px;
+      border-bottom: 3px solid #3A9BD5;
+      border-right: 3px solid #3A9BD5;
+      z-index: 10;
+    }
+
+    /* Stagger reveal */
+    .stagger { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .stagger.visible { opacity: 1; transform: translateY(0); }
+  </style>
+
+<!-- ════════════════════════════════
+     BUILT FOR SPORTS
+════════════════════════════════ -->
+<section class="py-28 bg-white border-t border-gray-100">
+  <div class="max-w-7xl mx-auto px-8">
+
+    <div class="font-mono text-xs tracking-widest uppercase text-blue-brand mb-16 flex items-center gap-2 stagger">
+      <span class="w-8 h-px bg-blue-brand"></span>Built for Sports
+    </div>
+
+    <!-- ── Top: Headline full-width ── -->
+    <div class="mb-16 stagger" style="transition-delay:0.05s;">
+      <h2 class="font-display leading-none text-ink" style="font-size: clamp(2.2rem, 4vw, 3.4rem);">
+        SPORTS FLUENCY.<br>
+        EXECUTIVE JUDGMENT.<br>
+        <span class="text-blue-brand">AI EXPERTISE.</span>
+      </h2>
+    </div>
+
+    <!-- ── Main 3-column grid: Copy | Photo | Card ── -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+
+      <!-- LEFT: Body copy + tags -->
+      <div class="lg:col-span-4 stagger" style="transition-delay:0.1s;">
+        <p class="text-slate leading-relaxed mb-5">
+          LawlerAI was founded by Nancy Lawler, a senior executive with 30+ years of leadership experience, deep exposure to professional and collegiate sports environments, and formal training as a certified AI consultant.
+        </p>
+        <p class="text-slate leading-relaxed mb-5">
+          Her background spans executive decision-making, operational leadership, and hands-on work inside sports organizations where brand, compliance, speed, and reputation intersect.
+        </p>
+        <p class="text-slate leading-relaxed mb-10">
+          That combination — executive judgment, sports fluency, and AI expertise — shapes how LawlerAI helps organizations adopt AI responsibly and with control.
+        </p>
+
+        <div class="flex flex-wrap gap-2">
+          <span class="font-mono text-xs tracking-widest uppercase border border-blue-brand text-blue-brand px-3 py-1.5">
+            <i class="fa-solid fa-basketball mr-1.5"></i>Professional Sports
+          </span>
+          <span class="font-mono text-xs tracking-widest uppercase border border-blue-brand text-blue-brand px-3 py-1.5">
+            <i class="fa-solid fa-graduation-cap mr-1.5"></i>Collegiate Athletics
+          </span>
+          <span class="font-mono text-xs tracking-widest uppercase border border-blue-brand text-blue-brand px-3 py-1.5">
+            <i class="fa-solid fa-trophy mr-1.5"></i>Major Sports Events
+          </span>
+          <span class="font-mono text-xs tracking-widest uppercase border border-gray-200 text-slate px-3 py-1.5">
+            <i class="fa-solid fa-certificate mr-1.5"></i>Certified AI Consultant
+          </span>
+        </div>
+      </div>
+
+      <!-- CENTRE: Nancy's photo -->
+      <div class="lg:col-span-4 stagger" style="transition-delay:0.18s;">
+        <div class="photo-frame relative">
+
+          <!-- Photo -->
+          <img
+            src="https://res.cloudinary.com/dcuswyfur/image/upload/v1772177689/Nancy_svczvx.jpg"
+            alt="Nancy Lawler — Founder, LawlerAI™"
+            class="nancy-photo w-full object-cover object-top"
+            style="aspect-ratio: 3/4;"
+          />
+
+          <!-- Name nameplate overlaid at bottom -->
+          <div class="absolute bottom-0 left-0 right-0 bg-ink/80 backdrop-blur-sm px-5 py-4">
+            <div class="font-display text-white text-2xl tracking-widest leading-none">NANCY LAWLER</div>
+            <div class="font-mono text-xs tracking-widest uppercase text-blue-brand mt-1">Founder · LawlerAI™</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- RIGHT: Credential card -->
+      <div class="lg:col-span-4 stagger" style="transition-delay:0.26s;">
+
+        <!-- Credential list -->
+        <div class="border border-gray-100 bg-mist mb-4">
+          <div class="border-b border-gray-100 px-6 py-4">
+            <span class="font-mono text-xs tracking-widest uppercase text-slate">
+              <i class="fa-solid fa-id-badge text-blue-brand mr-2"></i>Credentials
+            </span>
+          </div>
+          <div class="divide-y divide-gray-100">
+            <div class="px-6 py-4 flex items-start gap-4">
+              <div class="w-8 h-8 bg-white border border-gray-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i class="fa-solid fa-briefcase text-blue-brand text-xs"></i>
+              </div>
+              <div>
+                <div class="font-display text-2xl text-blue-brand leading-none">30+</div>
+                <div class="text-slate text-xs leading-relaxed mt-0.5">Years executive leadership experience</div>
+              </div>
+            </div>
+            <div class="px-6 py-4 flex items-start gap-4">
+              <div class="w-8 h-8 bg-white border border-gray-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i class="fa-solid fa-trophy text-blue-brand text-xs"></i>
+              </div>
+              <div>
+                <div class="font-display text-2xl text-blue-brand leading-none">15+</div>
+                <div class="text-slate text-xs leading-relaxed mt-0.5">Years inside professional &amp; collegiate sports</div>
+              </div>
+            </div>
+            <div class="px-6 py-4 flex items-start gap-4">
+              <div class="w-8 h-8 bg-white border border-gray-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i class="fa-solid fa-certificate text-blue-brand text-xs"></i>
+              </div>
+              <div>
+                <div class="font-semibold text-ink text-sm mb-0.5">Certified AI Consultant</div>
+                <div class="text-slate text-xs leading-relaxed">Formal AI training &amp; certification</div>
+              </div>
+            </div>
+            <div class="px-6 py-4 flex items-start gap-4">
+              <div class="w-8 h-8 bg-white border border-gray-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i class="fa-solid fa-shield-halved text-blue-brand text-xs"></i>
+              </div>
+              <div>
+                <div class="font-semibold text-ink text-sm mb-0.5">Sports-Specific</div>
+                <div class="text-slate text-xs leading-relaxed">Hands-on where brand, compliance, speed &amp; reputation intersect</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pull quote -->
+        <div class="bg-blue-brand px-6 py-5">
+          <i class="fa-solid fa-quote-left text-white/20 text-2xl mb-3 block"></i>
+          <p class="text-white text-sm leading-relaxed italic">
+            "That combination — executive judgment, sports fluency, and AI expertise — shapes how LawlerAI helps organizations adopt AI responsibly and with control."
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  // Local observer for this section's staggered elements.
+  // Use a unique variable name so it doesn't collide with other observers on the page.
+  const builtForSportsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.stagger').forEach(el => builtForSportsObserver.observe(el));
+</script>
+

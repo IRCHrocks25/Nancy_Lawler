@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LawlerAI™ — Explore Your AI Exposure</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            blue: {
+              brand: '#3A9BD5',
+              light: '#6DBFEF',
+              pale:  '#EAF5FC',
+              dark:  '#1a6fa0',
+            },
+            ink:  '#0D1117',
+            mist: '#F4F7FA',
+            slate:'#64748B',
+          },
+          fontFamily: {
+            display: ['"Bebas Neue"', 'sans-serif'],
+            body:    ['"DM Sans"', 'sans-serif'],
+            mono:    ['"DM Mono"', 'monospace'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { font-family: 'DM Sans', sans-serif; }
+
+    /* Progress bar */
+    #progress-bar {
+      transition: width 0.5s ease;
+    }
+
+    /* Option cards */
+    .option-card {
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1.5px solid #E2E8F0;
+    }
+    .option-card:hover {
+      border-color: #3A9BD5;
+      background: #EAF5FC;
+    }
+    .option-card.selected {
+      border-color: #3A9BD5;
+      background: #EAF5FC;
+    }
+    .option-card.selected .option-indicator {
+      background: #3A9BD5;
+      border-color: #3A9BD5;
+    }
+    .option-card.selected .option-indicator i {
+      display: block;
+    }
+    .option-indicator i { display: none; }
+
+    /* Section transitions */
+    .survey-section {
+      display: none;
+      animation: fadeSlide 0.4s ease forwards;
+    }
+    .survey-section.active {
+      display: block;
+    }
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Nav */
+    .nav-scrolled { box-shadow: 0 1px 24px rgba(0,0,0,0.06); }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body class="bg-mist text-ink antialiased">
+
+<!-- ════════════════════════════════
+     NAV
+════════════════════════════════ -->
+<nav id="nav" class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 transition-shadow duration-300">
+  <div class="max-w-7xl mx-auto px-8 flex items-center justify-between h-16">
+    <a href="{% url 'home' %}" class="font-display text-2xl tracking-widest text-ink">
+      LAWLER<span class="text-blue-brand">AI</span>™
+    </a>
+    <span class="font-mono text-xs tracking-widest uppercase text-slate hidden md:flex items-center gap-2">
+      <i class="fa-solid fa-shield-halved text-blue-brand"></i>
+      Strategic AI Risk &amp; Control · Sports Organizations
+    </span>
+  </div>
+</nav>
+
+
+<!-- ════════════════════════════════
+     ORIENTATION — BEFORE YOU GO FURTHER
+════════════════════════════════ -->
+<section id="orientation" class="min-h-screen bg-white pt-16 flex flex-col">
+
+  <!-- Top label -->
+  <div class="border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-8 py-3 flex items-center justify-between">
+      <span class="font-mono text-xs tracking-widest uppercase text-slate">
+        <i class="fa-solid fa-circle-dot text-blue-brand mr-2"></i>AI Exposure Reflection
+      </span>
+      <span class="font-mono text-xs tracking-widest uppercase text-slate hidden md:block">Step 1 of 2 — Orientation</span>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-8 py-20 flex-1 grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+
+    <!-- Left: Headline block -->
+    <div class="lg:col-span-5 lg:sticky lg:top-28">
+
+      <div class="font-mono text-xs tracking-widest uppercase text-blue-brand mb-6 flex items-center gap-2">
+        <span class="w-8 h-px bg-blue-brand"></span>Before You Go Further
+      </div>
+
+      <h1 class="font-display leading-none text-ink mb-8" style="font-size: clamp(2.2rem, 4vw, 3.4rem);">
+        AI IS ALREADY BEING USED INSIDE MOST SPORTS ORGANIZATIONS.<br>
+        <span class="text-blue-brand">OFTEN INFORMALLY.</span>
+      </h1>
+
+      <p class="text-slate leading-relaxed mb-6">
+        Often unevenly. Often without shared visibility. What feels like experimentation at the team level can quietly create exposure at the organizational level.
+      </p>
+      <p class="text-slate leading-relaxed mb-10">
+        Understanding where you stand — before scaling use — changes the quality of every decision that follows.
+      </p>
+
+      <!-- What this is / isn't -->
+      <div class="border border-gray-100 bg-mist">
+        <div class="border-b border-gray-100 px-6 py-4">
+          <span class="font-mono text-xs tracking-widest uppercase text-slate">
+            <i class="fa-solid fa-circle-info text-blue-brand mr-2"></i>What This Is
+          </span>
+        </div>
+        <div class="px-6 py-5 space-y-3">
+          <div class="flex items-center gap-3">
+            <i class="fa-solid fa-check text-blue-brand w-4 text-center flex-shrink-0"></i>
+            <span class="text-sm text-ink">A short, structured reflection</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <i class="fa-solid fa-check text-blue-brand w-4 text-center flex-shrink-0"></i>
+            <span class="text-sm text-ink">Designed for leaders, operators, and advisors inside sports organizations</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <i class="fa-solid fa-check text-blue-brand w-4 text-center flex-shrink-0"></i>
+            <span class="text-sm text-ink">Focused on visibility, accountability, and readiness</span>
+          </div>
+        </div>
+        <div class="border-t border-gray-100 px-6 py-4">
+          <span class="font-mono text-xs tracking-widest uppercase text-slate">
+            <i class="fa-solid fa-circle-xmark text-slate mr-2"></i>What This Is Not
+          </span>
+        </div>
+        <div class="px-6 py-5 space-y-3">
+          <div class="flex items-center gap-3">
+            <i class="fa-solid fa-xmark text-slate w-4 text-center flex-shrink-0"></i>
+            <span class="text-sm text-slate">Not a sales pitch</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <i class="fa-solid fa-xmark text-slate w-4 text-center flex-shrink-0"></i>
+            <span class="text-sm text-slate">Not a tool demo</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <i class="fa-solid fa-xmark text-slate w-4 text-center flex-shrink-0"></i>
+            <span class="text-sm text-slate">Not a compliance audit</span>
+          </div>
+        </div>
+        <div class="bg-blue-brand px-6 py-4">
+          <p class="font-display text-white tracking-wide text-xl">THERE ARE NO RIGHT OR WRONG ANSWERS. THE GOAL IS CLARITY.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right: Begin prompt -->
+    <div class="lg:col-span-7 flex flex-col justify-center">
+
+      <div class="border border-gray-200 bg-white mb-8">
+        <div class="p-10 border-b border-gray-100">
+          <p class="font-mono text-xs tracking-widest uppercase text-blue-brand mb-4">
+            <i class="fa-solid fa-lightbulb mr-2"></i>This short reflection is designed to help you assess
+          </p>
+          <p class="text-ink text-lg leading-relaxed">
+            How AI is currently showing up inside your organization — and whether leadership has the <strong>clarity and control</strong> it needs to move forward responsibly.
+          </p>
+        </div>
+        <div class="p-10 grid grid-cols-3 gap-px bg-gray-100">
+          <div class="bg-white p-6 text-center">
+            <div class="font-display text-4xl text-blue-brand mb-1">7</div>
+            <div class="font-mono text-xs tracking-wider uppercase text-slate">Questions</div>
+          </div>
+          <div class="bg-white p-6 text-center">
+            <div class="font-display text-4xl text-blue-brand mb-1">5</div>
+            <div class="font-mono text-xs tracking-wider uppercase text-slate">Minutes</div>
+          </div>
+          <div class="bg-white p-6 text-center">
+            <div class="font-display text-4xl text-blue-brand mb-1">1</div>
+            <div class="font-mono text-xs tracking-wider uppercase text-slate">Goal: Clarity</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Topics preview -->
+      <div class="grid grid-cols-2 gap-3 mb-10">
+        <div class="border border-gray-100 bg-white px-5 py-4 flex items-center gap-3">
+          <i class="fa-solid fa-eye text-blue-brand flex-shrink-0"></i>
+          <span class="text-sm text-ink font-medium">AI Visibility</span>
+        </div>
+        <div class="border border-gray-100 bg-white px-5 py-4 flex items-center gap-3">
+          <i class="fa-solid fa-person-circle-check text-blue-brand flex-shrink-0"></i>
+          <span class="text-sm text-ink font-medium">Ownership &amp; Accountability</span>
+        </div>
+        <div class="border border-gray-100 bg-white px-5 py-4 flex items-center gap-3">
+          <i class="fa-solid fa-lock text-blue-brand flex-shrink-0"></i>
+          <span class="text-sm text-ink font-medium">Controls &amp; Environment</span>
+        </div>
+        <div class="border border-gray-100 bg-white px-5 py-4 flex items-center gap-3">
+          <i class="fa-solid fa-user-tie text-blue-brand flex-shrink-0"></i>
+          <span class="text-sm text-ink font-medium">Leadership Readiness</span>
+        </div>
+        <div class="border border-gray-100 bg-white px-5 py-4 flex items-center gap-3 col-span-2">
+          <i class="fa-solid fa-road text-blue-brand flex-shrink-0"></i>
+          <span class="text-sm text-ink font-medium">Looking Forward</span>
+        </div>
+      </div>
+
+      <button
+        onclick="startSurvey()"
+        class="w-full bg-blue-brand text-white font-mono text-sm tracking-widest uppercase px-10 py-5 hover:bg-blue-dark transition-colors flex items-center justify-center gap-3">
+        <i class="fa-solid fa-play"></i>
+        Begin the Reflection
+        <i class="fa-solid fa-arrow-right text-xs"></i>
+      </button>
+
+      <p class="text-center font-mono text-xs tracking-wider uppercase text-slate mt-4">
+        <i class="fa-solid fa-lock mr-1"></i>Private · Not shared · No obligation
+      </p>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════
+     SURVEY
+════════════════════════════════ -->
+<section id="survey" class="hidden min-h-screen bg-mist pt-16">
+
+  <!-- Progress bar -->
+  <div class="fixed top-16 left-0 right-0 z-40 bg-white border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-8 py-3 flex items-center gap-6">
+      <span class="font-mono text-xs tracking-widest uppercase text-slate whitespace-nowrap">
+        <i class="fa-solid fa-circle-dot text-blue-brand mr-2"></i>
+        <span id="step-label">Question 1 of 7</span>
+      </span>
+      <div class="flex-1 bg-gray-100 h-1.5">
+        <div id="progress-bar" class="bg-blue-brand h-1.5 w-0"></div>
+      </div>
+      <span id="pct-label" class="font-mono text-xs text-slate whitespace-nowrap">0%</span>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-8 py-20">
+
+    <!-- ── Q1: AI Visibility ── -->
+    <div class="survey-section active" id="q1">
+      <div class="font-mono text-xs tracking-widest uppercase text-blue-brand mb-3 flex items-center gap-2">
+        <span class="w-6 h-px bg-blue-brand"></span>
+        <i class="fa-solid fa-eye mr-1"></i>AI Visibility · Question 1
+      </div>
+      <h2 class="font-display leading-none text-ink mb-4" style="font-size: clamp(2rem, 4vw, 3.5rem);">
+        DO YOU HAVE A CLEAR PICTURE OF WHICH TEAMS OR DEPARTMENTS ARE CURRENTLY USING AI TOOLS?
+      </h2>
+      <p class="text-slate text-sm leading-relaxed mb-10 max-w-xl">Select the option that best reflects your organization's current state.</p>
+
+      <div class="space-y-3 mb-10">
+        <div class="option-card bg-white p-5 flex items-center gap-4" onclick="selectOption(this, 'q1')">
+          <div class="option-indicator w-6 h-6 rounded-full border-2 border-gray-200 flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-check text-white text-xs"></i>
+          </div>
+          <span class="text-ink font-medium">Yes, clearly</span>
+        </div>
+        <div class="option-card bg-white p-5 flex items-center gap-4" onclick="selectOption(this, 'q1')">
+          <div class="option-indicator w-6 h-6 rounded-full border-2 border-gray-200 flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-check text-white text-xs"></i>
+          </div>
+          <span class="text-ink font-medium">Somewhat</span>
+        </div>
+        <div class="option-card bg-white p-5 flex items-center gap-4" onclick="selectOption(this, 'q1')">
+          <div class="option-indicator w-6 h-6 rounded-full border-2 border-gray-200 flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-check text-white text-xs"></i>
+          </div>
+          <span class="text-ink font-medium">Not really</span>
+        </div>
+        <div class="option-card bg-white p-5 flex items-center gap-4" onclick="selectOption(this, 'q1')">
+          <div class="option-indicator w-6 h-6 rounded-full border-2 border-gray-200 flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-check text-white text-xs"></i>
+          </div>
+          <span class="text-ink font-medium">I don't know</span>
+        </div>
+      </div>
+
+      <div class="flex justify-end">
+        <button onclick="nextQuestion(2)" class="next-btn hidden bg-blue-brand text-white font-mono text-sm tracking-widest uppercase px-8 py-4 hover:bg-blue-dark transition-colors flex items-center gap-3">
+          Next <i class="fa-solid fa-arrow-right text-xs"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- ── Q2: Tool Approval Status ── -->
+    <div class="survey-section" id="q2">
+      <div class="font-mono text-xs tracking-widest uppercase text-blue-brand mb-3 flex items-center gap-2">
+        <span class="w-6 h-px bg-blue-brand"></span>
+        <i class="fa-solid fa-eye mr-1"></i>AI Visibility · Question 2
+      </div>
+      <h2 class="font-display leading-none text-ink mb-4" style="font-size: clamp(2rem, 4vw, 3.5rem);">
+        ARE THOSE AI TOOLS FORMALLY APPROVED, INFORMALLY TOLERATED, OR LARGELY UNKNOWN TO LEADERSHIP?
+      </h2>
+      <p class="text-slate text-sm leading-relaxed mb-10 max-w-xl">Think across all departments — not just the ones you oversee directly.</p>
+
+      <div class="space-y-3 mb-10">
+        <div class="option-card bg-white p-5 flex items-center gap-4" onclick="selectOption(this, 'q2')">
+          <div class="option-indicator w-6 h-6 rounded-full border-2 border-gray-200 flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-check text-white text-xs"></i>
+          </div>
+          <span class="text-ink font-medium">Formally approved through a review process</span>
+        </div>
+        <div class="option-card bg-white p-5 flex items-center gap-4" onclick="selectOption(this, 'q2')">
+          <div class="option-indicator w-6 h-6 rounded-full border-2 border-gray-200 flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-check text-white text-xs"></i>
+          </div>
+          <span class="text-ink font-medium">Informally tolerated — leadership is aware but hasn't formalized anything</span>
+        </div>
+        <div class="option-card bg-white p-5 flex items-center gap-4" onclick="selectOption(this, 'q2')">
+          <div class="option-indicator w-6 h-6 rounded-full border-2 border-gray-200 flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-check text-white text-xs"></i>
+          </div>
+          <span class="text-ink font-medium">Largely unknown — tools are in use but not visible to leadership</span>
+        </div>
+        <div class="option-card bg-white p-5 flex items-center gap-4" onclick="selectOption(this, 'q2')">
+          <div class="option-indicator w-6 h-6 rounded-full border-2 border-gray-200 flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-check text-white text-xs"></i>
+          </div>
+          <span class="text-ink font-medium">A mix of all of the above</span>
+        </div>
+      </div>
+
+      <div class="flex justify-between">
+        <button onclick="prevQuestion(1)" class="border border-gray-200 text-slate font-mono text-sm tracking-widest uppercase px-6 py-3 hover:border-blue-brand hover:text-blue-brand transition-colors flex items-center gap-2">
+          <i class="fa-solid fa-arrow-left text-xs"></i> Back
+        </button>
+        <button onclick="nextQuestion(3)" class="next-btn hidden bg-blue-brand text-white font-mono text-sm tracking-widest uppercase px-8 py-4 hover:bg-blue-dark transition-colors flex items-center gap-3">
+          Next <i class="fa-solid fa-arrow-right text-xs"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- ── Q3: AI Risk Ownership ── -->
+    <div class="survey-section" id="q3">
+      <div class="font-mono text-xs tracking-widest uppercase text-blue-brand mb-3 flex items-center gap-2">
+        <span class="w-6 h-px bg-blue-brand"></span>
+        <i class="fa-solid fa-person-circle-check mr-1"></i>Ownership &amp; Accountability · Question 3
+      </div>
+      <h2 class="font-display leading-none text-ink mb-4" style="font-size: clamp(2rem, 4vw, 3.5rem);">
+        WHO CURRENTLY OWNS AI RISK IN YOUR ORGANIZATION?
+      </h2>
+      <p class="text-slate text-sm leading-relaxed mb-10 max-w-xl">Select the role that most closely holds AI-related decisions and accountability today.</p>
+
+      <div class="space-y-3 mb-10">
+        <div class="option-card bg-white p-5 flex items-center gap-4" onclick="selectOption(this, 'q3')">
+          <div class="option-indicator w-6 h-6 rounded-full border-2 border-gray-200 flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-check text-white text-xs"></i>
+          </div>
+          <div class="flex items-center gap-3">
+            <i class="fa-solid fa-scale-balanced text-blue-brand w-4 text-center flex-shrink-0"></i>
+            <span class="text-ink font-medium">Legal</span>
+          </div>
+        </div>
+        <div class="option-card bg-white p-5 flex items-center gap-4" onclick="selectOption(this, 'q3')">
+          <div class="option-indicator w-6 h-6 rounded-full border-2 border-gray-200 flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-check text-white text-xs"></i>
+          </div>
+          <div class="flex items-center gap-3">
+            <i class="fa-solid fa-server text-blue-brand w-4 text-center flex-shrink-0"></i>
+            <span class="text-ink font-medium">IT / Security</span>
+          </div>
+        </div>
+        <div class="option-card bg-white p-5 flex items-center gap-4" onclick="selectOption(this, 'q3')">
+          <div class="option-indicator w-6 h-6 rounded-full border-2 border-gray-200 flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-check text-white text-xs"></i>
+          </div>
+          <div class="flex items-center gap-3">
+            <i class="fa-solid fa-people-group text-blue-brand w-4 text-center flex-shrink-0"></i>
+            <span class="text-ink font-medium">A shared group</span>
+          </div>
+        </div>
+        <div class="option-card bg-white p-5 flex items-center gap-4" onclick="selectOption(this, 'q3')">
+          <div class="option-indicator w-6 h-6 rounded-full border-2 border-gray-200 flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-check text-white text-xs"></i>
+          </div>
+          <div class="flex items-center gap-3">
+            <i class="fa-solid fa-circle-question text-slate w-4 text-center flex-shrink-0"></i>
+            <span class="text-ink font-medium">No one explicitly</span>
+          </div>
+        </div>
+        <div class="option-card bg-white p-5 flex items-center gap-4" onclick="selectOption(this, 'q3')">
+          <div class="option-indicator w-6 h-6 rounded-full border-2 border-gray-200 flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-check text-white text-xs"></i>
+          </div>
+          <div class="flex items-center gap-3">
+            <i class="fa-solid fa-circle-question text-slate w-4 text-center flex-shrink-0"></i>
+            <span class="text-ink font-medium">Not sure</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-between">
+        <button onclick="prevQuestion(2)" class="border border-gray-200 text-slate font-mono text-sm tracking-widest uppercase px-6 py-3 hover:border-blue-brand hover:text-blue-brand transition-colors flex items-center gap-2">
+          <i class="fa-solid fa-arrow-left text-xs"></i> Back
+        </button>
+        <button onclick="nextQuestion(4)" class="next-btn hidden bg-blue-brand text-white font-mono text-sm tracking-widest uppercase px-8 py-4 hover:bg-blue-dark transition-colors flex items-center gap-3">
+          Next <i class="fa-solid fa-arrow-right text-xs"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- ── Q4: Accountability clarity ── -->
+    <div class="survey-section" id="q4">
+      <div class="font-mono text-xs tracking-widest uppercase text-blue-brand mb-3 flex items-center gap-2">
+        <span class="w-6 h-px bg-blue-brand"></span>
+        <i class="fa-solid fa-person-circle-check mr-1"></i>Ownership &amp; Accountability · Question 4
+      </div>
+      <h2 class="font-display leading-none text-ink mb-4" style="font-size: clamp(2rem, 4vw, 3.5rem);">
+        IF A QUESTION AROSE ABOUT AI USE TOMORROW, WOULD IT BE CLEAR WHO IS ACCOUNTABLE?
+      </h2>
+      <p class="text-slate text-sm leading-relaxed mb-10 max-w-xl">Think about an unexpected situation — a data question, a vendor inquiry, a board question. Is there a clear person or team to turn to?</p>
+
+      <div class="space-y-3 mb-10">
+        <div class="option-card bg-white p-5 flex items-center gap-4" onclick="selectOption(this, 'q4')">
+          <div class="option-indicator w-6 h-6 rounded-full border-2 border-gray-200 flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-check text-white text-xs"></i>
+          </div>
+          <span class="text-ink font-medium">Yes — there's a clear owner</span>
+        </div>
+        <div class="option-card bg-white p-5 flex items-center gap-4" onclick="selectOption(this, 'q4')">
+          <div class="option-indicator w-6 h-6 rounded-full border-2 border-gray-200 flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-check text-white text-xs"></i>
+          </div>
+          <span class="text-ink font-medium">Probably — but it would take some internal discussion to confirm</span>
+        </div>
+        <div class="option-card bg-white p-5 flex items-center gap-4" onclick="selectOption(this, 'q4')">
+          <div class="option-indicator w-6 h-6 rounded-full border-2 border-gray-200 flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-check text-white text-xs"></i>
+          </div>
+          <span class="text-ink font-medium">Not really — it would be unclear</span>
+        </div>
+        <div class="option-card bg-white p-5 flex items-center gap-4" onclick="selectOption(this, 'q4')">
+          <div class="option-indicator w-6 h-6 rounded-full border-2 border-gray-200 flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-check text-white text-xs"></i>
+          </div>
+          <span class="text-ink font-medium">No — this hasn't been established</span>
+        </div>
+      </div>
+
+      <div class="flex justify-between">
+        <button onclick="prevQuestion(3)" class="border border-gray-200 text-slate font-mono text-sm tracking-widest uppercase px-6 py-3 hover:border-blue-brand hover:text-blue-brand transition-colors flex items-center gap-2">
+          <i class="fa-solid fa-arrow-left text-xs"></i> Back
+        </button>
+        <button onclick="nextQuestion(5)" class="next-btn hidden bg-blue-brand text-white font-mono text-sm tracking-widest uppercase px-8 py-4 hover:bg-blue-dark transition-colors flex items-center gap-3">
+          Next <i class="fa-solid fa-arrow-right text-xs"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- ── Q5: Controls & Environment ── -->
+    <div class="survey-section" id="q5">
+      <div class="font-mono text-xs tracking-widest uppercase text-blue-brand mb-3 flex items-center gap-2">
+        <span class="w-6 h-px bg-blue-brand"></span>
+        <i class="fa-solid fa-lock mr-1"></i>Controls &amp; Environment · Question 5
+      </div>
+      <h2 class="font-display leading-none text-ink mb-4" style="font-size: clamp(2rem, 4vw, 3.5rem);">
+        IS MOST AI USE HAPPENING INSIDE YOUR CLOSED SYSTEMS, OR OUTSIDE THEM USING THIRD-PARTY TOOLS?
+      </h2>
+      <p class="text-slate text-sm leading-relaxed mb-10 max-w-xl">Think about where your team's data actually goes when AI tools are being used.</p>
+
+      <div class="space-y-3 mb-10">
+        <div class="option-card bg-white p-5 flex items-center gap-4" onclick="selectOption(this, 'q5')">
+          <div class="option-indicator w-6 h-6 rounded-full border-2 border-gray-200 flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-check text-white text-xs"></i>
+          </div>
+          <span class="text-ink font-medium">Mostly inside closed systems and existing controls</span>
+        </div>
+        <div class="option-card bg-white p-5 flex items-center gap-4" onclick="selectOption(this, 'q5')">
+          <div class="option-indicator w-6 h-6 rounded-full border-2 border-gray-200 flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-check text-white text-xs"></i>
+          </div>
+          <span class="text-ink font-medium">Mostly outside — through third-party tools</span>
+        </div>
+        <div class="option-card bg-white p-5 flex items-center gap-4" onclick="selectOption(this, 'q5')">
+          <div class="option-indicator w-6 h-6 rounded-full border-2 border-gray-200 flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-check text-white text-xs"></i>
+          </div>
+          <span class="text-ink font-medium">A mix — some inside, some outside</span>
+        </div>
+        <div class="option-card bg-white p-5 flex items-center gap-4" onclick="selectOption(this, 'q5')">
+          <div class="option-indicator w-6 h-6 rounded-full border-2 border-gray-200 flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-check text-white text-xs"></i>
+          </div>
+          <span class="text-ink font-medium">I'm not sure where our data is going</span>
+        </div>
+      </div>
+
+      <!-- Follow-up: Approval process -->
+      <div class="bg-blue-pale border border-blue-brand/20 p-6 mb-8">
+        <p class="font-mono text-xs tracking-widest uppercase text-blue-brand mb-3">
+          <i class="fa-solid fa-plus mr-1"></i>Also Consider
+        </p>
+        <p class="text-ink font-medium mb-4">When new AI tools are introduced, is there a consistent process for evaluating and approving them?</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+          <div class="option-card bg-white p-4 text-sm text-center" onclick="selectOption(this, 'q5b')">
+            <div class="option-indicator w-5 h-5 rounded-full border-2 border-gray-200 flex items-center justify-center mx-auto mb-2">
+              <i class="fa-solid fa-check text-white text-xs"></i>
+            </div>
+            Yes, consistently
+          </div>
+          <div class="option-card bg-white p-4 text-sm text-center" onclick="selectOption(this, 'q5b')">
+            <div class="option-indicator w-5 h-5 rounded-full border-2 border-gray-200 flex items-center justify-center mx-auto mb-2">
+              <i class="fa-solid fa-check text-white text-xs"></i>
+            </div>
+            Sometimes
+          </div>
+          <div class="option-card bg-white p-4 text-sm text-center" onclick="selectOption(this, 'q5b')">
+            <div class="option-indicator w-5 h-5 rounded-full border-2 border-gray-200 flex items-center justify-center mx-auto mb-2">
+              <i class="fa-solid fa-check text-white text-xs"></i>
+            </div>
+            No formal process
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-between">
+        <button onclick="prevQuestion(4)" class="border border-gray-200 text-slate font-mono text-sm tracking-widest uppercase px-6 py-3 hover:border-blue-brand hover:text-blue-brand transition-colors flex items-center gap-2">
+          <i class="fa-solid fa-arrow-left text-xs"></i> Back
+        </button>
+        <button onclick="nextQuestion(6)" class="next-btn hidden bg-blue-brand text-white font-mono text-sm tracking-widest uppercase px-8 py-4 hover:bg-blue-dark transition-colors flex items-center gap-3">
+          Next <i class="fa-solid fa-arrow-right text-xs"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- ── Q6: Leadership Readiness ── -->
+    <div class="survey-section" id="q6">
+      <div class="font-mono text-xs tracking-widest uppercase text-blue-brand mb-3 flex items-center gap-2">
+        <span class="w-6 h-px bg-blue-brand"></span>
+        <i class="fa-solid fa-user-tie mr-1"></i>Leadership Readiness · Question 6
+      </div>
+      <h2 class="font-display leading-none text-ink mb-4" style="font-size: clamp(2rem, 4vw, 3.5rem);">
+        WOULD SENIOR LEADERSHIP FEEL COMFORTABLE EXPLAINING CURRENT AI USAGE TO THE BOARD OR OWNERSHIP?
+      </h2>
+      <p class="text-slate text-sm leading-relaxed mb-10 max-w-xl">Be honest. This is about current readiness — not aspiration.</p>
+
+      <div class="space-y-3 mb-8">
+        <div class="option-card bg-white p-5 flex items-center gap-4" onclick="selectOption(this, 'q6')">
+          <div class="option-indicator w-6 h-6 rounded-full border-2 border-gray-200 flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-check text-white text-xs"></i>
+          </div>
+          <span class="text-ink font-medium">Yes — we have a clear, defensible position</span>
+        </div>
+        <div class="option-card bg-white p-5 flex items-center gap-4" onclick="selectOption(this, 'q6')">
+          <div class="option-indicator w-6 h-6 rounded-full border-2 border-gray-200 flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-check text-white text-xs"></i>
+          </div>
+          <span class="text-ink font-medium">Probably — but we'd want to prepare first</span>
+        </div>
+        <div class="option-card bg-white p-5 flex items-center gap-4" onclick="selectOption(this, 'q6')">
+          <div class="option-indicator w-6 h-6 rounded-full border-2 border-gray-200 flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-check text-white text-xs"></i>
+          </div>
+          <span class="text-ink font-medium">Not confidently — we'd struggle to explain it</span>
+        </div>
+        <div class="option-card bg-white p-5 flex items-center gap-4" onclick="selectOption(this, 'q6')">
+          <div class="option-indicator w-6 h-6 rounded-full border-2 border-gray-200 flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-check text-white text-xs"></i>
+          </div>
+          <span class="text-ink font-medium">This hasn't come up yet</span>
+        </div>
+      </div>
+
+      <!-- IT/Legal alignment -->
+      <div class="bg-blue-pale border border-blue-brand/20 p-6 mb-8">
+        <p class="font-mono text-xs tracking-widest uppercase text-blue-brand mb-3">
+          <i class="fa-solid fa-plus mr-1"></i>Also Consider
+        </p>
+        <p class="text-ink font-medium mb-4">Is there alignment between IT, Legal, and business teams on how far AI should be used today?</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+          <div class="option-card bg-white p-4 text-sm text-center" onclick="selectOption(this, 'q6b')">
+            <div class="option-indicator w-5 h-5 rounded-full border-2 border-gray-200 flex items-center justify-center mx-auto mb-2">
+              <i class="fa-solid fa-check text-white text-xs"></i>
+            </div>
+            Yes, well aligned
+          </div>
+          <div class="option-card bg-white p-4 text-sm text-center" onclick="selectOption(this, 'q6b')">
+            <div class="option-indicator w-5 h-5 rounded-full border-2 border-gray-200 flex items-center justify-center mx-auto mb-2">
+              <i class="fa-solid fa-check text-white text-xs"></i>
+            </div>
+            Partially
+          </div>
+          <div class="option-card bg-white p-4 text-sm text-center" onclick="selectOption(this, 'q6b')">
+            <div class="option-indicator w-5 h-5 rounded-full border-2 border-gray-200 flex items-center justify-center mx-auto mb-2">
+              <i class="fa-solid fa-check text-white text-xs"></i>
+            </div>
+            Not really
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-between">
+        <button onclick="prevQuestion(5)" class="border border-gray-200 text-slate font-mono text-sm tracking-widest uppercase px-6 py-3 hover:border-blue-brand hover:text-blue-brand transition-colors flex items-center gap-2">
+          <i class="fa-solid fa-arrow-left text-xs"></i> Back
+        </button>
+        <button onclick="nextQuestion(7)" class="next-btn hidden bg-blue-brand text-white font-mono text-sm tracking-widest uppercase px-8 py-4 hover:bg-blue-dark transition-colors flex items-center gap-3">
+          Next <i class="fa-solid fa-arrow-right text-xs"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- ── Q7: Looking Forward ── -->
+    <div class="survey-section" id="q7">
+      <div class="font-mono text-xs tracking-widest uppercase text-blue-brand mb-3 flex items-center gap-2">
+        <span class="w-6 h-px bg-blue-brand"></span>
+        <i class="fa-solid fa-road mr-1"></i>Looking Forward · Question 7
+      </div>
+      <h2 class="font-display leading-none text-ink mb-4" style="font-size: clamp(2rem, 4vw, 3.5rem);">
+        DO YOU FEEL YOUR ORGANIZATION IS:
+      </h2>
+      <p class="text-slate text-sm leading-relaxed mb-10 max-w-xl">Select the one that best describes the current pace and direction of AI adoption in your organization.</p>
+
+      <div class="grid grid-cols-2 gap-3 mb-10">
+        <div class="option-card bg-white p-6 text-center cursor-pointer" onclick="selectOption(this, 'q7')">
+          <div class="option-indicator w-6 h-6 rounded-full border-2 border-gray-200 flex items-center justify-center mx-auto mb-3">
+            <i class="fa-solid fa-check text-white text-xs"></i>
+          </div>
+          <i class="fa-solid fa-snail text-slate text-2xl mb-3 block"></i>
+          <span class="text-ink font-medium">Moving too slowly</span>
+        </div>
+        <div class="option-card bg-white p-6 text-center cursor-pointer" onclick="selectOption(this, 'q7')">
+          <div class="option-indicator w-6 h-6 rounded-full border-2 border-gray-200 flex items-center justify-center mx-auto mb-3">
+            <i class="fa-solid fa-check text-white text-xs"></i>
+          </div>
+          <i class="fa-solid fa-rocket text-slate text-2xl mb-3 block"></i>
+          <span class="text-ink font-medium">Moving too quickly</span>
+        </div>
+        <div class="option-card bg-white p-6 text-center cursor-pointer" onclick="selectOption(this, 'q7')">
+          <div class="option-indicator w-6 h-6 rounded-full border-2 border-gray-200 flex items-center justify-center mx-auto mb-3">
+            <i class="fa-solid fa-check text-white text-xs"></i>
+          </div>
+          <i class="fa-solid fa-shuffle text-slate text-2xl mb-3 block"></i>
+          <span class="text-ink font-medium">Moving unevenly</span>
+        </div>
+        <div class="option-card bg-white p-6 text-center cursor-pointer" onclick="selectOption(this, 'q7')">
+          <div class="option-indicator w-6 h-6 rounded-full border-2 border-gray-200 flex items-center justify-center mx-auto mb-3">
+            <i class="fa-solid fa-check text-white text-xs"></i>
+          </div>
+          <i class="fa-solid fa-compass text-slate text-2xl mb-3 block"></i>
+          <span class="text-ink font-medium">Moving deliberately</span>
+        </div>
+      </div>
+
+      <!-- Open text: What prompted you -->
+      <div class="bg-white border border-gray-200 p-6 mb-10">
+        <label class="font-mono text-xs tracking-widest uppercase text-blue-brand block mb-3">
+          <i class="fa-solid fa-message mr-1"></i>What prompted you to explore this today?
+        </label>
+        <textarea
+          id="prompt-text"
+          rows="4"
+          placeholder="Share as much or as little as you'd like..."
+          class="w-full border border-gray-100 bg-mist p-4 text-sm text-ink leading-relaxed resize-none focus:outline-none focus:border-blue-brand transition-colors font-body"
+        ></textarea>
+      </div>
+
+      <div class="flex justify-between">
+        <button onclick="prevQuestion(6)" class="border border-gray-200 text-slate font-mono text-sm tracking-widest uppercase px-6 py-3 hover:border-blue-brand hover:text-blue-brand transition-colors flex items-center gap-2">
+          <i class="fa-solid fa-arrow-left text-xs"></i> Back
+        </button>
+        <button onclick="submitSurvey()" class="next-btn hidden bg-ink text-white font-mono text-sm tracking-widest uppercase px-8 py-4 hover:bg-blue-dark transition-colors flex items-center gap-3">
+          <i class="fa-solid fa-paper-plane"></i>
+          Submit Reflection
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════
+     POST-SURVEY THANK YOU
+════════════════════════════════ -->
+<section id="thankyou" class="hidden min-h-screen bg-white pt-16 flex items-center">
+  <div class="max-w-4xl mx-auto px-8 py-24 text-center">
+
+    <div class="w-16 h-16 bg-blue-pale flex items-center justify-center mx-auto mb-8">
+      <i class="fa-solid fa-circle-check text-blue-brand text-3xl"></i>
+    </div>
+
+    <div class="font-mono text-xs tracking-widest uppercase text-blue-brand mb-6 flex items-center justify-center gap-2">
+      <span class="w-8 h-px bg-blue-brand"></span>Reflection Complete<span class="w-8 h-px bg-blue-brand"></span>
+    </div>
+
+    <h2 class="font-display leading-none text-ink mb-8" style="font-size: clamp(3rem, 6vw, 6rem);">
+      THANK YOU.
+    </h2>
+
+    <p class="text-slate text-xl leading-relaxed max-w-xl mx-auto mb-16">
+      If you've made it this far, you're already ahead of most organizations.
+    </p>
+
+    <!-- Divider -->
+    <div class="border-t border-gray-100 my-12"></div>
+
+    <div class="border border-gray-200 bg-mist p-10 max-w-xl mx-auto mb-10">
+      <div class="font-mono text-xs tracking-widest uppercase text-blue-brand mb-4">
+        <i class="fa-solid fa-calendar-check mr-2"></i>Optional Next Step
+      </div>
+      <h3 class="font-display text-3xl text-ink mb-4 tracking-wide">REQUEST A 15-MINUTE CONVERSATION</h3>
+      <p class="text-slate text-sm leading-relaxed mb-6">
+        If you'd like to discuss what surfaced and whether further exploration makes sense, you may request a 15-minute conversation. This option is available only after completing the reflection.
+      </p>
+      <a href="mailto:nancy@lawlerai.com?subject=15-Minute%20Conversation%20Request%20%E2%80%94%20LawlerAI&body=I%20completed%20the%20AI%20Exposure%20Reflection%20and%20would%20like%20to%20schedule%20a%2015-minute%20conversation."
+         class="inline-flex items-center gap-3 bg-blue-brand text-white font-mono text-sm tracking-widest uppercase px-8 py-4 hover:bg-blue-dark transition-colors w-full justify-center">
+        <i class="fa-solid fa-calendar"></i>
+        Request a 15-Minute Conversation
+        <i class="fa-solid fa-arrow-right text-xs"></i>
+      </a>
+    </div>
+
+    <p class="font-mono text-xs tracking-widest uppercase text-slate">
+      <i class="fa-solid fa-shield-halved text-blue-brand mr-2"></i>
+      LawlerAI™ · Strategic AI Risk &amp; Control for Sports Organizations
+    </p>
+
+  </div>
+</section>
+
+
+<script>
+  // ── State ──
+  const answers = {};
+  let currentQ = 1;
+  const totalQ = 7;
+
+  // ── Option selection ──
+  function selectOption(el, group) {
+    const siblings = el.closest('.survey-section, .bg-blue-pale')
+      .querySelectorAll(`.option-card[onclick*="${group}"]`);
+    siblings.forEach(s => s.classList.remove('selected'));
+    el.classList.add('selected');
+    answers[group] = el.querySelector('span, div:last-child')?.innerText?.trim();
+
+    // Show next button for primary questions (not sub-questions)
+    if (!group.includes('b')) {
+      const nextBtn = el.closest('.survey-section').querySelector('.next-btn');
+      if (nextBtn) nextBtn.classList.remove('hidden');
+    }
+
+    // Q7: also enable submit when main answer selected
+    if (group === 'q7') {
+      const submitBtn = document.querySelector('#q7 .next-btn');
+      if (submitBtn) submitBtn.classList.remove('hidden');
+    }
+  }
+
+  // ── Navigation ──
+  function nextQuestion(n) {
+    document.getElementById(`q${currentQ}`).classList.remove('active');
+    currentQ = n;
+    document.getElementById(`q${currentQ}`).classList.add('active');
+    updateProgress();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function prevQuestion(n) {
+    document.getElementById(`q${currentQ}`).classList.remove('active');
+    currentQ = n;
+    document.getElementById(`q${currentQ}`).classList.add('active');
+    updateProgress();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function updateProgress() {
+    const pct = Math.round(((currentQ - 1) / totalQ) * 100);
+    document.getElementById('progress-bar').style.width = pct + '%';
+    document.getElementById('pct-label').textContent = pct + '%';
+    document.getElementById('step-label').textContent = `Question ${currentQ} of ${totalQ}`;
+  }
+
+  // ── Start survey ──
+  function startSurvey() {
+    document.getElementById('orientation').classList.add('hidden');
+    document.getElementById('survey').classList.remove('hidden');
+    updateProgress();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ── Submit ──
+  function submitSurvey() {
+    answers['open_text'] = document.getElementById('prompt-text').value;
+    document.getElementById('survey').classList.add('hidden');
+    document.getElementById('thankyou').classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // CRM submission would go here
+    console.log('Survey answers:', answers);
+  }
+
+  // ── Nav shadow ──
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('nav-scrolled', window.scrollY > 20);
+  });
+
+  // ── Scroll reveal ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

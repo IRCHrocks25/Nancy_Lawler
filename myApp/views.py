@@ -8,11 +8,14 @@ import json
 
 def home(request):
     """Main landing page"""
-    return render(request, 'myApp/index.html')
+    # The template file lives at myApp/templates/index.html,
+    # so we reference it directly without the "myApp/" prefix.
+    return render(request, 'index.html')
 
 def orientation(request):
     """Orientation page before survey"""
-    return render(request, 'myApp/orientation.html')
+    # Use the new combined orientation + survey landing page template
+    return render(request, 'orientation_survey_page.html')
 
 def survey(request):
     """Survey page - multi-step form"""
