@@ -4,9 +4,13 @@
 <nav id="nav" class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 transition-shadow duration-300">
   <div class="max-w-7xl mx-auto px-8 flex items-center justify-between h-16">
 
-    <span class="font-display text-2xl tracking-widest text-ink">
-      LAWLER<span class="text-blue-brand">AI</span>™
-    </span>
+    <a href="{% url 'home' %}" class="flex items-center">
+      <img
+        src="https://res.cloudinary.com/dcuswyfur/image/upload/v1772196103/lawker_AI_Logo_jyfkkp.png"
+        alt="LawlerAI logo"
+        class="h-8 md:h-9 w-auto"
+      />
+    </a>
 
     <div class="flex items-center gap-8">
       <a href="#happening" class="font-mono text-xs tracking-widest uppercase text-slate hover:text-blue-brand transition-colors hidden md:block">What's Happening</a>

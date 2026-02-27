@@ -1,19 +1,37 @@
 <!-- ════════════════════════════════
      CTA
 ════════════════════════════════ -->
-<section id="explore" class="py-32 bg-white border-t border-gray-100 reveal">
-  <div class="max-w-7xl mx-auto px-8 text-center">
+<section id="explore" class="relative py-32 bg-black border-t border-gray-900 overflow-hidden reveal">
+
+  <!-- Background video (desktop and up) -->
+  <div class="absolute inset-0 hidden md:block pointer-events-none">
+    <div class="w-full h-full overflow-hidden">
+      <iframe
+        class="w-full h-full transform scale-[1.5]"
+        src="https://www.youtube.com/embed/wzBf6Wm8na4?autoplay=1&mute=1&loop=1&playlist=wzBf6Wm8na4&controls=0&modestbranding=1&playsinline=1&rel=0"
+        title="LawlerAI background video"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <!-- Dark overlay for readability -->
+    <div class="absolute inset-0 bg-ink/80"></div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-8 text-center">
 
     <div class="font-mono text-xs tracking-widest uppercase text-blue-brand mb-8 flex items-center justify-center gap-2">
       <span class="w-8 h-px bg-blue-brand"></span>Ready to Move Forward<span class="w-8 h-px bg-blue-brand"></span>
     </div>
 
-    <h2 class="font-display leading-none text-ink mb-8" style="font-size: clamp(3.5rem, 7vw, 8rem);">
-      READY TO MOVE<br><span class="text-blue-brand">FORWARD.</span>
+    <h2 class="font-display leading-none text-white mb-8" style="font-size: clamp(3.2rem, 6vw, 6rem);">
+      READY TO<br>MOVE <span class="text-blue-brand">FORWARD.</span>
     </h2>
 
-    <p class="text-slate text-xl leading-relaxed max-w-xl mx-auto mb-12">
-      LawlerAI helps sports organizations move forward with AI: deliberately, responsibly, and with eyes open.
+    <p class="text-white/85 text-xl leading-relaxed max-w-xl mx-auto mb-12">
+      LawlerAI helps sports organizations move forward with AI: deliberately, responsibly, and with eyes&nbsp;open.
     </p>
 
     <a href="{% url 'orientation' %}"

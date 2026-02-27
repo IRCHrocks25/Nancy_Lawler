@@ -5,9 +5,9 @@
 
   <!-- Background video (desktop and up) -->
   <div class="absolute inset-0 hidden md:block pointer-events-none">
-    <div class="w-full h-full">
+    <div class="w-full h-full overflow-hidden">
       <iframe
-        class="w-full h-full"
+        class="w-full h-full transform scale-125"
         src="https://www.youtube.com/embed/wzBf6Wm8na4?autoplay=1&mute=1&loop=1&playlist=wzBf6Wm8na4&controls=0&modestbranding=1&playsinline=1&rel=0"
         title="LawlerAI background video"
         frameborder="0"
@@ -22,10 +22,10 @@
 
   <!-- Hero content -->
   <div class="relative max-w-7xl mx-auto px-8 py-20 flex-1 flex items-center">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 w-full items-center">
+    <div class="grid grid-cols-1 w-full items-center justify-items-center">
 
       <!-- Left: Headline -->
-      <div class="lg:col-span-7">
+      <div class="w-full text-center flex flex-col items-center">
         <div class="font-mono text-xs tracking-widest uppercase text-blue-brand mb-6 opacity-0 animate-[fadeUp_0.6s_0.2s_forwards]"
              style="animation: fadeUp 0.7s 0.2s forwards;">
           <i class="fa-solid fa-circle-dot mr-2"></i>LawlerAI™ · Est. for Sports
@@ -33,14 +33,9 @@
 
         <h1 class="font-display leading-none text-white mb-8"
             style="font-size: clamp(2.6rem, 5vw, 4.6rem); opacity:0; animation: fadeUp 0.8s 0.35s forwards;">
-          AI IS EASY<br>
-          TO USE.<br>
-          <span class="text-blue-brand">UNDERSTANDING<br>ITS CONSEQUENCES</span><br>
-          IS NOT.
+          AI IS EASY TO USE.<br>
+          <span class="text-blue-brand">UNDERSTANDING ITS CONSEQUENCES</span> IS NOT.
         </h1>
-
-        <!-- Rule line -->
-        <div class="h-px bg-blue-brand w-full mb-8 hero-rule"></div>
 
         <p class="text-white/90 text-lg leading-relaxed max-w-xl mb-10"
            style="opacity:0; animation: fadeUp 0.8s 0.6s forwards;">
@@ -56,61 +51,7 @@
         </a>
       </div>
 
-      <!-- Right: Stat panel -->
-      <div class="lg:col-span-5" style="opacity:0; animation: fadeUp 0.9s 0.9s forwards;">
-        <div class="border border-white/20 bg-white/5 backdrop-blur-xl shadow-xl shadow-black/30">
-
-          <div class="border-b border-white/10 px-6 py-4">
-            <span class="font-mono text-xs tracking-widest uppercase text-white/80">
-              <i class="fa-solid fa-chart-line text-blue-brand mr-2"></i>The Reality Inside Sports Orgs
-            </span>
-          </div>
-
-          <div class="divide-y divide-white/10">
-            <div class="px-6 py-5 flex items-start gap-4">
-              <div class="w-8 h-8 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <i class="fa-solid fa-users text-white text-sm"></i>
-              </div>
-              <div>
-                <div class="font-semibold text-white text-sm mb-1">Marketing experiments.</div>
-                <div class="text-white/80 text-sm leading-relaxed">Informal adoption spreads faster than governance can keep up.</div>
-              </div>
-            </div>
-            <div class="px-6 py-5 flex items-start gap-4">
-              <div class="w-8 h-8 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <i class="fa-solid fa-ticket text-white text-sm"></i>
-              </div>
-              <div>
-                <div class="font-semibold text-white text-sm mb-1">Ticketing looks for efficiency.</div>
-                <div class="text-white/80 text-sm leading-relaxed">Each department makes independent decisions with no shared visibility.</div>
-              </div>
-            </div>
-            <div class="px-6 py-5 flex items-start gap-4">
-              <div class="w-8 h-8 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <i class="fa-solid fa-gears text-white text-sm"></i>
-              </div>
-              <div>
-                <div class="font-semibold text-white text-sm mb-1">Operations move faster.</div>
-                <div class="text-white/80 text-sm leading-relaxed">Tools multiply. Accountability blurs. Exposure accumulates.</div>
-              </div>
-            </div>
-            <div class="px-6 py-5 flex items-start gap-4">
-              <div class="w-8 h-8 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <i class="fa-solid fa-scale-balanced text-white text-sm"></i>
-              </div>
-              <div>
-                <div class="font-semibold text-white text-sm mb-1">IT and Legal work to keep up.</div>
-                <div class="text-white/80 text-sm leading-relaxed">Traditional controls weren't designed for this pace or ambiguity.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="bg-blue-brand px-6 py-4">
-            <p class="text-white font-display tracking-wide text-lg">Each decision feels small. The consequences are not.</p>
-          </div>
-
-        </div>
-      </div>
+      
 
     </div>
   </div>
