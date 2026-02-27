@@ -2,7 +2,7 @@
      NAV
 ════════════════════════════════ -->
 <nav id="nav" class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 transition-shadow duration-300">
-  <div class="max-w-7xl mx-auto px-8 flex items-center justify-between h-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between h-16">
 
     <a href="{% url 'home' %}" class="flex items-center">
       <img
@@ -12,15 +12,67 @@
       />
     </a>
 
-    <div class="flex items-center gap-8">
-      <a href="#happening" class="font-mono text-xs tracking-widest uppercase text-slate hover:text-blue-brand transition-colors hidden md:block">What's Happening</a>
-      <a href="#operates" class="font-mono text-xs tracking-widest uppercase text-slate hover:text-blue-brand transition-colors hidden md:block">Where We Operate</a>
+    <!-- Desktop Navigation -->
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#happening" class="font-mono text-xs tracking-widest uppercase text-slate hover:text-blue-brand transition-colors">What's Happening</a>
+      <a href="#operates" class="font-mono text-xs tracking-widest uppercase text-slate hover:text-blue-brand transition-colors">Where We Operate</a>
       <a href="#explore" class="font-mono text-xs tracking-widest uppercase bg-blue-brand text-white px-5 py-2.5 hover:bg-blue-dark transition-colors">
         Explore Exposure <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
       </a>
     </div>
 
+    <!-- Mobile Menu Button -->
+    <button id="mobile-menu-btn" class="md:hidden p-2 text-slate hover:text-blue-brand transition-colors" aria-label="Toggle menu">
+      <i id="menu-icon" class="fa-solid fa-bars text-xl"></i>
+      <i id="close-icon" class="fa-solid fa-times text-xl hidden"></i>
+    </button>
+
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 py-4 flex flex-col gap-4">
+      <a href="#happening" class="font-mono text-xs tracking-widest uppercase text-slate hover:text-blue-brand transition-colors py-2">What's Happening</a>
+      <a href="#operates" class="font-mono text-xs tracking-widest uppercase text-slate hover:text-blue-brand transition-colors py-2">Where We Operate</a>
+      <a href="#explore" class="font-mono text-xs tracking-widest uppercase bg-blue-brand text-white px-5 py-2.5 hover:bg-blue-dark transition-colors inline-block text-center">
+        Explore Exposure <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+      </a>
+    </div>
   </div>
 </nav>
+
+<script>
+// Mobile menu toggle
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const menuIcon = document.getElementById('menu-icon');
+const closeIcon = document.getElementById('close-icon');
+
+if (mobileMenuBtn && mobileMenu) {
+  mobileMenuBtn.addEventListener('click', () => {
+    const isHidden = mobileMenu.classList.contains('hidden');
+    
+    if (isHidden) {
+      mobileMenu.classList.remove('hidden');
+      menuIcon.classList.add('hidden');
+      closeIcon.classList.remove('hidden');
+    } else {
+      mobileMenu.classList.add('hidden');
+      menuIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
+    }
+  });
+
+  // Close menu when clicking on a link
+  const mobileLinks = mobileMenu.querySelectorAll('a');
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      menuIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
+    });
+  });
+}
+</script>
 
 
