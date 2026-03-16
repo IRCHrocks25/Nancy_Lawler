@@ -1,4 +1,4 @@
-
+{% load dashboard_extras %}
   <style>
     body { font-family: 'DM Sans', sans-serif; background: #fff; }
 
@@ -90,7 +90,7 @@
 
           <!-- Photo -->
           <img
-            src="https://res.cloudinary.com/dcuswyfur/image/upload/v1772177689/Nancy_svczvx.jpg"
+            src="{% get_content 'built_for_sports.image_url' 'https://res.cloudinary.com/dcuswyfur/image/upload/v1772177689/Nancy_svczvx.jpg' %}"
             alt="Nancy Lawler — Founder, LawlerAI™"
             class="nancy-photo w-full object-cover object-top"
             style="aspect-ratio: 3/4;"

@@ -1,0 +1,24 @@
+{% if preview_mode %}
+<div class="fixed top-0 left-0 right-0 z-[100] bg-blue-brand text-white py-2.5 px-4 shadow-lg">
+  <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+    <div class="flex items-center gap-2">
+      <i class="fa-solid fa-eye text-white/90"></i>
+      <span class="font-medium text-sm">You're viewing a preview. Changes are not live yet.</span>
+    </div>
+    <div class="flex items-center gap-2">
+      {% if user.is_authenticated and user.is_staff %}
+      <form method="post" action="{% url 'dashboard_preview_publish' %}" class="inline">
+        {% csrf_token %}
+        <button type="submit" class="px-4 py-1.5 bg-white text-blue-brand font-semibold text-sm rounded-lg hover:bg-white/90 transition-colors">
+          Save to live
+        </button>
+      </form>
+      {% endif %}
+      <a href="{% url 'home' %}?exit_preview=1" class="px-4 py-1.5 border border-white/60 rounded-lg text-sm hover:bg-white/10 transition-colors">
+        Exit preview
+      </a>
+    </div>
+  </div>
+</div>
+<div class="h-12"></div>
+{% endif %}

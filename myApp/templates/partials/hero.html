@@ -1,20 +1,29 @@
+{% load dashboard_extras %}
 <!-- ════════════════════════════════
      HERO
 ════════════════════════════════ -->
 <section class="relative min-h-screen bg-black pt-16 flex flex-col justify-between overflow-hidden">
 
-  <!-- Background video (desktop and up) -->
+  <!-- Background: image or video (desktop and up) -->
   <div class="absolute inset-0 hidden md:block pointer-events-none">
     <div class="w-full h-full overflow-hidden">
+      {% with bg_img=site_content|get_item:"hero.background_image" %}
+      {% with video_url=site_content|get_item:"hero.background_video_url"|default:"https://www.youtube.com/embed/wzBf6Wm8na4?autoplay=1&mute=1&loop=1&playlist=wzBf6Wm8na4&controls=0&modestbranding=1&playsinline=1&rel=0" %}
+      {% if bg_img %}
+      <img src="{{ bg_img }}" alt="" class="w-full h-full object-cover transform scale-125"/>
+      {% else %}
       <iframe
         class="w-full h-full transform scale-125"
-        src="https://www.youtube.com/embed/wzBf6Wm8na4?autoplay=1&mute=1&loop=1&playlist=wzBf6Wm8na4&controls=0&modestbranding=1&playsinline=1&rel=0"
+        src="{{ video_url }}"
         title="LawlerAI background video"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerpolicy="strict-origin-when-cross-origin"
         allowfullscreen>
       </iframe>
+      {% endif %}
+      {% endwith %}
+      {% endwith %}
     </div>
     <!-- Dark overlay for readability -->
     <div class="absolute inset-0 bg-ink/70"></div>
@@ -28,25 +37,25 @@
       <div class="w-full text-center flex flex-col items-center">
         <div class="font-mono text-xs tracking-widest uppercase text-blue-brand mb-6 opacity-0 animate-[fadeUp_0.6s_0.2s_forwards]"
              style="animation: fadeUp 0.7s 0.2s forwards;">
-          <i class="fa-solid fa-circle-dot mr-2"></i>LawlerAI™ · Est. for Sports
+          <i class="fa-solid fa-circle-dot mr-2"></i>{{ site_content|get_item:"hero.tagline" }}
         </div>
 
         <h1 class="font-display leading-none text-white mb-8"
             style="font-size: clamp(2.1rem, 4.5vw, 4.6rem); opacity:0; animation: fadeUp 0.8s 0.35s forwards;">
-          AI IS EASY TO USE.<br>
-          <span class="text-blue-brand">UNDERSTANDING ITS CONSEQUENCES</span> IS NOT.
+          {{ site_content|get_item:"hero.headline_line1" }}<br>
+          <span class="text-blue-brand">{{ site_content|get_item:"hero.headline_line2" }}</span>
         </h1>
 
         <p class="text-white/90 text-lg leading-relaxed max-w-xl mb-10"
            style="opacity:0; animation: fadeUp 0.8s 0.6s forwards;">
-          Across sports organizations, AI tools are being adopted quickly and informally. They promise speed, efficiency, and competitive advantage. What's harder to see is how everyday use compounds across teams, tools, data, and time.
+          {{ site_content|get_item:"hero.subheadline" }}
         </p>
 
         <a href="{% url 'orientation' %}"
            class="inline-flex items-center gap-3 bg-blue-brand text-white font-mono text-sm tracking-widest uppercase px-8 py-4 hover:bg-blue-dark transition-colors"
            style="opacity:0; animation: fadeUp 0.8s 0.75s forwards;">
           <i class="fa-solid fa-magnifying-glass"></i>
-          Explore Your AI Exposure
+          {{ site_content|get_item:"hero.cta_label" }}
           <i class="fa-solid fa-arrow-right text-xs"></i>
         </a>
       </div>

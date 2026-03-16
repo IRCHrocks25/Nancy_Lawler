@@ -1,0 +1,58 @@
+{% extends "dashboard/base.html" %}
+{% block title %}CTAs{% endblock %}
+{% block content %}
+<div class="max-w-[1600px] mx-auto">
+  <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">CTAs</h1>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <div>
+      <h2 class="font-semibold text-gray-900 dark:text-white mb-4">Existing CTAs</h2>
+      <div class="space-y-3">
+        {% for cta in ctas %}
+        <div class="flex items-center justify-between p-4 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+          <div>
+            <span class="font-medium">{{ cta.label }}</span>
+            <span class="text-sm text-gray-500 dark:text-gray-400 block">{{ cta.url }}</span>
+          </div>
+          <div class="flex gap-2">
+            <a href="?edit={{ cta.pk }}" class="px-4 py-2 text-sm font-medium rounded-xl border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition">Edit</a>
+            <form method="post" action="{% url 'dashboard_cta_delete' cta.pk %}" onsubmit="return confirm('Delete this CTA?');" class="inline">
+              {% csrf_token %}
+              <button type="submit" class="px-4 py-2 text-sm font-medium rounded-xl border border-red-300 dark:border-red-600 text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 transition">Delete</button>
+            </form>
+          </div>
+        </div>
+        {% empty %}
+        <p class="text-gray-500 dark:text-gray-400">No CTAs yet.</p>
+        {% endfor %}
+      </div>
+    </div>
+    <div>
+      <h2 class="font-semibold text-gray-900 dark:text-white mb-4">{% if edit_cta %}Edit CTA{% else %}Add CTA{% endif %}</h2>
+      <form method="post" action="{% if edit_cta %}{% url 'dashboard_cta_edit' edit_cta.pk %}{% else %}{% url 'dashboard_cta_save' %}{% endif %}" class="space-y-4 p-6 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+        {% csrf_token %}
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Label</label>
+          <input type="text" name="label" value="{{ edit_cta.label|default:'' }}" required class="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white"/>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">URL</label>
+          <input type="text" name="url" value="{{ edit_cta.url|default:'' }}" required class="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white"/>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Placement</label>
+          <input type="text" name="placement" value="{{ edit_cta.placement|default:'hero' }}" class="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white"/>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Order</label>
+          <input type="number" name="order" value="{{ edit_cta.order|default:0 }}" class="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white"/>
+        </div>
+        <div class="flex items-center gap-2">
+          <input type="checkbox" name="is_active" {% if not edit_cta or edit_cta.is_active %}checked{% endif %} class="rounded"/>
+          <label class="text-sm text-gray-700 dark:text-gray-300">Active</label>
+        </div>
+        <button type="submit" class="px-5 py-2.5 rounded-xl bg-blue-brand hover:bg-blue-dark text-white font-medium transition">{% if edit_cta %}Update{% else %}Add{% endif %} CTA</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

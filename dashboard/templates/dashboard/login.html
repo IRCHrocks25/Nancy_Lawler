@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard Login — LawlerAI Admin</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            blue: { brand: '#3A9BD5', dark: '#1a6fa0', pale: '#EAF5FC' },
+            ink: '#020617',
+            slateDeep: '#020817',
+            gold: '#D4AF37'
+          },
+          fontFamily: {
+            display: ['\"Space Grotesk\"', 'system-ui', 'sans-serif'],
+            body: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; }
+    .login-card {
+      background: linear-gradient(165deg, rgba(15,23,42,0.95) 0%, rgba(30,58,95,0.9) 100%);
+      backdrop-filter: blur(24px);
+      box-shadow:
+        0 32px 80px rgba(0,0,0,0.5),
+        0 0 0 1px rgba(96,165,250,0.12),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+    .login-card:hover {
+      box-shadow:
+        0 40px 100px rgba(0,0,0,0.55),
+        0 0 0 1px rgba(96,165,250,0.2),
+        inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .input-field {
+      background: linear-gradient(135deg, rgba(30,58,95,0.5) 0%, rgba(30,64,175,0.2) 100%);
+      border: 1px solid rgba(96,165,250,0.25);
+    }
+    .input-chrome:focus {
+      box-shadow: 0 0 0 2px rgba(96,165,250,0.4);
+      border-color: rgba(96,165,250,0.5);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 50%, #1d4ed8 100%);
+      box-shadow: 0 4px 20px -4px rgba(59,130,246,0.5);
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #2563eb 100%);
+      box-shadow: 0 6px 28px -4px rgba(59,130,246,0.6);
+    }
+    @keyframes float { 0%, 100% { transform: translate(0,0); } 50% { transform: translate(6px,-6px); } }
+    .float-slow { animation: float 12s ease-in-out infinite; }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
+  <!-- Satin blue gradient base -->
+  <div class="fixed inset-0 -z-10" style="background: linear-gradient(145deg, #0c1929 0%, #0f2540 25%, #132f52 50%, #0d1f35 100%);"></div>
+  <!-- Satin sheen overlay -->
+  <div class="fixed inset-0 -z-10 opacity-60" style="background: linear-gradient(180deg, rgba(96,165,250,0.15) 0%, transparent 40%, rgba(30,64,175,0.08) 100%);"></div>
+  <!-- Accent: subtle grid -->
+  <div class="fixed inset-0 -z-10 opacity-[0.06]" style="background-image: linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px); background-size: 48px 48px;"></div>
+  <!-- Accent: floating orbs -->
+  <div class="fixed top-1/4 left-1/4 w-64 h-64 rounded-full -z-10 float-slow" style="background: radial-gradient(circle, rgba(59,130,246,0.2) 0%, transparent 70%);"></div>
+  <div class="fixed bottom-1/3 right-1/5 w-96 h-96 rounded-full -z-10 float-slow" style="background: radial-gradient(circle, rgba(30,64,175,0.15) 0%, transparent 70%); animation-delay: -4s;"></div>
+  <!-- Accent: diagonal accent lines -->
+  <div class="fixed top-0 right-0 w-1/2 h-full -z-10 opacity-20" style="background: linear-gradient(135deg, transparent 60%, rgba(96,165,250,0.3) 100%);"></div>
+  <div class="fixed bottom-0 left-0 w-1/3 h-1/2 -z-10 opacity-15" style="background: linear-gradient(45deg, transparent 40%, rgba(59,130,246,0.25) 100%);"></div>
+
+  <div class="relative w-full max-w-lg">
+    <div class="login-card rounded-3xl px-10 py-9 transition-all duration-500">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <h1 class="font-display text-3xl tracking-wide text-slate-50">Secure Dashboard</h1>
+          <p class="text-xs text-slate-400 mt-1">LawlerAI Admin</p>
+        </div>
+        <div class="shrink-0 w-11 h-11 rounded-2xl border border-blue-400/30 flex items-center justify-center text-blue-300" style="background: linear-gradient(135deg, rgba(59,130,246,0.15) 0%, rgba(30,64,175,0.1) 100%);">
+          <i class="fa-solid fa-shield-halved text-lg"></i>
+        </div>
+      </div>
+
+      {% if error %}
+      <div class="mb-5 p-3.5 rounded-2xl bg-red-500/10 border border-red-500/30 text-red-200 text-xs flex items-center gap-2">
+        <i class="fa-solid fa-circle-exclamation text-sm"></i>
+        <span>{{ error }}</span>
+      </div>
+      {% endif %}
+
+      <form method="post" class="space-y-4">
+        {% csrf_token %}
+        <div class="space-y-1.5">
+          <label class="text-[11px] font-semibold tracking-[0.18em] uppercase text-slate-300/90">Username</label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-blue-300/70 text-xs">
+              <i class="fa-regular fa-user"></i>
+            </span>
+            <input
+              type="text"
+              name="username"
+              required
+              autofocus
+              placeholder="admin@nancylawler.com"
+              class="w-full pl-9 pr-3 py-3.5 rounded-2xl input-field text-slate-50 placeholder-slate-400 text-sm input-chrome focus:outline-none transition-all duration-200"
+            />
+          </div>
+        </div>
+
+        <div class="space-y-1.5">
+          <label class="text-[11px] font-semibold tracking-[0.18em] uppercase text-slate-300/90">Password</label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-blue-300/70 text-xs">
+              <i class="fa-solid fa-lock"></i>
+            </span>
+            <input
+              type="password"
+              name="password"
+              required
+              placeholder="Enter your password"
+              class="w-full pl-9 pr-3 py-3.5 rounded-2xl input-field text-slate-50 placeholder-slate-400 text-sm input-chrome focus:outline-none transition-all duration-200"
+            />
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          class="mt-4 w-full py-3.5 rounded-2xl btn-primary text-white font-semibold text-xs tracking-[0.22em] uppercase flex items-center justify-center gap-2 transition-colors duration-200"
+        >
+          <span>Enter Dashboard</span>
+          <i class="fa-solid fa-arrow-right text-[11px]"></i>
+        </button>
+      </form>
+
+      <p class="mt-6 text-center text-[11px] text-slate-500">LawlerAI™</p>
+    </div>
+  </div>
+</body>
+</html>

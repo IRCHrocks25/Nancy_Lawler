@@ -1,0 +1,57 @@
+{% extends "dashboard/base.html" %}
+{% block title %}Overview{% endblock %}
+{% block content %}
+<div class="max-w-[1600px] mx-auto">
+  <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">Overview</h1>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+    <a href="{% url 'dashboard_content' %}" class="group flex flex-col gap-4 p-6 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200/80 dark:border-gray-700/80 hover:border-blue-brand/40 hover:shadow-lg transition-all">
+      <i class="fa-solid fa-file-lines text-2xl text-blue-brand"></i>
+      <span class="font-semibold text-gray-900 dark:text-white">Content</span>
+      <span class="text-sm text-gray-500 dark:text-gray-400">Edit site copy</span>
+    </a>
+    <a href="{% url 'dashboard_ctas' %}" class="group flex flex-col gap-4 p-6 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200/80 dark:border-gray-700/80 hover:border-blue-brand/40 hover:shadow-lg transition-all">
+      <i class="fa-solid fa-hand-pointer text-2xl text-blue-brand"></i>
+      <span class="font-semibold text-gray-900 dark:text-white">CTAs</span>
+      <span class="text-sm text-gray-500 dark:text-gray-400">Buttons & links</span>
+    </a>
+    <a href="{% url 'dashboard_testimonials' %}" class="group flex flex-col gap-4 p-6 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200/80 dark:border-gray-700/80 hover:border-blue-brand/40 hover:shadow-lg transition-all">
+      <i class="fa-solid fa-quote-right text-2xl text-blue-brand"></i>
+      <span class="font-semibold text-gray-900 dark:text-white">Testimonials</span>
+      <span class="text-sm text-gray-500 dark:text-gray-400">Quotes & social proof</span>
+    </a>
+    <a href="{% url 'dashboard_social' %}" class="group flex flex-col gap-4 p-6 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200/80 dark:border-gray-700/80 hover:border-blue-brand/40 hover:shadow-lg transition-all">
+      <i class="fa-solid fa-link text-2xl text-blue-brand"></i>
+      <span class="font-semibold text-gray-900 dark:text-white">Social & Contact</span>
+      <span class="text-sm text-gray-500 dark:text-gray-400">Links & contact info</span>
+    </a>
+  </div>
+  <div class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200/80 dark:border-gray-700/80 p-6">
+    <h2 class="font-semibold text-gray-900 dark:text-white mb-4">Recent changes</h2>
+    {% if recent_changes %}
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead class="bg-gray-50 dark:bg-gray-700/50">
+          <tr>
+            <th class="px-4 py-3 text-left font-medium text-gray-700 dark:text-gray-300">When</th>
+            <th class="px-4 py-3 text-left font-medium text-gray-700 dark:text-gray-300">Model</th>
+            <th class="px-4 py-3 text-left font-medium text-gray-700 dark:text-gray-300">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for h in recent_changes %}
+          <tr class="border-t border-gray-100 dark:border-gray-700">
+            <td class="px-4 py-3 text-gray-600 dark:text-gray-400">{{ h.created_at|date:"M d, H:i" }}</td>
+            <td class="px-4 py-3">{{ h.model_name }}</td>
+            <td class="px-4 py-3">{{ h.action }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <a href="{% url 'dashboard_history' %}" class="inline-flex items-center gap-2 mt-4 text-sm font-medium text-blue-brand hover:underline">View all history <i class="fa-solid fa-arrow-right text-xs"></i></a>
+    {% else %}
+    <p class="text-gray-500 dark:text-gray-400">No changes yet.</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

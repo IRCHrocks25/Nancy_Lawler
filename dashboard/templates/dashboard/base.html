@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{% block title %}Overview{% endblock %} — LawlerAI Admin</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            blue: { brand: '#3A9BD5', light: '#6DBFEF', pale: '#EAF5FC', dark: '#1a6fa0' },
+            ink: '#0D1117',
+            mist: '#F4F7FA',
+            slate: '#64748B',
+          },
+          fontFamily: { body: ['"DM Sans"', 'sans-serif'] },
+        }
+      }
+    }
+  </script>
+  <style>body { font-family: 'DM Sans', sans-serif; }</style>
+</head>
+<body class="bg-mist dark:bg-gray-900 text-gray-900 dark:text-gray-100 antialiased min-h-screen">
+  <button id="hamburger-btn" class="fixed top-4 right-4 z-[60] md:hidden p-3 min-w-[44px] min-h-[44px] rounded-xl bg-white dark:bg-gray-800 shadow-lg border border-gray-200 dark:border-gray-700" aria-label="Toggle menu">
+    <i class="fa-solid fa-bars text-gray-600 dark:text-gray-300"></i>
+  </button>
+  <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-40 hidden md:hidden"></div>
+  <aside id="sidebar" class="fixed top-0 right-0 h-full w-72 bg-white dark:bg-gray-800 border-l border-gray-200 dark:border-gray-700 z-50 flex flex-col md:right-auto md:left-0 md:border-r md:border-l-0 translate-x-full md:translate-x-0 transition-transform duration-300 shadow-xl md:shadow-none">
+    <div class="p-5 border-b border-gray-100 dark:border-gray-700">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-blue-pale dark:bg-blue-brand/20 flex items-center justify-center">
+          <i class="fa-solid fa-house text-blue-brand"></i>
+        </div>
+        <div>
+          <span class="font-bold text-gray-900 dark:text-white">LawlerAI</span>
+          <span class="block text-xs text-gray-500 dark:text-gray-400">CMS</span>
+        </div>
+      </div>
+      <button id="close-sidebar" class="absolute top-4 right-4 md:hidden p-2 text-gray-500"><i class="fa-solid fa-times"></i></button>
+    </div>
+    <div class="mx-4 mt-4 p-3 rounded-xl bg-gray-50 dark:bg-gray-700/50">
+      <span class="text-sm font-medium truncate block">{{ user.email|default:user.username }}</span>
+    </div>
+    <nav class="flex-1 overflow-y-auto p-4 space-y-1 mt-2">
+      <a href="{% url 'dashboard_home' %}" class="flex items-center gap-3 px-3 py-2.5 rounded-xl transition-colors {% if request.resolver_match.url_name == 'dashboard_home' %}bg-blue-pale text-blue-brand{% else %}text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700/50{% endif %}">
+        <i class="fa-solid fa-gauge-high w-5 text-center"></i>
+        <span>Overview</span>
+      </a>
+      <a href="{% url 'dashboard_content' %}" class="flex items-center gap-3 px-3 py-2.5 rounded-xl transition-colors {% if request.resolver_match.url_name == 'dashboard_content' %}bg-blue-pale text-blue-brand{% else %}text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700/50{% endif %}">
+        <i class="fa-solid fa-file-lines w-5 text-center"></i>
+        <span>Content</span>
+      </a>
+      <a href="{% url 'dashboard_images' %}" class="flex items-center gap-3 px-3 py-2.5 rounded-xl transition-colors {% if request.resolver_match.url_name == 'dashboard_images' %}bg-blue-pale text-blue-brand{% else %}text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700/50{% endif %}">
+        <i class="fa-solid fa-image w-5 text-center"></i>
+        <span>Images</span>
+      </a>
+      <a href="{% url 'dashboard_ctas' %}" class="flex items-center gap-3 px-3 py-2.5 rounded-xl transition-colors {% if 'cta' in request.resolver_match.url_name %}bg-blue-pale text-blue-brand{% else %}text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700/50{% endif %}">
+        <i class="fa-solid fa-hand-pointer w-5 text-center"></i>
+        <span>CTAs</span>
+      </a>
+      <a href="{% url 'dashboard_testimonials' %}" class="flex items-center gap-3 px-3 py-2.5 rounded-xl transition-colors {% if 'testimonial' in request.resolver_match.url_name %}bg-blue-pale text-blue-brand{% else %}text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700/50{% endif %}">
+        <i class="fa-solid fa-quote-right w-5 text-center"></i>
+        <span>Testimonials</span>
+      </a>
+      <a href="{% url 'dashboard_social' %}" class="flex items-center gap-3 px-3 py-2.5 rounded-xl transition-colors {% if request.resolver_match.url_name == 'dashboard_social' %}bg-blue-pale text-blue-brand{% else %}text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700/50{% endif %}">
+        <i class="fa-solid fa-link w-5 text-center"></i>
+        <span>Social & Contact</span>
+      </a>
+      <a href="{% url 'dashboard_history' %}" class="flex items-center gap-3 px-3 py-2.5 rounded-xl transition-colors {% if request.resolver_match.url_name == 'dashboard_history' %}bg-blue-pale text-blue-brand{% else %}text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700/50{% endif %}">
+        <i class="fa-solid fa-clock-rotate-left w-5 text-center"></i>
+        <span>History</span>
+      </a>
+    </nav>
+    <div class="p-4 border-t border-gray-100 dark:border-gray-700 space-y-1">
+      <button id="theme-toggle" class="flex items-center gap-3 px-3 py-2.5 rounded-xl w-full text-left hover:bg-gray-100 dark:hover:bg-gray-700/50">
+        <i class="fa-solid fa-moon dark:hidden w-5"></i>
+        <i class="fa-solid fa-sun hidden dark:inline w-5 text-gray-400"></i>
+        <span class="text-sm text-gray-600 dark:text-gray-400">Dark mode</span>
+      </button>
+      <a href="{% url 'dashboard_logout' %}" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-gray-600 dark:text-gray-400 hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-600">
+        <i class="fa-solid fa-right-from-bracket w-5"></i>
+        <span>Sign out</span>
+      </a>
+      <a href="{% url 'home' %}" target="_blank" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700/50 hover:text-blue-brand">
+        <i class="fa-solid fa-arrow-up-right-from-square w-5"></i>
+        <span>View site</span>
+      </a>
+    </div>
+  </aside>
+  <main class="md:ml-72 min-h-screen pt-20 md:pt-8 pb-12 px-4 sm:px-6 lg:px-10">
+    {% if messages %}
+    <div id="dashboard-toast"
+         class="fixed top-4 right-4 z-[70] px-4 py-2.5 rounded-full bg-emerald-500 text-white text-sm shadow-lg flex items-center gap-2">
+      <i class="fa-solid fa-check text-xs"></i>
+      <span>
+        {% for message in messages %}
+          {{ message }}
+          {% if not forloop.last %}<br/>{% endif %}
+        {% endfor %}
+      </span>
+    </div>
+    {% endif %}
+    {% block content %}{% endblock %}
+  </main>
+  <script>
+    (function(){
+      var s=document.getElementById('sidebar'),h=document.getElementById('hamburger-btn'),c=document.getElementById('close-sidebar'),o=document.getElementById('sidebar-overlay');
+      function open(){s.classList.remove('translate-x-full');s.classList.add('translate-x-0');o.classList.remove('hidden');if(h)h.classList.add('hidden');}
+      function close(){s.classList.add('translate-x-full');s.classList.remove('translate-x-0');o.classList.add('hidden');if(h)h.classList.remove('hidden');}
+      if(h)h.addEventListener('click',open);
+      if(c)c.addEventListener('click',close);
+      if(o)o.addEventListener('click',close);
+      document.getElementById('theme-toggle')?.addEventListener('click',function(){
+        document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme',document.documentElement.classList.contains('dark')?'dark':'light');
+      });
+      if(localStorage.getItem('theme')==='dark')document.documentElement.classList.add('dark');
+      var toast=document.getElementById('dashboard-toast');
+      if(toast){
+        setTimeout(function(){ toast.style.opacity='0'; toast.style.transform='translateY(-4px)'; },2200);
+        setTimeout(function(){ toast.style.display='none'; },2800);
+      }
+    })();
+  </script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

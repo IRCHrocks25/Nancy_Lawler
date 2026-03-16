@@ -1,9 +1,10 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from myApp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('dashboard/', include('dashboard.urls')),
     path('', views.home, name='home'),
     path('orientation/', views.orientation, name='orientation'),
     path('survey/', views.survey, name='survey'),

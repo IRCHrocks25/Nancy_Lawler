@@ -1,0 +1,93 @@
+{% extends "dashboard/base.html" %}
+{% load dashboard_extras %}
+{% block title %}Content{% endblock %}
+{% block content %}
+<div class="max-w-[1600px] mx-auto">
+  <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">Content</h1>
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    {% for group_name, keys in content_groups.items %}
+    <div class="space-y-4">
+      <h2 class="font-semibold text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700 pb-2">{{ group_name }}</h2>
+      {% for key in keys %}
+      <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4 shadow-sm">
+        <label class="block text-xs font-mono text-gray-500 dark:text-gray-400 mb-1">{{ key }}</label>
+        <form method="post" class="content-field-form" data-key="{{ key }}">
+          {% csrf_token %}
+          <textarea name="content_{{ key }}" rows="3" class="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white text-sm focus:ring-2 focus:ring-blue-brand focus:border-transparent">{{ content|get_item:key }}</textarea>
+          <div class="flex flex-wrap gap-2 mt-2">
+            <button type="submit" formaction="{% url 'dashboard_content_preview' %}" formtarget="_blank" class="px-3 py-1.5 rounded-lg text-sm font-medium border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 transition">Preview</button>
+            <button type="submit" formaction="{% url 'dashboard_content_save' %}" class="px-3 py-1.5 rounded-lg text-sm font-medium bg-blue-brand hover:bg-blue-dark text-white transition">Save</button>
+            <button type="button" class="clear-btn px-3 py-1.5 rounded-lg text-sm font-medium border border-gray-300 dark:border-gray-600 hover:bg-red-50 dark:hover:bg-red-900/20 hover:border-red-300 text-gray-600 dark:text-gray-400 hover:text-red-600 transition" data-default="{{ default_content|get_item:key }}">Clear</button>
+          </div>
+        </form>
+      </div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+  <div class="mt-8 flex gap-4">
+    <form method="post" action="{% url 'dashboard_content_preview' %}" target="_blank" id="preview-all-form" class="inline">
+      {% csrf_token %}
+      {% for group_name, keys in content_groups.items %}
+        {% for key in keys %}
+      <input type="hidden" name="content_{{ key }}" id="preview_{{ key }}" value="">
+        {% endfor %}
+      {% endfor %}
+      <button type="submit" class="px-5 py-2.5 rounded-xl bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 font-medium transition">Preview all</button>
+    </form>
+    <form method="post" action="{% url 'dashboard_content_save' %}" id="save-all-form" class="inline">
+      {% csrf_token %}
+      {% for group_name, keys in content_groups.items %}
+        {% for key in keys %}
+      <input type="hidden" name="content_{{ key }}" id="save_{{ key }}" value="">
+        {% endfor %}
+      {% endfor %}
+      <button type="submit" class="px-5 py-2.5 rounded-xl bg-blue-brand hover:bg-blue-dark text-white font-medium transition">Save all to live</button>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  function collectContent(){
+    var out={};
+    document.querySelectorAll('.content-field-form textarea').forEach(function(ta){
+      var name=ta.getAttribute('name');
+      if(name&&name.startsWith('content_')){
+        var key=name.replace('content_','');
+        out[key]=ta.value;
+      }
+    });
+    return out;
+  }
+  document.querySelectorAll('.clear-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      if(confirm('Clear this field to default?')){
+        var form=this.closest('form');
+        var ta=form.querySelector('textarea');
+        if(ta) ta.value=this.dataset.default||'';
+      }
+    });
+  });
+  var previewForm=document.getElementById('preview-all-form');
+  var saveForm=document.getElementById('save-all-form');
+  if(previewForm){
+    previewForm.addEventListener('submit',function(){
+      var c=collectContent();
+      for(var k in c){
+        var el=document.getElementById('preview_'+k);
+        if(el) el.value=c[k];
+      }
+    });
+  }
+  if(saveForm){
+    saveForm.addEventListener('submit',function(){
+      var c=collectContent();
+      for(var k in c){
+        var el=document.getElementById('save_'+k);
+        if(el) el.value=c[k];
+      }
+    });
+  }
+})();
+</script>
+{% endblock %}

@@ -93,14 +93,16 @@
 </head>
 <body class="bg-mist text-ink antialiased">
 
+{% include "partials/preview_banner.html" %}
+{% load dashboard_extras %}
 <!-- ════════════════════════════════
      NAV
 ════════════════════════════════ -->
-<nav id="nav" class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 transition-shadow duration-300">
+<nav id="nav" class="fixed left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 transition-shadow duration-300 {% if preview_mode %}top-12{% else %}top-0{% endif %}">
   <div class="max-w-7xl mx-auto px-8 flex items-center justify-between h-16">
     <a href="{% url 'home' %}" class="flex items-center">
       <img
-        src="https://res.cloudinary.com/dcuswyfur/image/upload/v1772196103/lawker_AI_Logo_jyfkkp.png"
+        src="{% get_content 'nav.logo_url' 'https://res.cloudinary.com/dcuswyfur/image/upload/v1772196103/lawker_AI_Logo_jyfkkp.png' %}"
         alt="LawlerAI logo"
         class="h-8 md:h-9 w-auto"
       />

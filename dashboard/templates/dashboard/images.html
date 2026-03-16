@@ -1,0 +1,108 @@
+{% extends "dashboard/base.html" %}
+{% load dashboard_extras %}
+{% block title %}Images{% endblock %}
+{% block content %}
+<div class="max-w-[1600px] mx-auto">
+  <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Images</h1>
+  <p class="text-gray-500 dark:text-gray-400 text-sm mb-8">Edit background images, logos, and media. Paste a URL or upload to Cloudinary.</p>
+  {% if not cloudinary_configured %}
+  <div class="mb-6 p-4 rounded-xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800">
+    <p class="text-amber-800 dark:text-amber-200 text-sm"><i class="fa-solid fa-circle-info mr-2"></i>To enable uploads, set <code class="bg-amber-100 dark:bg-amber-900/40 px-1 rounded">CLOUDINARY_URL</code> or <code class="bg-amber-100 dark:bg-amber-900/40 px-1 rounded">CLOUDINARY_API_KEY</code> + <code class="bg-amber-100 dark:bg-amber-900/40 px-1 rounded">CLOUDINARY_API_SECRET</code> in your environment.</p>
+  </div>
+  {% endif %}
+  {% if messages %}
+  <div class="mb-6 space-y-2">
+    {% for m in messages %}
+    <div class="p-3 rounded-lg {% if m.tags == 'error' %}bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300{% else %}bg-blue-pale dark:bg-blue-brand/20 text-blue-700 dark:text-blue-300{% endif %}">{{ m }}</div>
+    {% endfor %}
+  </div>
+  {% endif %}
+  <div class="space-y-8" id="images-editor">
+    {% for key, label in image_keys %}
+    <div class="image-card bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 shadow-sm">
+      <label class="block font-semibold text-gray-900 dark:text-white mb-3">{{ label }}</label>
+      <div class="flex flex-col lg:flex-row gap-4 items-start">
+        <div class="flex-shrink-0 w-48 h-28 rounded-xl border border-gray-200 dark:border-gray-600 overflow-hidden bg-gray-100 dark:bg-gray-700 flex items-center justify-center">
+          {% with url=content|get_item:key %}
+          {% if url %}
+          {% if "youtube" in url or "youtu.be" in url %}
+          <span class="text-gray-400 text-xs">Video URL</span>
+          {% else %}
+          <img src="{{ url }}" alt="" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<span class=\'text-gray-400 text-xs\'>Invalid</span>'"/>
+          {% endif %}
+          {% else %}
+          <span class="text-gray-400 text-xs">No image</span>
+          {% endif %}
+          {% endwith %}
+        </div>
+        <div class="flex-1 min-w-0 space-y-2">
+          <input
+            type="text"
+            value="{{ content|get_item:key }}"
+            data-save-field="{{ key|image_field_name }}"
+            placeholder="https://..."
+            class="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white text-sm font-mono"
+          />
+          {% if cloudinary_configured and "video" not in label|lower %}
+          <div class="flex items-center gap-2">
+            <form method="post" action="{% url 'dashboard_image_upload' %}" enctype="multipart/form-data" class="flex items-center gap-2 upload-form" data-key="{{ key }}">
+              {% csrf_token %}
+              <input type="hidden" name="image_key" value="{{ key }}"/>
+              <div class="flex flex-col sm:flex-row sm:items-center gap-2 w-full">
+                <input type="file" name="file" accept="image/*" class="image-file-input w-full sm:w-auto text-sm text-gray-600 dark:text-gray-400 file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:bg-blue-pale file:text-blue-brand hover:file:bg-blue-brand hover:file:text-white file:transition"/>
+                <div class="flex flex-wrap items-center gap-2">
+                  <button type="button" class="view-image-btn px-3 py-1.5 rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium transition whitespace-nowrap">View image</button>
+                  <button type="submit" class="px-3 py-1.5 rounded-lg bg-blue-brand hover:bg-blue-dark text-white text-sm font-medium transition whitespace-nowrap">Upload</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    <form method="post" action="{% url 'dashboard_image_save' %}" id="save-all-urls-form" class="flex gap-4">
+      {% csrf_token %}
+      {% for key, label in image_keys %}
+      <input type="hidden" name="{{ key|image_field_name }}" id="save_{{ key|image_field_name }}" value=""/>
+      {% endfor %}
+      <button type="submit" class="px-5 py-2.5 rounded-xl bg-blue-brand hover:bg-blue-dark text-white font-medium transition">Save all URLs</button>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var saveForm = document.getElementById('save-all-urls-form');
+  if(saveForm){
+    saveForm.addEventListener('submit', function(){
+      document.querySelectorAll('[data-save-field]').forEach(function(inp){
+        var name = inp.getAttribute('data-save-field');
+        var hidden = document.getElementById('save_' + name);
+        if(hidden) hidden.value = (inp.value || '').trim();
+      });
+    });
+  }
+
+  document.querySelectorAll('.view-image-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var form = this.closest('form');
+      var card = this.closest('.image-card');
+      var urlInput = card && card.querySelector('[data-save-field]');
+      var fileInput = form && form.querySelector('input[type="file"]');
+      var url = (urlInput && urlInput.value && urlInput.value.trim()) || '';
+      var file = fileInput && fileInput.files && fileInput.files[0];
+      if (url && (url.startsWith('http://') || url.startsWith('https://'))) {
+        window.open(url.trim(), '_blank', 'noopener');
+      } else if (file) {
+        var blobUrl = URL.createObjectURL(file);
+        window.open(blobUrl, '_blank', 'noopener');
+        setTimeout(function(){ URL.revokeObjectURL(blobUrl); }, 60000);
+      } else {
+        alert('Add a URL or choose a file to view.');
+      }
+    });
+  });
+})();
+</script>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "dashboard/base.html" %}
+{% block title %}Testimonials{% endblock %}
+{% block content %}
+<div class="max-w-[1600px] mx-auto">
+  <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">Testimonials</h1>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <div>
+      <h2 class="font-semibold text-gray-900 dark:text-white mb-4">Existing testimonials</h2>
+      <div class="space-y-3">
+        {% for t in testimonials %}
+        <div class="p-4 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+          <p class="text-gray-700 dark:text-gray-300 text-sm mb-2">{{ t.quote|truncatewords:30 }}</p>
+          <p class="text-xs text-gray-500 dark:text-gray-400">{{ t.author_name }}{% if t.author_role %} · {{ t.author_role }}{% endif %}</p>
+          <div class="mt-2 flex gap-2">
+            <a href="?edit={{ t.pk }}" class="px-3 py-1.5 text-sm rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">Edit</a>
+            <form method="post" action="{% url 'dashboard_testimonial_delete' t.pk %}" onsubmit="return confirm('Delete this testimonial?');" class="inline">
+              {% csrf_token %}
+              <button type="submit" class="px-3 py-1.5 text-sm rounded-lg border border-red-300 text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20">Delete</button>
+            </form>
+          </div>
+        </div>
+        {% empty %}
+        <p class="text-gray-500 dark:text-gray-400">No testimonials yet.</p>
+        {% endfor %}
+      </div>
+    </div>
+    <div>
+      <h2 class="font-semibold text-gray-900 dark:text-white mb-4">{% if edit_testimonial %}Edit testimonial{% else %}Add testimonial{% endif %}</h2>
+      <form method="post" action="{% if edit_testimonial %}{% url 'dashboard_testimonial_edit' edit_testimonial.pk %}{% else %}{% url 'dashboard_testimonial_save' %}{% endif %}" class="space-y-4 p-6 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+        {% csrf_token %}
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Quote</label>
+          <textarea name="quote" rows="4" required class="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white">{{ edit_testimonial.quote|default:'' }}</textarea>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Author name</label>
+          <input type="text" name="author_name" value="{{ edit_testimonial.author_name|default:'' }}" required class="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white"/>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Author role</label>
+          <input type="text" name="author_role" value="{{ edit_testimonial.author_role|default:'' }}" class="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white"/>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Author org</label>
+          <input type="text" name="author_org" value="{{ edit_testimonial.author_org|default:'' }}" class="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white"/>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Order</label>
+          <input type="number" name="order" value="{{ edit_testimonial.order|default:0 }}" class="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white"/>
+        </div>
+        <div class="flex items-center gap-2">
+          <input type="checkbox" name="is_active" {% if not edit_testimonial or edit_testimonial.is_active %}checked{% endif %} class="rounded"/>
+          <label class="text-sm text-gray-700 dark:text-gray-300">Active</label>
+        </div>
+        <button type="submit" class="px-5 py-2.5 rounded-xl bg-blue-brand hover:bg-blue-dark text-white font-medium transition">{% if edit_testimonial %}Update{% else %}Add{% endif %} testimonial</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
