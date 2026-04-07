@@ -30,12 +30,20 @@ SECRET_KEY = 'django-insecure-!s7)ysf905!bne812%8@z-f2tds#(8*==q44#+8%*$7)m(%5o8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'nancylawler-production.up.railway.app']
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'nancylawler-production.up.railway.app',
+    'lawlerai.com',
+    'www.lawlerai.com',
+]
 
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost',
     'http://127.0.0.1',
     'https://nancylawler-production.up.railway.app',
+    'https://lawlerai.com',
+    'https://www.lawlerai.com',
 ]
 
 # Application definition
