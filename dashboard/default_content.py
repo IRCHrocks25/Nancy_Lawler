@@ -27,14 +27,14 @@ DEFAULT_CONTENT = {
     "cta.subheadline": "LawlerAI helps sports organizations move forward with AI: deliberately, responsibly, and with eyes open.",
     "cta.button_label": "Explore Your AI Exposure",
     "footer.tagline": "Strategic AI Risk & Control for Sports Organizations",
-    "footer.logo_url": "https://res.cloudinary.com/dcuswyfur/image/upload/v1772200535/logo_1_rayi6u.png",
+    "footer.logo_url": "https://cdn.katalyst-crm.com/t1/cloudinary/logo_1_rayi6u.png",
     # Images (backgrounds, logos)
-    "nav.logo_url": "https://res.cloudinary.com/dcuswyfur/image/upload/v1772196103/lawker_AI_Logo_jyfkkp.png",
+    "nav.logo_url": "https://cdn.katalyst-crm.com/t1/cloudinary/lawker_AI_Logo_jyfkkp.png",
     "hero.background_image": "",
     "hero.background_video_url": "https://www.youtube.com/embed/wzBf6Wm8na4?autoplay=1&mute=1&loop=1&playlist=wzBf6Wm8na4&controls=0&modestbranding=1&playsinline=1&rel=0",
     "cta.background_image": "",
     "cta.background_video_url": "https://www.youtube.com/embed/wzBf6Wm8na4?autoplay=1&mute=1&loop=1&playlist=wzBf6Wm8na4&controls=0&modestbranding=1&playsinline=1&rel=0",
-    "built_for_sports.image_url": "https://res.cloudinary.com/dcuswyfur/image/upload/v1772177689/Nancy_svczvx.jpg",
+    "built_for_sports.image_url": "https://cdn.katalyst-crm.com/t1/cloudinary/Nancy_svczvx.jpg",
     "site.title": "LawlerAI™ — Strategic AI Risk & Control for Sports Organizations",
     "site.meta_description": "Strategic AI Risk & Control for Sports Organizations. Understand your AI exposure. Move forward deliberately.",
 }
