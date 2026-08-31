@@ -7,9 +7,7 @@ from .models import SurveyResponse
 import json
 
 def home(request):
-    """Main landing page"""
-    # The template file lives at myApp/templates/index.html,
-    # so we reference it directly without the "myApp/" prefix.
+    """Under-construction landing page."""
     return render(request, 'index.html')
 
 def orientation(request):
